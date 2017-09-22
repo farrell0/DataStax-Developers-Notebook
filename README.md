@@ -24,7 +24,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >In this document we will:
 >
->• Complete a reasonably complete primer on DataStax Enterprise (DSE) terms, its object hierarchy, history, use, operating conventions, configuration files, and more.
+>• Walk through a reasonably complete primer on DataStax Enterprise (DSE) terms, its object hierarchy, history, use, operating conventions, configuration files, and more.
 >
 >• Build a 2 node DSE cluster from scratch with a NetworkTopologyStragey. 
 >
