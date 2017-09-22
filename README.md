@@ -9,13 +9,33 @@ This is a personal blog where we answer one or more questions each month from Da
 2017 October - -
 
 >Customer:
->Text ?
+>My company is investigating using DataStax for our new Customer/360 system in our customer call 
+>center. I haven’t learned a new database in over 10 years, and should mention that I know none 
+>of the NoSQL (post relational) databases. Can you help ?
 >
 >Daniel:
->Response-
+>Excellent question ! We’ve expertly used a good number of the leading NoSQL databases and while 
+>DataStax may take longer to master than some, DataStax is easily more capable (functionally, and 
+>scalability wise), than any other systems we have experienced.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/articles/xxx.pdf).
+>DataStax supports operational AND analytics workloads on one integrated platform, offers no single 
+>point of failure, is proven to scale past 1000 nodes, and is enterprise ready with all of the requisite 
+>security and administrative (maintenance and self healing) features.
 >
->[Resource kit](https://drive.google.com/open?id=0B37pFF1dJ894aURseGFjNE11MWM), all of 
->the data programs used in this edition in Tar format. About 100 MB.
+>In this document we’ll offer a DataStax primer, and install and configure a two node cluster to 
+>demonstrate network partition fault tolerance, and strong data consistency.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2017_10_DsePrimer.pdf).
+>
+
+2017 November - - 
+
+>Customer:
+>My company wants to deliver a, "customers who bought (x) also bought (y)" functionality to our
+>Web site. Can DataStax help me do this ?
+>
+>Daniel:
+>Yup. Article comming in November.
+
+
 
