@@ -39,7 +39,7 @@ This is a personal blog where we answer one or more questions each month from Da
 
 >Customer:
 >My company wants to deliver a, "customers who bought (x) also bought (y)" functionality to our
->Web site. Can DataStax help me do this ?
+>Web site. Can the DataStax database server help me do this ?
 >
 >Daniel:
 >Yup. Article comming in November.
