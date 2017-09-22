@@ -22,8 +22,15 @@ This is a personal blog where we answer one or more questions each month from Da
 >point of failure, is proven to scale past 1000 nodes, and is enterprise ready with all of the requisite 
 >security and administrative (maintenance and self healing) features.
 >
->In this document we’ll offer a DataStax primer, and install and configure a two node cluster to 
->demonstrate network partition fault tolerance, and strong data consistency.
+>In this document we will:
+>
+>• Complete a reasonably complete primer on DataStax Enterprise (DSE) terms, its object hierarchy, history, use, operating conventions, configuration files, and more.
+>
+>• Build a 2 node DSE cluster from scratch with a NetworkTopologyStragey. 
+>
+>• Demonstrate network partition failure tolerance.
+>
+>• Demonstrate strong and eventual consistency.
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2017_10_DsePrimer.pdf).
 >
@@ -36,6 +43,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >Daniel:
 >Yup. Article comming in November.
+>
 
 
 
