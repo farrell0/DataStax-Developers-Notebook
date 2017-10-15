@@ -15,7 +15,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >Daniel:
 >Excellent question ! In this document we deliver all of the program code, sample data, and
 >instructions to deliver a recommendation engine ("customers who bought (x) bought (y) ..")
->using DataStax Enterprise (DSE) and its Analytics function powered by Apache Spark.
+>using DataStax Enterprise (DSE) and its Analytics Function powered by Apache Spark.
 >
 >First we code the solution by hand in Python, so you have the ability to fully dissect all
 >of the processing logic (master the Apriori algorithm). Then we move to using the supported
