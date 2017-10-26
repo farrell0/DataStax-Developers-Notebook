@@ -1,10 +1,39 @@
-DataStax Developer's Notebook - Monthly Articles 2017
+DataStax Developer's Notebook - Monthly Articles 2018
 ===================
 
-| **[Monthly Articles - 2017](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/README.md)**| **[Data Downloads](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/data_download/README.md)** |
+| **[Monthly Articles - 2018](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/README.md)**| **[Data Downloads](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/data_download/README.md)** |
 |-------------------------|--------------------------|
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
+
+2017 December - - 
+
+>Customer: As my company is beginning significant development of new applications that target 
+>the DataStax Enterprise database server (DSE), we are starting to explore some of the 
+>programability that DSE offers us. Specifically, we are very much interested in user defined 
+>functions (UDFs). Can you help ?
+>
+>Daniel:
+>Excellent question ! The topic of server side database programming can devolve into one of 
+>those information technology religious arguments, something we generally seek to avoid. Still, 
+>DataStax Enterprise (DSE) does offer user defined functions (UDFs), user defined aggregates 
+>(UDAs), and user defined types (UDTs).
+>
+>Recall that a core value proposition which DSE delivers is time constant lookups, that is; 
+>a CQL (Cassandra query language, similar to structured query language, SQL) SELECT, UPDATE 
+>or DELETE that uses an equality on at least the partition key columns from the primary key. 
+>These are the linearly scalable operations that DSE is distinguished for. If you seek to do 
+>aggregates or other set operands on large data sets (online analytics style processing, OLAP), 
+>DSE will likely need to perform a scatter gather query (a query that reads from multiple 
+>concurrent nodes). Inherently, these types of queries do not perform in low single digit 
+>millisecond time; just be advised.
+>
+>In this edition of this document we will detail all that you ask; user defined functions, 
+>and also user defined aggregates and user defined types, and we’ll write application code 
+>for each.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2017_12_UDFs.pdf).
+>
 
 2017 November - -
 
@@ -58,4 +87,5 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2017_10_DsePrimer.pdf).
 >
+
 
