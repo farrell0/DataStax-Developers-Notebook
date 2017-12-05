@@ -21,7 +21,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >another user defined function (UDF). (UDFs were a topic we covered in last month’s edition of 
 >this document.)
 >
-<[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.pdf).
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.pdf).
 >
 >[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.tar),
 >all of the programs and data used in this edition in Tar format.
