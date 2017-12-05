@@ -6,6 +6,27 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 January - -
+
+>Customer: My company is investigating using the DataStax advanced replication feature to 
+>move data between data centers. Can you help ?
+>
+>Daniel:
+>Excellent question ! In this document we overview DataStax Enterprise (DSE) data replication, 
+>advanced replication, and even recovery and diagnosis from failure of each of these sub-systems. 
+>Also, since advanced replication falls into an area of DataStax Enterprise titled, ‘advanced 
+>functionality’, we overview this topic as well.
+>
+>Just to be excessively chatty, we also detail DataStax Enterprise triggers and create yet 
+>another user defined function (UDF). (UDFs were a topic we covered in last month’s edition of 
+>this document.)
+>
+<[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.pdf).
+>
+>[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.tar),
+>all of the programs and data used in this edition in Tar format.
+>
+
 2017 December - - 
 
 >Customer: As my company is beginning significant development of new applications that target 
