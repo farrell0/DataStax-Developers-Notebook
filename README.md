@@ -28,12 +28,19 @@ This is a personal blog where we answer one or more questions each month from Da
 >how they work pre release 6.0, and are planned to work in the 6.0 release. Further we detail:
 >
 >• The four functional areas of DSE, including DSE Core with its network partition fault tolerance and time constant lookups.
+>
 >• We detail B-Tree+ and hash lookups, and which scale and why.
+>
 >• We define the DSE primary key, including its partitioning key and clustering key parts.
+>
 >• We detail what makes a query a DSE Core query versus a DSE Search query.
+>
 >• We highlight the new CQL native processing of DSE Search commands.
+>
 >• We overview DSE materialized views, and secondary indexes.
+>
 >• We detail how to add and drop table columns, and inform DSE Search indexes of same.
+>
 >• And we overview how to observe asynchronous/background index builds.
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_14_CQL-Search.pdf)
