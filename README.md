@@ -6,7 +6,7 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
-2018 February-
+2018 February - -
 
 >Customer: My company was invited to participate in the DataStax Enterprise (DSE) 6.0 early 
 >release program. From discussions with DataStax, we learned there are a number of changes 
