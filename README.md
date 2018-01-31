@@ -25,7 +25,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >release.
 >
 >In this document, we detail the DSE Core and DSE Search areas of functionality, their intent, 
->how they work pre release 6.0, and are planned to work in the 6.0 release. Further we detail:
+>how they work pre release 6.0, and are planned to work in the 6.0 release. Further, we detail:
 >
 >• The four functional areas of DSE, including DSE Core with its network partition fault tolerance and time constant lookups.
 >
