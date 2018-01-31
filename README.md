@@ -6,6 +6,39 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 February-
+
+>Customer: My company was invited to participate in the DataStax Enterprise (DSE) 6.0 early 
+>release program. From discussions with DataStax, we learned there are a number of changes 
+>related to CQL native processing of DSE Search commands. Can you help us understand what 
+>this means ?
+>
+>Daniel: Excellent question ! On February 1, 2018, DataStax began accepting self nominations 
+>to the DSE release 6.0 Early Access Process (EAP) at the following Url,
+>
+>https://academy.datastax.com/eap?destination=eap
+>
+>When your nomination is accepted, you receive early access to the DSE version 6.0 software 
+>and documentation. In return, you are asked to formally test this release and participate 
+>in feedback relative to your experiences. The 6.0 release is huge, with many topics far 
+>larger than CQL native processing of DSE Search commands; this is a very cool, and strategic 
+>release.
+>
+>In this document, we detail the DSE Core and DSE Search areas of functionality, their intent, 
+>how they work pre release 6.0, and are planned to work in the 6.0 release. Further we detail:
+>
+>• The four functional areas of DSE, including DSE Core with its network partition fault tolerance and time constant lookups.
+>• We detail B-Tree+ and hash lookups, and which scale and why.
+>• We define the DSE primary key, including its partitioning key and clustering key parts.
+>• We detail what makes a query a DSE Core query versus a DSE Search query.
+>• We highlight the new CQL native processing of DSE Search commands.
+>• We overview DSE materialized views, and secondary indexes.
+>• We detail how to add and drop table columns, and inform DSE Search indexes of same.
+>• And we overview how to observe asynchronous/background index builds.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_14_CQL-Search.pdf)
+>
+
 2018 January - -
 
 >Customer: My company is investigating using the DataStax advanced replication feature to 
