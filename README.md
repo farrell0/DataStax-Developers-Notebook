@@ -6,6 +6,23 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 March - -
+
+>Customer: My company wants to use the secondary indexes, part of DataStax Enterprise (DSE) 
+>Search, more specfically the (first name) synonym and Soundex style features to aid in 
+>customer call center record lookup. Can you help ?
+>
+>Daniel: Excellent question ! DataStax Enterprise (DSE) Search is one of the four primary 
+>functional areas inside DSE; the others being DSE Core, DSE Analytics, and DSE Graph. 
+>Built atop Apache Solr, DSE Search is a large topic. As such, we will detail the programming 
+>(use) of DSE Search, and let this document serve as a primer of sorts.
+>
+>We plan follow up editions of this document to cover not just programming, but capacity 
+>planning of DSE Search, and tuning of DSE Search.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_15_SearchPrimer.pdf)
+>
+
 2018 February - -
 
 >Customer: My company was invited to participate in the DataStax Enterprise (DSE) 6.0 early 
