@@ -20,7 +20,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >We plan follow up editions of this document to cover not just programming, but capacity 
 >planning of DSE Search, and tuning of DSE Search.
 >
->*Mar 31 - This document was heavily revised: 30 new pages of content, 2 errors corrected.*
+>**Mar 21 - This document was heavily revised: 30 new pages of content, 2 errors corrected.**
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_15_SearchPrimer.pdf)
 >
