@@ -8,6 +8,7 @@ This is a personal blog where we answer one or more questions each month from Da
 
 2018 March - -
 
+**Mar 31 - This document was heavily revised: 30 new pages of content, 2 errors corrected.**
 >Customer: My company wants to use the secondary indexes, part of DataStax Enterprise (DSE) 
 >Search, more specfically the (first name) synonym and Soundex style features to aid in 
 >customer call center record lookup. Can you help ?
