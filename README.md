@@ -35,7 +35,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.pdf)
 >
->[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.tar.gz)all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
+>[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.tar.gz), all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
+>
+>[Demonstration video](), of the programs created and used in this document.
 >
 
 2018 March - -
