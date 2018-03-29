@@ -29,8 +29,8 @@ This is a personal blog where we answer one or more questions each month from Da
 >• Deliver a graphical (custom) application you could use for end user testing.
 >
 >** This docment states that the accompanying download contains 330,000 sample
->geo-points from the USA states of Colorado and Utah. This amout of data was 
->greater in size than GitHub card for. So, you only get Colorado data at near
+>geo-points from the USA states of Colorado and Utah. This amount of data was 
+>greater in size than GitHub cared for. So, you only get Colorado data at nearly
 >220,000 geo-points.
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.pdf)
