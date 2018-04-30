@@ -6,6 +6,19 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 May - -
+
+>Customer: My company is investigating using the cloud, containers including micro-services, 
+>automated deployment tools (continuous innovation / continuous deployment), and more. Can you 
+>help ?
+>
+>Daniel: Excellent question ! Huge and far ranging topics, obviously; we’ll offer a history 
+>and primer on many of these pieces, a Cloud-101 if you will. Then, to offer some amount of 
+>actionable content, we’ll delve a bit deeper into one container option, namely; Docker.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_17_Docker.pdf)
+>
+
 2018 April - -
 
 >Customer: My company really enjoyed the last two documents in this series on the topic of 
