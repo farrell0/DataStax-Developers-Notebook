@@ -6,6 +6,17 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 June - -
+
+>Customer: I'm confused by all of the options for loaders, developer's tools and similar. 
+>Can you offer me an overvew, specifically detailing DSE Studio ?
+>
+>Daniel: Sure ! We overview all of the above, then detail install, configure and use of
+>DSE Studio version 6.0, inlcuding configuration and use of CQL and Spark/SQL.
+>
+>[Download here]()
+>
+
 2018 May - -
 
 >Customer: My company is investigating using the cloud, containers including micro-services, 
