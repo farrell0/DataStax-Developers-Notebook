@@ -14,7 +14,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >Daniel: Sure ! We overview all of the above, then detail install, configure and use of
 >DSE Studio version 6.0, inlcuding configuration and use of CQL and Spark/SQL.
 >
->[Download here]()
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_18_Studio.pdf)
 >
 
 2018 May - -
