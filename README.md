@@ -12,7 +12,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >complaining about performance. I know nothing about DSE, and need to make the users happy. 
 >Can you help ?
 >
->Daniel: Excellent question! Based on your timeline (how quickly and safely does this problem 
+>Daniel: Excellent question ! Based on your timeline (how quickly and safely does this problem 
 >need to be solved), you should probably contact DataStax for assistance. If you were already 
 >trained/capable on DSE and wanted to solve this problem, this document will cover introductory 
 >topics related to that goal.
