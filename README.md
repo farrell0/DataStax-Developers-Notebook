@@ -6,6 +6,21 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 August - -
+
+>Customer: My company is investigating using DataStax for our new Customer/360 system in our 
+>customer call center. I’m a developer, and do not know how to administer DataStax Enterprise, 
+>but, I need to know how to set up user authentication and authorization for my programming 
+>and unit tests. Can you help ?
+>
+>Daniel: Excellent question ! Setting up authentication and authorization using DataStax 
+>Enterprise (DSE) is super easy. Below we detail all of the relevant topics and steps to 
+>achieve same, including source code for all. We detail table level access control, and in 
+>the event you need it, row level access control.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_20_Security.pdf)
+>
+
 2018 July - -
 
 >Customer: I inherited an existing DataStax Enterprise (DSE) server system, and users are 
