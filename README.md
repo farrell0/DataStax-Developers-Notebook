@@ -6,6 +6,24 @@ DataStax Developer's Notebook - Monthly Articles 2018
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2018 September - - 
+
+>Customer: My company is investigating using DataStax for our new Customer/360 system in our 
+>customer call center. I’m a developer, and do not know how to administer DataStax Enterprise, 
+>but, I need to know how to backup and restore tables for my programming and unit tests. Can 
+>you help ?
+>
+>Daniel: Excellent question ! DataStax Enterprise (DSE) cab be backed up and restored using 
+>DataStax Operations Center (DSE Ops Center), including activities to block stores like Amazon 
+>S3, other. You can also perform sstabledump(s), and table unloads and loads, including bulk 
+>unloads and loads.
+>
+>But, as you seek to perform these activities as part of your unit tests, we are going to detail 
+>table backup and restore using snapshots; faster, less code, easily automated.
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_21_Backup%20and%20Recovery.pdf)
+>
+
 2018 August - -
 
 >Customer: My company is investigating using DataStax for our new Customer/360 system in our 
