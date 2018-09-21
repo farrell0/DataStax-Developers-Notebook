@@ -21,7 +21,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >But, as you seek to perform these activities as part of your unit tests, we are going to detail 
 >table backup and restore using snapshots; faster, less code, easily automated.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_21_Backup%20and%20Recovery.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_21_Backup%20and%20Recovery.pdf)
 >
 
 2018 August - -
@@ -36,7 +36,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >achieve same, including source code for all. We detail table level access control, and in 
 >the event you need it, row level access control.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_20_Security.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_20_Security.pdf)
 >
 
 2018 July - -
@@ -53,7 +53,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >In short, this document discusses building a query harness; capturing and then executing a 
 >representative set of queries to measure your system performance against, how and why-
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_19_QueryHarness.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_19_QueryHarness.pdf)
 >
 
 2018 June - -
@@ -64,7 +64,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >Daniel: Sure ! We overview all of the above, then detail install, configure and use of
 >DSE Studio version 6.0, including configuration and use of CQL and Spark/SQL.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_18_Studio.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_18_Studio.pdf)
 >
 
 2018 May - -
@@ -77,7 +77,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >and primer on many of these pieces, a Cloud-101 if you will. Then, to offer some amount of 
 >actionable content, we’ll delve a bit deeper into one container option, namely; Docker.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_17_Docker.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_17_Docker.pdf)
 >
 
 2018 April - -
@@ -107,9 +107,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >greater in size than GitHub cared for. So, you only get Colorado data at nearly
 >220,000 geo-points.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_16_Spatial.pdf)
 >
->[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_16_Spatial.tar.gz), all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
+>[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_16_Spatial.tar.gz), all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
 >
 >[Demonstration video](https://youtu.be/kF3IjwVyBtI), of the programs created and used in this document.
 >
@@ -130,7 +130,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >**Mar 21 - This document was heavily revised: 30 new pages of content, 2 errors corrected.**
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_15_SearchPrimer.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_15_SearchPrimer.pdf)
 >
 
 2018 February - -
@@ -170,7 +170,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >• And we overview how to observe asynchronous/background index builds.
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_14_CQL-Search.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_14_CQL-Search.pdf)
 >
 
 2018 January - -
@@ -188,9 +188,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >another user defined function (UDF). (UDFs were a topic we covered in last month’s edition of 
 >this document.)
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.pdf).
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_13_AdvRep.pdf).
 >
->[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/DDN_2018_13_AdvRep.tar),
+>[Resource kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_13_AdvRep.tar),
 >all of the programs and data used in this edition in Tar format.
 >
 
