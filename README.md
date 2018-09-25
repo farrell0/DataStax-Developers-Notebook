@@ -25,7 +25,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >We will install and configure all of the above, access the DSE server, and go home.
 >
->[Donwload here[(https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_22_ClientSideDriver.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2018/DDN_2018_22_ClientSideDriver.pdf)
 >
 
 2018 September - - 
