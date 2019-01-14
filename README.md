@@ -18,7 +18,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >using a standard relational database ?
 >
 >In this edition of DataStax Developer’s Notebook (DDN), we provide a graph database primer; create a 
->?graph, and load it. In a future edition of this same document, we will actually have the chance to 
+>graph, and load it. In a future edition of this same document, we will actually have the chance to 
 >provide examples where you might determine that graph database have an advantage over relational 
 >databases for certain use cases.
 >
