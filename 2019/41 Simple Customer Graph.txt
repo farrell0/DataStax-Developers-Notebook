@@ -1,0 +1,375 @@
+
+
+
+
+Simplest graph loading example using Customer
+
+
+.  Paragraph 01, Studio, Gremlin
+--------------------
+//  Paragraph 01
+
+system.graphs()
+system.describe()
+--------------------
+
+
+.  Paragraph 02, Studio, Gremlin
+--------------------
+//  Paragraph 02
+
+schema.drop()
+schema.config().option('graph.allow_scan').set('true')
+--------------------
+
+
+.  Paragraph 03, Studio, Gremlin
+--------------------
+//  Paragraph 03
+
+//  Property keys
+
+schema.propertyKey('nodeID'   ).Int() .single().create()
+   //
+schema.propertyKey('cust_num' ).Text().single().create()
+schema.propertyKey('cust_name').Text().single().create()
+schema.propertyKey('url'      ).Text().single().create()
+schema.propertyKey('order_num').Text().single().create()
+schema.propertyKey('part'     ).Text().single().create()
+schema.propertyKey('geo_name' ).Text().single().create()
+--------------------
+
+
+.  Paragraph 04, Studio, Gremlin
+--------------------
+//  Paragraph 04
+
+//  Vertices
+
+schema.vertexLabel("customers").
+   partitionKey("nodeID").
+   properties(
+      'nodeID'                        ,
+      'cust_num'                      ,
+      'cust_name'                     ,
+      'url'                           
+   ).ifNotExists().create()
+
+schema.vertexLabel("orders").
+   partitionKey("nodeID").
+   properties(
+      'nodeID'                        ,
+      'order_num'                     ,
+      'cust_num'                      ,
+      'part'                          
+   ).ifNotExists().create()
+
+schema.vertexLabel("geographies").
+   partitionKey("nodeID").
+   properties(
+      'nodeID'                        ,
+      'geo_name'
+   ).ifNotExists().create()
+
+//  Edges
+
+schema.edgeLabel("ordered").
+   single().
+   connection("customers", "orders").
+   ifNotExists().create()
+
+schema.edgeLabel("is_in_geo").
+   single().
+   connection("customers", "geographies").
+   ifNotExists().create()
+--------------------
+
+
+
+
+** Move from DSE Studio to Apache Zeppelin 
+
+
+
+
+.  Paragraph 01, Zepp
+--------------------
+%spark
+
+//  Paragraph 01 
+
+import org.apache.spark.sql.functions.{monotonically_increasing_id, col, lit, concat, max}
+
+val customers = sc.parallelize(Array(
+   ("C-4001", "United Airlines"  , "united.com"  ),
+   ("C-4002", "American Airlines", "aa.com"      ),
+   ("C-4003", "Air France"       , "airfrance.us") 
+   ) )
+
+val customers_df = customers.toDF ("cust_num", "cust_name", "url").coalesce(1)
+
+val customers_df_nodeID = customers_df.withColumn("nodeID", monotonically_increasing_id() + 4001)
+
+customers_df_nodeID.getClass()
+customers_df_nodeID.printSchema()
+customers_df_nodeID.count()
+customers_df_nodeID.show()
+
+customers_df_nodeID.registerTempTable("customers")
+--------------------
+
+
+.  Paragraph 02, Zepp
+--------------------
+%spark
+
+//  Paragraph 02 
+
+val orders = sc.parallelize(Array(
+   ("O-8001", "C-4001", "fuel"     ),
+   ("O-8002", "C-4002", "fuel"     ),
+   ("O-8003", "C-4002", "tires"    ),
+   ("O-8004", "C-4003", "wine"     ),
+   ("O-8005", "C-4003", "cheese"   ),
+   ("O-8006", "C-4003", "bread"    )
+   ) )
+val orders_df = orders.toDF ("order_num", "cust_num", "part").coalesce(1)
+
+val orders_df_nodeID = orders_df.withColumn("nodeID", monotonically_increasing_id() + 8001)
+
+orders_df_nodeID.getClass()
+orders_df_nodeID.printSchema()
+orders_df_nodeID.count()
+orders_df_nodeID.show()
+
+orders_df_nodeID.registerTempTable("orders")
+--------------------
+
+
+.  Paragraph 03, Zepp
+--------------------
+%spark
+
+//  Paragraph 03 
+
+val ordered = spark.sql(
+   "select " +
+   "   t1.nodeID as nodeID_C, " +
+   "   t2.nodeID as nodeID_O   " +
+   "from " +
+   "   customers t1, " +
+   "   orders t2 " +
+   "where " +
+   "   t1.cust_num = t2.cust_num"
+   )
+
+ordered.getClass()
+ordered.printSchema()
+ordered.count()
+ordered.show()
+--------------------
+
+
+.  Paragraph 04, Zepp
+--------------------
+%spark
+
+//  Fourth paragraph
+
+import com.datastax.bdp.graph.spark.graphframe._
+import org.apache.spark.ml.recommendation.ALS
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
+import org.apache.spark.ml.evaluation.RegressionEvaluator
+import org.apache.spark.sql.functions.{monotonically_increasing_id, col, lit, concat, max}
+import java.net.URI
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.fs.{FileSystem, Path}
+import com.datastax.spark.connector._
+import org.apache.spark.sql.cassandra._
+import com.datastax.spark.connector.cql.CassandraConnectorConf
+import com.datastax.spark.connector.rdd.ReadConf
+import org.apache.spark.sql.expressions.Window
+
+val graphName = "customer_graph04"
+
+val g = spark.dseGraph(graphName)
+--------------------
+
+
+.  Paragraph 05, Zepp
+--------------------
+%spark
+
+//  Fifth paragraph
+
+val customers_V = customers_df_nodeID.withColumn("~label", lit("customers")).
+   withColumn("nodeID"   , col("nodeID")   ).
+   withColumn("cust_num" , col("cust_num") ).
+   withColumn("cust_name", col("cust_name")).
+   withColumn("url"      , col("url")      )
+g.updateVertices(customers_V)
+
+val orders_V = orders_df_nodeID.withColumn("~label", lit("orders")).
+   withColumn("nodeID"   , col("nodeID")   ).
+   withColumn("order_num", col("order_num")).
+   withColumn("cust_num" , col("cust_num") ).
+   withColumn("part"     , col("part")     )
+g.updateVertices(orders_V)
+
+g.V.hasLabel("customers").show()
+g.V.hasLabel("orders").show()
+--------------------
+
+
+.  Paragraph 06, Zepp
+--------------------
+%spark
+
+//  Sixth paragraph
+
+val orders_L = ordered.
+   withColumn("srcLabel", lit("customers")).
+   withColumn("dstLabel", lit("orders")).
+   withColumn("edgeLabel", lit("ordered")
+   )
+orders_L.show()
+
+val ordered_E = orders_L.select(
+   g.idColumn(col("srcLabel"), col("nodeID_C" )) as "src",
+   g.idColumn(col("dstLabel"), col("nodeID_O")) as "dst",
+   col("edgeLabel") as "~label"
+   )
+
+ordered_E.show()
+
+g.updateEdges(ordered_E)
+--------------------
+
+
+.  Paragraph 07, Zepp
+--------------------
+%spark
+
+//  Seventh paragraph
+
+g.E.hasLabel("ordered").show()
+
+g.V().hasLabel("customers").has("url", "aa.com").out("ordered").valueMap("order_num", "cust_num", "part").show()
+--------------------
+
+
+
+
+//  Now add geographies
+
+
+
+
+.  Paragraph 08, Zepp
+--------------------
+%spark
+
+//  Paragraph 08 
+
+import org.apache.spark.sql.functions.{monotonically_increasing_id, col, lit, concat, max}
+
+val geographies = sc.parallelize(Array(
+   ("N.America"),
+   ("S.America"),
+   ("EMEA"     )
+   ) )
+
+val geographies_df = geographies.toDF ("geo_name").coalesce(1)
+
+val geographies_df_nodeID = geographies_df.withColumn("nodeID", monotonically_increasing_id() + 9001)
+
+geographies_df_nodeID.getClass()
+geographies_df_nodeID.printSchema()
+geographies_df_nodeID.count()
+geographies_df_nodeID.show()
+
+geographies_df_nodeID.registerTempTable("geographies")
+--------------------
+
+
+.  Paragraph 09, Zepp
+--------------------
+%spark
+
+//  Paragraph 09 
+
+val geographies_V = geographies_df_nodeID.withColumn("~label", lit("geographies")).
+   withColumn("nodeID"   , col("nodeID")  ).
+   withColumn("geo_name" , col("geo_name"))
+g.updateVertices(geographies_V)
+
+g.V.hasLabel("geographies").show()
+--------------------
+
+
+.  Paragraph 10, Zepp
+--------------------
+%spark
+
+//  Paragraph 10 
+
+val is_in_geo = sc.parallelize(Array(
+   (4001, 9001),
+   (4001, 9002),
+   (4002, 9001),
+   (4002, 9002),
+   (4003, 9002),
+   (4003, 9003)
+   ) )
+
+val is_in_geo_df = is_in_geo.toDF ("nodeID_C", "nodeID_G").coalesce(1)
+
+val geo_L = is_in_geo_df.
+   withColumn("srcLabel", lit("customers")).
+   withColumn("dstLabel", lit("geographies")).
+   withColumn("edgeLabel", lit("is_in_geo")
+   )
+geo_L.show()
+
+val geo_E = geo_L.select(
+   g.idColumn(col("srcLabel"), col("nodeID_C" )) as "src",
+   g.idColumn(col("dstLabel"), col("nodeID_G")) as "dst",
+   col("edgeLabel") as "~label"
+   )
+geo_E.show()
+
+g.updateEdges(geo_E)
+
+g.E.hasLabel("is_in_geo").show()
+
+g.V().hasLabel("customers").has("url", "aa.com").out("is_in_geo").valueMap("geo_name").show()
+--------------------
+
+
+
+
+**  Done with customers; stop here
+
+
+
+
+More customer graph queries
+--------------------
+
+//  sql2gremlin.com
+
+//  select * from t1
+g.V().hasLabel("customers").valueMap().show()
+
+//  (subset of columns)
+g.V().hasLabel("customers").valueMap("nodeID", "cust_name").show()
+
+//  Dervied columns
+g.V().hasLabel("customers").values("cust_name").  map {arg.upshift()}
+
+
+
+
