@@ -22,5 +22,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >provide examples where you might determine that graph databases have an advantage over relational 
 >databases for certain use cases.
 >
->[Download here]()
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2018_25_GraphPrimer.pdf)
+>
+>[Resource Kit](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/41%20Simple%20Customer%20Graph.txt), all of the data and programs used in this edition in ASCII text format.
 >
