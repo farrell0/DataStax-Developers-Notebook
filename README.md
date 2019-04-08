@@ -18,8 +18,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >Regardless, we will cover all of the relevant topics, and detail how to program same using DSE Core 
 >and DSE Analytics (Apache Spark).
 >
->[Download here]()
-
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_26_Inventory.pdf)
 
 
 2019 January - - 
