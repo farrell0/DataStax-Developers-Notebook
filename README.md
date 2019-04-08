@@ -6,13 +6,29 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 February - -
+
+>Customer: I need to program an inventory management system, and wish to use the time stamp, time to 
+>live, and other features found within DSE. Can you help ?
+>
+>Daniel: Excellent question ! The design pattern you implement differs when you are selling a distinct 
+>inventory (specifically numbered seats to a concert), or you are selling a true-count, number on hand 
+>inventory (all items are the same).
+>
+>Regardless, we will cover all of the relevant topics, and detail how to program same using DSE Core 
+>and DSE Analytics (Apache Spark).
+>
+>[Download here]()
+
+
+
 2019 January - - 
 
 >Customer: Graph, graph, graph; what the heck is up with graph- I think (hope ?) there’s something graph 
 >databases do that standard relational databases do not, but I can’t articulate what that function or 
 >advantage actually is. Can you help ?
 >
->Excellent question !  Yes, but we’re going to take two editions of this document to do so. Sometimes 
+>Daniel: Excellent question !  Yes, but we’re going to take two editions of this document to do so. Sometimes 
 >there are nuances when discussing databases; what really is the difference between a data warehouse, 
 >data mart, data lake, other ? Why couldn’t you recreate some or most non-relational database function 
 >using a standard relational database ?
