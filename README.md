@@ -6,6 +6,19 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 March - -
+
+>Customer: My company was using application server tiered security, and now needs to implement 
+>database tier level security. Can you help ?
+>
+>Daniel: Excellent question ! Obviously security is a broad topic; OS level security (the OS 
+>hosting DSE), database level security, data in flight, data at rest, and more.
+>
+>Minimally we’ll overview DSE security, and detail how to implement password protection of same.
+>
+>[Download here]()
+
+
 2019 February - -
 
 >Customer: I need to program an inventory management system, and wish to use the time stamp, time to 
