@@ -16,7 +16,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >Minimally we’ll overview DSE security, and detail how to implement password protection of same.
 >
->[Download here]()
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_27_Security.pdf)
 
 
 2019 February - -
