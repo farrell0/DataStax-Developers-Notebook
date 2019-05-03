@@ -24,7 +24,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >but may ourselves stick with Apache Zeppelin, since Zeppelin seems to come pre-installed/pre-configured 
 >for so many more languages and options out of the box. (Less work for us.)
 >
->[Download here]()
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_28_Jupyter%2C%20R.pdf)
 
 
 2019 March - -
