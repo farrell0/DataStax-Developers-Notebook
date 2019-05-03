@@ -6,6 +6,27 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 April - -
+
+>Customer: I work on my laptop using Python, R, and Jupyter Notebooks, doing analytics for my company. 
+>I’ve been digging on the analytics topics built inside DataStrax Enterprise (pre-installed, data co-located 
+>with the analytics routines), but don’t see how I can make use of any of this. Can you help ?
+>
+>Daniel: Excellent question ! Isn’t Python and R the number one data science software pairing on the 
+>planet ? (Regardless, it must be in the top two.) DataStax Enterprise ships pre-configured with a 
+>Python interpreter, and R. For R, don’t know why, you must install one new external library.
+>
+>We do have a bias towards Spark/R, since Spark/R seemed to lead in the area of open source parallel c
+>apable routines. (Speed, performance, better documentation.)
+>
+>Jupyter is also an excellent choice, especially if you’re Python focused. We’ve not yet looked at 
+>the Anaconda distribution of Jupyter, which seems very promising. We’ll show a Jupyter install, 
+>but may ourselves stick with Apache Zeppelin, since Zeppelin seems to come pre-installed/pre-configured 
+>for so many more languages and options out of the box. (Less work for us.)
+>
+>[Download here]()
+
+
 2019 March - -
 
 >Customer: My company was using application server tiered security, and now needs to implement 
