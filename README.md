@@ -22,7 +22,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >Kafka Connector, you can push Kafka messages into DataStax Enterprise and the DataStax Distribution of 
 >Cassandra (DDAC) without writing any program code. Cool.
 >
->[Download here] (https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_29_Kafka.pdf)
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_29_Kafka.pdf)
 
 
 2019 April - -
