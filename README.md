@@ -6,6 +6,25 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 May - -
+
+>Customer: As a developer I’ve been using Redis for 6 years, and now my company tells me I have to move 
+>all of my work to Apache Kafka. Can you help ?
+>
+>Daniel: Excellent question ! Management, huh ? We say that because Redis and Kafka are not the same. 
+>In fact, Redis seems to have really re-energized in the past 4 years, with many strategic enhancements. 
+>Redis has held the number four spot on DB-Engines.com database ranking for some time. Kafka, while 
+>used by nearly everyone, seems to place 60% of their workloads serving mainframe off loads; guaranteed 
+>message delivery possibly to multiple consumers. (A scale out of subscribe in publish/subscribe.)
+>
+>In this document, we’ll install and configure a single node (stand alone) Kafka cluster, learn to write 
+>and read messages, and install and configure the DataStax Kafka Connector (Kafka Connector). Using the 
+>Kafka Connector, you can push Kafka messages into DataStax Enterprise and the DataStax Distribution of 
+>Cassandra (DDAC) without writing any program code. Cool.
+>
+>[Download here] (https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_29_Kafka.pdf)
+
+
 2019 April - -
 
 >Customer: I work on my laptop using Python, R, and Jupyter Notebooks, doing analytics for my company. 
