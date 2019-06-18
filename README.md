@@ -6,6 +6,25 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 June - -
+
+>Customer: I saw the January/2019 article where you introduced graph computing using Apache TinkerPop, 
+>aka, DataStax Enterprise Graph. Now I see that you’ve released an EAP (early access program, preview) 
+>DataStax Enterprise version 6.8 with significant changes to graph, including a new storage model. I 
+>figure there’s a bunch of new stuff I need to know. Can you help ?
+>
+>Daniel: Excellent question ! Yes. In this edition of DataStax Developer’s Notebook (DDN), we’ll update 
+>the January/2019 document with new version 6.8 DSE capabilities, and do a bit of compare and contrast. 
+>Keep in mind as an EAP, version 6.8 is proposed, early preview. Version 6.8 may change drastically.
+>
+>In this document, we detail that you no longer need GraphFrames; inserting using standard DataFrames
+>saves a bunch of processing steps, and still performs just as well. We detail the new version 6.8 
+>storage model, which is also much simpler over version 6.7. (Everything is stored directly in DSE Core 
+>tables, and directly support DSE Core CQL queries.)
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_30_GraphPrimer%2068.pdf)
+
+
 2019 May - -
 
 >Customer: As a developer I’ve been using Redis for 6 years, and now my company tells me I have to move 
