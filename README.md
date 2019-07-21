@@ -6,6 +6,30 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 July - -
+>Customer: I'm confused. I saw a presentation at the 2019 DataStax world conference (Accelerate 2019), 
+>detailing how to deliver a product recommendation engine using DSE Graph. I've also seen DSE articles 
+>detailing how to deliver a product recommendation engine using DSE Analytics. Can you help ?
+>
+>Daniel: Excellent question ! As discussed in previous editions of this document; there are 4 primary 
+>functional areas within DataStax Enterprise (DSE). DSE Analytics can deliver a ‘content-based’ product 
+>recommendation (aka, product-product). DSE Graph can deliver a ‘collaborative-based’ product recommendation 
+>engine (aka, user-user). Both DSE Analytics and DSE Graph use DSE Core as their storage engine, and DSE 
+>Search as their advancedc index engine; a full integration, not just a connector.
+>
+>In this edition of this document we’ll detail all of the code needed to deliver the above, and include 
+>data. We’ll also use this edition of this document to provide a Graph query primer (Gremlin language 
+>primer), and answer the nuanced question of; Why Graph ?
+>
+>[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
+>
+>[PowerPoint](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
+>[Just Grocery Data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31c_JustGroceryData.tar)
+>[All Programming as Txt](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31d_AllCommands.txt)
+>[DataStax KillrVideo demo DB data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31e_KillrVideoDataAsPipe.tar)
+>[DataStax KillrVideo demo DB DDL as Txt (vers 6.8, fyi)](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31f_KillrVideoDDL.cql)
+
+
 2019 June - -
 
 >Customer: I saw the January/2019 article where you introduced graph computing using Apache TinkerPop, 
