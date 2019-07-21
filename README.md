@@ -23,10 +23,15 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
 >
+>
 >[PowerPoint](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
+>
 >[Just Grocery Data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31c_JustGroceryData.tar)
+>
 >[All Programming as Txt](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31d_AllCommands.txt)
+>
 >[DataStax KillrVideo demo DB data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31e_KillrVideoDataAsPipe.tar)
+>
 >[DataStax KillrVideo demo DB DDL as Txt (vers 6.8, fyi)](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31f_KillrVideoDDL.cql)
 
 
