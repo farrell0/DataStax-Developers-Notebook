@@ -1,0 +1,1716 @@
+
+
+
+
+dse spark
+   Version 2.4.0.6
+
+Reference Urls,
+   https://spark.apache.org/docs/2.4.3/ml-frequent-pattern-mining.html
+   https://en.wikipedia.org/wiki/Association_rule_learning
+   
+
+
+
+-------------------------------------------------
+%spark
+
+//  1.1
+
+val recs_0 = sc.textFile("file:///mnt/hgfs/My.20/MyShare_1/18 DSE Developers Notebook/31 Graph Reco Eng/02 Files/10_grocery_sm.csv")
+val recs_1 = sc.textFile("file:///mnt/hgfs/My.20/MyShare_1/18 DSE Developers Notebook/31 Graph Reco Eng/02 Files/20_grocery_lg.csv")
+
+recs_0.collect().take(5).foreach(println)
+println("--")
+recs_1.collect().take(5).foreach(println)
+
+// soy milk,lettuce
+// lettuce,diapers ,wine,chard
+// soy milk,diapers,wine,OJ 
+// lettuce,soy milk,diapers,wine 
+// lettuce,soy milk,diapers,OJ 
+// -- 
+// citrus fruit,semi-finished bread,margarine,ready soups 
+// tropical fruit,yogurt,coffee 
+// whole milk 
+// pip fruit,yogurt,cream cheese ,meat spreads 
+// other vegetables,whole milk,condensed milk,long life bakery product
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  1.2
+
+val i = recs_0.count()              //  number of rows,  5
+val j = recs_1.count()              //  number of rows,  9835
+
+// i: Long = 5 
+// j: Long = 9835
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  1.3
+
+val i = recs_0.distinct().count()   //  number of distinct rows, 5
+val j = recs_1.distinct().count()   //  number of distinct rows, 7011
+
+// i: Long = 5 
+// j: Long = 7011
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  1.4
+
+val recs_0s = recs_0.flatMap(s => s.trim.split(','))
+val recs_1s = recs_1.flatMap(s => s.trim.split(','))
+
+recs_0s.collect().take(5).foreach(println)
+println("--")
+recs_1s.collect().take(5).foreach(println)
+
+// soy milk 
+// lettuce 
+// lettuce 
+// diapers 
+// wine 
+// -- 
+// citrus fruit 
+// semi-finished bread 
+// margarine 
+// ready soups 
+// tropical fruit
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  1.5
+
+val i = recs_0s.           count()   //  number of distinct rows, 5
+val j = recs_0s.distinct().count()
+val k = recs_1s.           count()   //  number of distinct rows, 7011
+val l = recs_1s.distinct().count()
+
+// i: Long = 18
+// j: Long = 7   
+// k: Long = 43367
+// l: Long = 169
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  1.6
+
+val recs_0_top = recs_0s.map(str => (str, 1)).
+   reduceByKey((k, v) => k + v).
+   sortBy(_._2, false).
+   take(5).
+   foreach(println)
+println("--")
+val recs_1_top = recs_1s.map(str => (str, 1)).
+   reduceByKey((k, v) => k + v).
+   sortBy(_._2, false).
+   take(5).
+   foreach(println)
+
+// (lettuce,4) 
+// (soy milk,4) 
+// (diapers,3) 
+// (wine,3) 
+// (OJ,2) 
+// -- 
+// (whole milk,2513) 
+// (other vegetables,1903) 
+// (rolls/buns,1809) 
+// (soda,1715) 
+// (yogurt,1372)
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+%md
+
+### Now actual ML routine
+-------------------------------------------------
+
+
+
+
+https://spark.apache.org/docs/2.4.3/ml-frequent-pattern-mining.html
+
+-------------------------------------------------
+%spark
+
+//  2.1
+
+import org.apache.spark.ml.fpm.FPGrowth
+-------------------------------------------------
+
+
+//  Data file,
+//     soy milk,lettuce
+//     lettuce,diapers ,wine,chard
+//     soy milk,diapers,wine,OJ
+//     lettuce,soy milk,diapers,wine
+//     lettuce,soy milk,diapers,OJ
+
+
+//  Support/minSupport
+//
+//  If an item/item-set appears in 3 of 5 total
+//  transactions, then its support is,
+//     3 / 5 = 0.60   or 60%
+//
+//  "How frequently the item appears ..
+
+//  Confidence/minConfidence (aka, Conviction)
+//
+//  If the item/item-set appear 4 times (the antecedent),
+//  and the consequent appears 2 times, then the
+//  confidence is,
+//     2 / 4 = 0.50   or 50%
+//
+//     ** Used to generate association rules
+//
+//  "Indication of how often the rule is found to be true
+
+//  Lift
+//
+//    Support:(antecedent union consequent) / Support:(antecedent) * Support:(consequent)
+//    
+//    From above,
+//       lettuce, soy milk -> wine
+//       
+//          0.2 / 0.4 * 0.6  == 0.83
+//
+//    Equal 1, implies probability of occurrence of antecedent and
+//       consequent are independent of one another, no rule should
+//       be drawn involving these two events
+//
+//    > 1, degree to which antecedent/consequent are dependent on
+//       one another, a useful prediction rule
+//
+//    < 1, one item has a negative affect on the other and vice
+//       versa, items can substitute for one another
+
+//  Not supplied by the library currently,
+//     Conviction
+//     Rule Power Factor
+// 
+//     See (Wikipedia article)
+
+
+-------------------------------------------------
+%spark
+
+//  2.2
+
+val recs_0  = sc.textFile("file:///mnt/hgfs/My.20/MyShare_1/18 DSE Developers Notebook/31 Graph Reco Eng/02 Files/10_grocery_sm.csv")
+val recs_0s = recs_0.map(i_str => i_str.split(",")).toDF("items")
+
+
+val my_fpgrowth0 = new FPGrowth().setItemsCol("items").setMinSupport(0.1).setMinConfidence(0.1)
+val my_model0 = my_fpgrowth0.fit(recs_0s)
+
+my_model0.freqItemsets.show()
+
+// +--------------------+----+ 
+// | items              |freq| 
+// +--------------------+----+ 
+// | [diapers]          | 3  | 
+// | [diapers, soy milk]| 3  | 
+// | [diapers, soy mil..| 2  | 
+// | [diapers, lettuce] | 2  | 
+// | [OJ]               | 2  | 
+// | [OJ, diapers]      | 2  | 
+// | [OJ, diapers, soy..| 2  | 
+// | [OJ, diapers, soy..| 1  | 
+// | [OJ, diapers, let..| 1  | 
+// | [OJ, soy milk]     | 2  | 
+// | [OJ, soy milk, le..| 1  | 
+// | [OJ, wine]         | 1  |
+//    ...
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  2.3
+         
+my_model0.associationRules.show()
+
+// +--------------------+-----------+----------+------------------+ 
+// | antecedent         |consequent |confidence| lift             | 
+// +--------------------+-----------+----------+------------------+ 
+// | [OJ, diapers, soy..| [lettuce] | 0.5      | 0.625            | 
+// | [OJ, diapers, soy..| [wine]    | 0.5      |0.8333333333333334| 
+// | [soy milk]         | [diapers] | 0.75     | 1.25             | 
+// | [soy milk]         | [OJ]      | 0.5      | 1.25             | 
+// | [soy milk]         | [lettuce] | 0.75     | 0.9375           | 
+// | [soy milk]         | [wine]    | 0.5      |0.8333333333333334| 
+// | [diapers ]         | [chard]   | 1.0      | 5.0              | 
+// | [diapers ]         | [wine]    | 1.0      |1.6666666666666667| 
+// | [diapers ]         | [lettuce] | 1.0      | 1.25             | 
+// | [wine, soy milk, ..| [diapers] | 1.0      |1.6666666666666667| 
+// | [OJ, wine, diapers]| [soy milk]| 1.0      | 1.25             | 
+// | [diapers , chard]  | [wine]    | 1.0      |1.6666666666666667| 
+// | [diapers , chard]  | [lettuce] | 1.0      | 1.25             | 
+// | [lettuce]          | [diapers] | 0.5      |0.8333333333333334| 
+// | [lettuce]          | [OJ]      | 0.25     | 0.625            | 
+// | [lettuce]          | [diapers] | 0.25     | 1.25             | 
+// | [lettuce]          | [chard]   | 0.25     | 1.25             | 
+// | [lettuce]          | [soy milk]| 0.75     | 0.9375           | 
+// | [lettuce]          | [wine]    | 0.5      |0.8333333333333334|
+//    ...
+-------------------------------------------------
+
+       
+-------------------------------------------------
+%spark
+
+//  2.4
+
+my_model0.transform(recs_0s).show()
+
+// +--------------------+--------------------+ 
+// | items              | prediction         | 
+// +--------------------+--------------------+ 
+// | [soy milk, lettuce]|[diapers, OJ, win...| 
+// |[lettuce, diapers...|[diapers, OJ, soy...| 
+// |[soy milk, diaper...|[lettuce, diapers...| 
+// |[lettuce, soy mil...|[OJ, diapers , ch...| 
+// |[lettuce, soy mil...|[wine, diapers , ...| 
+// +--------------------+--------------------+
+//    ...
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  2.5 
+
+import scala.collection.mutable.WrappedArray;
+
+val recs_0_ar = my_model0.associationRules.collect()
+
+val recs_0_arl = recs_0_ar.map( row => ( 
+   row.get(0).asInstanceOf[WrappedArray[WrappedArray[String]]].mkString("|"),
+   row.get(1).asInstanceOf[WrappedArray[WrappedArray[String]]].mkString("|"),
+   row.getDouble(2), 
+   row.getDouble(3))
+   ).toList
+
+val recs_0_ardf = recs_0_arl.toDF("antecedent", "consequent", "confidence", "lift")
+
+recs_0_ardf.show(20)
+
+// +---------------------+----------+----------+------------------+ 
+// | antecedent          |consequent|confidence| lift             | 
+// +---------------------+----------+----------+------------------+ 
+// | OJ|diapers|soy milk | lettuce  | 0.5      | 0.625            |  
+// | OJ|diapers|soy milk | wine     | 0.5      |0.8333333333333334| 
+// | soy milk            | diapers  | 0.75     | 1.25             | 
+// | soy milk            | OJ       | 0.5      | 1.25             | 
+// | soy milk            | lettuce  | 0.75     | 0.9375           | 
+// | soy milk            | wine     | 0.5      |0.8333333333333334|
+//    ...
+-------------------------------------------------
+
+
+Must use Studio for this 1 block
+-------------------------------------------------
+//  2.6
+
+DROP KEYSPACE IF EXISTS ks_31;
+
+CREATE KEYSPACE ks_31
+   WITH replication = {'class': 'SimpleStrategy',
+      'replication_factor': 1}
+   AND graph_engine = 'Native';
+
+USE ks_31;
+
+CREATE TABLE t_association_rules
+   (
+   antecedent       TEXT,
+   consequent       TEXT,
+   version          DOUBLE,
+   confidence       DOUBLE,
+   lift             DOUBLE,
+   PRIMARY KEY((antecedent), consequent, version)
+   ) ;
+-------------------------------------------------
+
+
+-------------------------------------------------
+%spark
+
+//  2.7
+
+// import org.apache.spark.sql.functions._
+
+val recs_0_ardf2 = recs_0_ardf.withColumn("version", lit(1.0) )
+
+recs_0_ardf2.write.
+   format("org.apache.spark.sql.cassandra").
+   options(Map( "keyspace" -> "ks_31", "table" -> "t_association_rules" )).
+   mode("append").
+   save
+
+val recs_0_test = spark.read.
+   format("org.apache.spark.sql.cassandra").
+   options(Map("keyspace" -> "ks_31", "table" -> "t_association_rules")).
+   load
+recs_0_test.count()
+recs_0_test.show(20)
+-------------------------------------------------
+
+
+-------------------------------------------------
+%sql
+
+--  2.8
+
+select * from ks_31.t_association_rules
+where antecedent = 'lettuce'
+order by consequent, confidence desc
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+%md
+
+### Repeat above, but now for larger item set
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+%spark
+
+//  3.1
+
+import org.apache.spark.ml.fpm.FPGrowth
+   //
+import scala.collection.mutable.WrappedArray;
+
+val recs_1  = sc.textFile("file:///mnt/hgfs/My.20/MyShare_1/44 Topics_2019/41 Graph Reco Eng/02 Files/20_grocery_lg.csv")
+val recs_1s = recs_1.map(i_str => i_str.split(",")).toDF("items")
+
+val my_fpgrowth1 = new FPGrowth().setItemsCol("items").setMinSupport(0.01).setMinConfidence(0.01)
+val my_model1 = my_fpgrowth1.fit(recs_1s)
+
+val recs_1_ar = my_model1.associationRules.collect()
+
+val recs_1_arl = recs_1_ar.map( row => ( 
+   row.get(0).asInstanceOf[WrappedArray[WrappedArray[String]]].mkString("|"),
+   row.get(1).asInstanceOf[WrappedArray[WrappedArray[String]]].mkString("|"),
+   row.getDouble(2), 
+   row.getDouble(3))
+   ).toList
+
+val recs_1_ardf = recs_1_arl.toDF("antecedent", "consequent", "confidence", "lift")
+
+val recs_1_ardf2 = recs_1_ardf.withColumn("version", lit(1.0) )
+
+recs_1_ardf2.write.
+   format("org.apache.spark.sql.cassandra").
+   options(Map( "keyspace" -> "ks_31", "table" -> "t_association_rules" )).
+   mode("append").
+   save
+
+recs_1_ardf2.show(20)
+-------------------------------------------------
+
+
+
+
+// +--------------------+--------------------+-------------------+------------------+---------+ 
+// | antecedent         | consequent         |  confidence       | lift             | version |
+// +--------------------+--------------------+-------------------+------------------+---------+ 
+// | hygiene articles   | whole milk         | 0.3888888888888889|1.5219746208604146| 1.0     | 
+// |domestic eggs|who...| other vegetables   | 0.4101694915254237|2.1198197315567744| 1.0     | 
+// | cream cheese       | yogurt             | 0.3251366120218579| 2.330698672911787| 1.0     | 
+// | cream cheese       | other vegetables   | 0.3524590163934426|1.8215630195635881| 1.0     | 
+// | cream cheese       | whole milk         | 0.4262295081967213|1.6681126992100093| 1.0     | 
+// | sugar              | other vegetables   | 0.3183183183183183|1.6451185815347664| 1.0     | 
+// | sugar              | whole milk         | 0.4444444444444444|1.7393995666976165| 1.0     | 
+// | tropical fruit     | shopping bags      |0.12887596899224807| 1.308044535643715| 1.0     | 
+// | tropical fruit     |fruit/vegetable j...| 0.1308139534883721|1.8095010303208716| 1.0     | 
+// | tropical fruit     | pastry             |0.12596899224806202| 1.415891472868217| 1.0     | 
+// | tropical fruit     | brown bread        |0.10174418604651163| 1.56842330684552 | 1.0     | 
+// | tropical fruit     | whipped/sour cream |0.13178294573643412|1.8384188245642974| 1.0     |
+// | tropical fruit     | citrus fruit       |0.18992248062015504|2.2947022074929055| 1.0     |
+// | tropical fruit     | newspapers         | 0.1124031007751938|1.4082605046166001| 1.0     |
+// | tropical fruit     | rolls/buns         |0.23449612403100775| 1.274886334906004| 1.0     |
+// | tropical fruit     | bottled water      |0.17635658914728683|1.5956458640879172| 1.0     |
+// | tropical fruit     | yogurt             |0.27906976744186046|2.0004746084480303| 1.0     |
+// | tropical fruit     | other vegetables   |0.34205426356589147|1.7677896385551983| 1.0     |
+// | tropical fruit     | soda               |0.19864341085271317| 1.139159152032906| 1.0     |
+// | tropical fruit     | root vegetables    | 0.2005813953488372|1.8402220366192295| 1.0     |
+
+
+
+
+-------------------------------------------------
+%sql
+--  3.2
+
+select count(*) from ks_31.t_association_rules   // 522
+-------------------------------------------------
+
+
+-------------------------------------------------
+%sql
+--  3.3
+
+select "All records", count(*)
+from ks_31.t_association_rules
+union
+select "Great than 1", count(*)
+from ks_31.t_association_rules
+where lift > 1.0
+union
+select "Equal to 1", count(*) 
+from ks_31.t_association_rules
+where lift = 1.0
+union
+select "Less than 1", count(*)
+from ks_31.t_association_rules
+where lift < 1.0
+
+//  All records        522
+//  Great than 1       502
+//  Equal to 1          0
+//  Less than 1        20
+
+//  From above,
+//
+//  9835  total  orders
+//  7011  unique orders
+//   169  unique items
+-------------------------------------------------
+
+
+-------------------------------------------------
+%sql
+--  3.4
+
+select * from ks_31.t_association_rules
+order by lift desc
+limit 20
+
+//  (Get screen shot)   High is 3.37
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+-------------------------------------------------
+%md
+
+### Move to Graph Recommendation Engine (Gremlin/Studio)
+-------------------------------------------------
+-------------------------------------------------
+
+
+Doc,
+   Types of traversals,
+      https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/using/QueryTOC.html
+   Traversal API, 
+      (Top level Gremlin API doc)
+      https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/refTPTOC.html
+
+
+Jist of graph reco engine-
+
+   To answer what would you like; Who do you know,
+   and what do they like ?
+
+
+-------------------------------------------------
+// %md
+
+### Just 'know'ing someone
+
+### Protoype using smaller/known data set
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  4.1
+
+USE ks_ngkv;
+
+DROP MATERIALIZED VIEW IF EXISTS e_knows_bi;
+   //
+DROP TABLE IF EXISTS ordered;
+DROP TABLE IF EXISTS orders;
+   //
+DROP TABLE IF EXISTS knows;
+DROP TABLE IF EXISTS user;
+
+CREATE TABLE user
+   (
+   user_id              TEXT,
+   gender               TEXT,
+   age                  INT,
+   PRIMARY KEY((user_id))
+   )
+   WITH VERTEX LABEL v_user
+   ;
+CREATE TABLE knows
+   (
+   user_id_s            TEXT,
+   user_id_d            TEXT,
+   PRIMARY KEY((user_id_s), user_id_d)
+   )
+   WITH EDGE LABEL e_knows
+   FROM v_user(user_id_s)
+   TO v_user(user_id_d);
+CREATE MATERIALIZED VIEW e_knows_bi
+   AS SELECT user_id_s, user_id_d
+   FROM knows
+   WHERE
+      user_id_s IS NOT NULL
+   AND
+      user_id_d IS NOT NULL
+   PRIMARY KEY ((user_id_d), user_id_s);
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  4.2
+
+USE ks_ngkv;
+
+INSERT INTO user  (user_id, gender, age) VALUES ('dave'   , 'M', 30  );
+INSERT INTO user  (user_id, gender, age) VALUES ('denise' , 'F', 30  );
+INSERT INTO user  (user_id, gender, age) VALUES ('kiyu'   , 'M', 30  );
+INSERT INTO user  (user_id,         age) VALUES ('farrell',      40  );
+INSERT INTO user  (user_id, gender, age) VALUES ('hatcher', 'M', 30  );
+INSERT INTO user  (user_id, gender, age) VALUES ('morty'  , 'M', 30  );
+
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('farrell', 'kiyu'   );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('farrell', 'denise' );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('farrell', 'morty'  );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('farrell', 'hatcher');
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('kiyu'   , 'farrell');
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('denise' , 'farrell');
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('dave'   , 'farrell');
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('kiyu'   , 'denise' );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('kiyu'   , 'dave'   );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('hatcher', 'denise' );
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('kiyu'   , 'hatcher');
+INSERT INTO knows (user_id_s, user_id_d) VALUES ('denise' , 'dave'   );
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  4.3
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   out("e_knows").
+   valueMap(true, "user_id")
+
+// { "id": "v_user:denise#32",  "label": "v_user", "user_id": [ "denise"  ] },
+// { "id": "v_user:hatcher#81", "label": "v_user", "user_id": [ "hatcher" ] },
+// { "id": "v_user:kiyu#62",    "label": "v_user", "user_id": [ "kiyu"    ] },
+// { "id": "v_user:morty#77",   "label": "v_user", "user_id": [ "morty"   ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  4.4
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   both("e_knows").
+   valueMap(true, "user_id")
+
+//  farrell knows
+// { "id": "v_user:denise#32",  "label": "v_user", "user_id": [ "denise" ]  },
+// { "id": "v_user:hatcher#81", "label": "v_user", "user_id": [ "hatcher" ] },
+// { "id": "v_user:kiyu#62",    "label": "v_user", "user_id": [ "kiyu" ]    },
+// { "id": "v_user:morty#77",   "label": "v_user", "user_id": [ "morty" ]   },
+
+//  know farrell (and farrell knows them)
+// { "id": "v_user:denise#32",  "label": "v_user", "user_id": [ "denise" ]  },
+// { "id": "v_user:kiyu#62",    "label": "v_user", "user_id": [ "kiyu" ]    }
+
+//  knows farrell, farrell doesn't know him
+// { "id": "v_user:dave#38",    "label": "v_user", "user_id": [ "dave" ]    },
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  4.5
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   in("e_knows").
+   valueMap(true, "user_id")
+
+// in
+// { "id": "v_user:dave#38",   "label": "v_user", "user_id": [ "dave"   ] },
+// { "id": "v_user:denise#32", "label": "v_user", "user_id": [ "denise" ] },
+// { "id": "v_user:kiyu#62",   "label": "v_user", "user_id": [ "kiyu"   ] }
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+// %md
+
+### The 'as' step modulator
+
+### Use a simpler (non-recursive) relationship
+-------------------------------------------------
+
+
+Step modulators,
+   https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/traversal/tpStepModTOC.html
+
+'as'  "Label an object in a traversal to use later in the traversal.
+   https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/traversal/refTravAs.html
+
+   --
+
+Similar to 'store()', which is a step
+   "The store() step is a sideEffect step that stores information for later use in the traversal.
+   https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/traversal/refTravStore.html
+
+And also, 'sack()', a step, and 'withSack(), a step modulator
+
+   From,
+      http://www.doanduyhai.com/blog/?p=13404
+
+      "A sack is a local datastructure relative to each traverser, unlike global datastructure as
+       when using aggregate()/store()/group(x)/subgraph(x).... It mean that each traverser is now
+       equipped with his own sack. A sack can contain any type of data structure:
+
+
+-------------------------------------------------
+//  5.1
+
+USE ks_ngkv;
+
+DROP TABLE IF EXISTS ordered;
+DROP TABLE IF EXISTS orders;
+
+CREATE TABLE orders
+   (
+   order_id             INT,
+   item                 TEXT,
+   PRIMARY KEY((order_id))
+   )
+   WITH VERTEX LABEL v_orders
+   ;
+CREATE TABLE ordered
+   (
+   user_id              TEXT,
+   order_id             INT,
+   order_date           TEXT,
+   PRIMARY KEY((user_id), order_id)
+   )
+   WITH EDGE LABEL e_ordered
+   FROM v_user(user_id)
+   TO v_orders(order_id);
+
+INSERT INTO orders (order_id, item) VALUES (101, 'beer'  );
+INSERT INTO orders (order_id, item) VALUES (102, 'chips' );
+INSERT INTO orders (order_id, item) VALUES (103, 'wine'  );
+INSERT INTO orders (order_id, item) VALUES (104, 'cheese');
+
+INSERT INTO ordered (user_id, order_id, order_date) VALUES ('farrell', 101, 'Dec-31-2008');
+INSERT INTO ordered (user_id, order_id, order_date) VALUES ('farrell', 102, 'Dec-31-2008');
+INSERT INTO ordered (user_id, order_id, order_date) VALUES ('denise' , 103, 'Dec-31-2008');
+INSERT INTO ordered (user_id, order_id, order_date) VALUES ('denise' , 104, 'Dec-31-2008');
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  5.2
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   valueMap(true)
+
+// { "id": "v_user:farrell#82", "label": "v_user", "user_id": [ "farrell" ], "age": [ "40" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  5.3
+
+def l_user = "denise"
+   //
+g.V().has("v_user", "user_id", l_user).
+   valueMap(true)
+
+// { "id": "v_user:denise#32", "label": "v_user", "gender": [ "F" ], "user_id": [ "denise" ], "age": [ "30" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  5.4
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   outE("e_ordered").
+   valueMap(true)
+
+// { "id": "v_user:farrell#82->e_ordered#03->v_orders:101#27", "label": "e_ordered", "order_date": "Dec-31-2008" },
+// { "id": "v_user:farrell#82->e_ordered#03->v_orders:102#24", "label": "e_ordered", "order_date": "Dec-31-2008" }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  5.5
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   out("e_ordered").
+   valueMap(true)
+
+// { "id": "v_orders:101#27", "label": "v_orders", "item": [ "beer" ],  "order_id": [ "101" ] },
+// { "id": "v_orders:102#24", "label": "v_orders", "item": [ "chips" ], "order_id": [ "102" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  5.6
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   as("user").
+   out("e_ordered").
+   as("order").
+   select("user", "order").
+      by(valueMap(true)).
+      by(valueMap(true))
+
+{ "user": {   "id": "v_user:farrell#82", "label": "v_user",   "user_id": [ "farrell" ], "age":      [ "40"  ] },
+   "order": { "id": "v_orders:101#27",   "label": "v_orders", "item":    [ "beer"  ],   "order_id": [ "101" ] } },
+{ "user": {   "id": "v_user:farrell#82", "label": "v_user",   "user_id": [ "farrell" ], "age":      [ "40"  ] },
+   "order": { "id": "v_orders:102#24",   "label": "v_orders", "item":    [ "chips" ],   "order_id": [ "102" ] } }
+-------------------------------------------------
+
+
+//  Why isn't order an embedded array to user ?
+//
+//  Think,
+//
+//     SELECT o.*
+//     FROM user AS 'u'
+//     INNER JOIN order AS 'o' ON u.user_id=o.user_id 
+
+
+-------------------------------------------------
+//  5.7
+
+def l_user = "farrell"
+   //
+g.V().has("v_user", "user_id", l_user).
+   as('a').
+   out("e_knows").
+   as('b').
+   out("e_knows").
+   where(eq('a')).      // this line
+   select('a', 'b').
+   by(values('user_id')).
+   by(values('user_id'))
+
+// { "a": "farrell", "b": "denise" },
+// { "a": "farrell", "b": "kiyu"   }
+-------------------------------------------------
+
+'this line' .. ..
+   "each traverser compares the id value of 'b' to the id value of 'a' and if they
+    aren't equal then it is filtered out
+
+
+
+
+-------------------------------------------------
+// %md
+
+### Back to KV
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+//  6.1
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   valueMap(true)
+
+// { "id": "v_user2:u1#70", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u1" ], "age": [ "17" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  6.2
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   as('a').
+   out("e_knows2").
+   as('b').
+   out("e_knows2").
+   where(eq('a')).
+   select('a', 'b').
+   by(values('user_id')).
+   by(values('user_id'))
+
+//  No data
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  6.3
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   out("e_knows2").
+   valueMap(true)
+
+// { "id": "v_user2:u151#66", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u151" ], "age": [ "17" ] },
+// { "id": "v_user2:u192#77", "label": "v_user2", "gender": [ "F" ], "user_id": [ "u192" ], "age": [ "14" ] },
+// { "id": "v_user2:u74#16",  "label": "v_user2", "gender": [ "F" ], "user_id": [ "u74"  ], "age": [ "15" ] },
+// { "id": "v_user2:u83#24",  "label": "v_user2", "gender": [ "F" ], "user_id": [ "u83"  ], "age": [ "14" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  6.4
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   in("e_knows2").
+   valueMap(true)
+
+// { "id": "v_user2:u199#70", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u199" ], "age": [ "15" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  6.5 
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   both("e_knows2").
+   valueMap(true)
+
+// { "id": "v_user2:u151#66", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u151" ], "age": [ "17" ] },
+// { "id": "v_user2:u192#77", "label": "v_user2", "gender": [ "F" ], "user_id": [ "u192" ], "age": [ "14" ] },
+// { "id": "v_user2:u74#16",  "label": "v_user2", "gender": [ "F" ], "user_id": [ "u74" ],  "age": [ "15" ] }, 
+// { "id": "v_user2:u83#24",  "label": "v_user2", "gender": [ "F" ], "user_id": [ "u83" ],  "age": [ "14" ] },
+   //
+// { "id": "v_user2:u199#70", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u199" ], "age": [ "15" ] }
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+// %md
+
+### Have at least (n) connections in common
+
+### Protoype using smaller/known data set
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+//  7.1
+
+def l_user = "farrell"
+def l_conn = 2
+   //
+g.V().has("v_user", "user_id", l_user).
+   out("e_knows").
+   in("e_knows").
+   filter(
+      has("user_id", neq(l_user))
+      ).
+   dedup().
+   valueMap("user_id")
+
+// { "user_id": [ "hatcher" ] },
+// { "user_id": [ "kiyu"    ] }
+-------------------------------------------------
+
+
+Above
+   Total set
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+      VALUES ('kiyu'   , 'farrell'); 
+      VALUES ('denise' , 'farrell'); 
+      VALUES ('dave'   , 'farrell'); 
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('kiyu'   , 'dave'   ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+      VALUES ('denise' , 'dave'   );
+   After 'has/out'
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+   After 'in'
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+   After 'filter'
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+   After 'dedup'                           //  Notice this is on keys ..
+      { "user_id": [ "hatcher" ] },
+      { "user_id": [ "kiyu"    ] }
+
+
+-------------------------------------------------
+//  7.2  
+
+def l_user = "farrell"
+def l_conn = 2
+   //
+g.withSack(1, sum).
+   V().has("v_user", "user_id", l_user).
+   out("e_knows").
+   in("e_knows").
+   filter(
+      sack().is(gte(l_conn)).
+      and().
+      has("user_id", neq(l_user))
+      ).
+   dedup().
+   valueMap("user_id")
+
+// { "user_id": [ "kiyu" ] }
+-------------------------------------------------
+
+
+Above
+   Total set
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+      VALUES ('kiyu'   , 'farrell'); 
+      VALUES ('denise' , 'farrell'); 
+      VALUES ('dave'   , 'farrell'); 
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('kiyu'   , 'dave'   ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+      VALUES ('denise' , 'dave'   );
+   After 'has/out'
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+   After 'in'
+      VALUES ('farrell', 'kiyu'   );
+      VALUES ('farrell', 'denise' ); 
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('farrell', 'morty'  ); 
+      VALUES ('farrell', 'hatcher'); 
+      VALUES ('kiyu'   , 'hatcher'); 
+   After 'filter', just not farrell
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('hatcher', 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+   After 'filter', 2 or more in common with farrell
+      VALUES ('kiyu'   , 'denise' ); 
+      VALUES ('kiyu'   , 'hatcher'); 
+   After 'dedup'                           //  Notice this is on keys ..
+      // { "user_id": [ "kiyu" ] }
+
+
+
+
+-------------------------------------------------
+// %md
+
+### Back to KV
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+//  8.1
+
+def l_user = "u1"
+def l_conn = 2
+   //
+g.withSack(1, sum).
+   V().has("v_user2", "user_id", l_user).
+   out("e_knows2").
+   both("e_knows2").
+   filter(
+      sack().is(gte(l_conn)).
+      and().
+      has("user_id", neq(l_user))
+      ).
+   dedup().
+   valueMap("user_id")
+
+// { "user_id": [ "u49" ] }
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  8.2
+
+def l_user = "u1"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   out("e_knows2").
+   valueMap("user_id")
+
+{ "user_id": [ "u151" ] },
+{ "user_id": [ "u192" ] },
+{ "user_id": [ "u74"  ] },   //  <--
+{ "user_id": [ "u83"  ] }    //  <--
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  8.3
+
+def l_user = "u49"
+   //
+g.V().has("v_user2", "user_id", l_user).
+   both("e_knows2").
+   valueMap("user_id")
+
+{ "user_id": [ "u132" ] },
+{ "user_id": [ "u150" ] },
+{ "user_id": [ "u165" ] },
+{ "user_id": [ "u435" ] },
+{ "user_id": [ "u74"  ] },   //  <--
+{ "user_id": [ "u926" ] },
+{ "user_id": [ "u116" ] },
+{ "user_id": [ "u122" ] },
+{ "user_id": [ "u135" ] },
+{ "user_id": [ "u47"  ] },
+{ "user_id": [ "u54"  ] },
+{ "user_id": [ "u80"  ] },
+{ "user_id": [ "u83"  ] }    //  <--
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+// %md
+
+### Staying in KV
+
+### What likes do any two persons share  (Do they like the same movies)
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+//  9.1
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   count()
+
+// 32
+-------------------------------------------------
+
+
+//  This traversal requires an index
+-------------------------------------------------
+//  9.2
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating",gte(l_rate)).
+   count()
+
+// 15
+-------------------------------------------------
+
+
+//  Step 1: Users like the same movie
+//     User liked same move as target user
+-------------------------------------------------
+//  9.3
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating", gte(l_rate)).
+   inV().
+   inE("e_rated2").
+   has("rating", gte(l_rate)).
+   count()
+
+//  962
+-------------------------------------------------
+
+
+//  Step 2: Same as above, data view
+-------------------------------------------------
+//  9.4
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating", gte(l_rate)).
+   as("a").
+   inV().
+   inE("e_rated2").
+   has("rating", gte(l_rate)).
+   as("b").
+   limit(5).
+   select("a", "b").
+      by(valueMap(true)).
+      by(valueMap(true)) 
+
+// {
+//   "a": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" },
+//   "b": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" }
+// },
+// {
+//   "a": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" },
+//   "b": { "id": "v_user2:u118#25->e_rated2#10->v_movie2:m567#00", "label": "e_rated2", "rating": "9"  }
+// },
+// {
+//   "a": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" },
+//   "b": { "id": "v_user2:u119#24->e_rated2#10->v_movie2:m567#00", "label": "e_rated2", "rating": "8"  }
+// },
+// {
+//   "a": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" },
+//   "b": { "id": "v_user2:u125#15->e_rated2#10->v_movie2:m567#00", "label": "e_rated2", "rating": "9"  }
+// },
+// {
+//   "a": { "id": "v_user2:u1#16->e_rated2#10  ->v_movie2:m567#00", "label": "e_rated2", "rating": "10" },
+//   "b": { "id": "v_user2:u143#15->e_rated2#10->v_movie2:m567#00", "label": "e_rated2", "rating": "8"  }
+// }
+//      ...
+-------------------------------------------------
+
+
+//  Step 3: Same as 9.3, not the target user, remove
+//     duplicate user ids, count
+-------------------------------------------------
+//  9.5
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating", gte(l_rate)).
+   inV().
+   inE("e_rated2").
+   has("rating", gte(l_rate)).
+      //
+   outV().
+   has("user_id", neq(l_user)).
+   dedup().
+   count()
+
+//  599
+-------------------------------------------------
+
+
+//  Step 4: Same as above, data view
+-------------------------------------------------
+//  9.6
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating", gte(l_rate)).
+   inV().
+   inE("e_rated2").
+   has("rating", gte(l_rate)).
+      //
+   outV().
+   has("user_id", neq(l_user)).
+   dedup().
+   limit(5).
+   valueMap(true)
+
+// { "id": "v_user2:u1027#65", "label": "v_user2", "gender": [ "F" ], "user_id": [ "u1027" ], "age": [ "22" ] },
+// { "id": "v_user2:u106#14" , "label": "v_user2", "gender": [ "F" ], "user_id": [ "u106"  ], "age": [ "14" ] },
+// { "id": "v_user2:u168#22" , "label": "v_user2", "gender": [ "M" ], "user_id": [ "u168"  ], "age": [ "15" ] },
+// { "id": "v_user2:u19#77"  , "label": "v_user2", "gender": [ "F" ], "user_id": [ "u19"   ], "age": [ "13" ] },
+// { "id": "v_user2:u2#19"   , "label": "v_user2", "gender": [ "M" ], "user_id": [ "u2"    ], "age": [ "12" ] }
+//      ...
+-------------------------------------------------
+
+
+//  Step 5: Other user likes the same movie as
+//     target user (n) or more times
+-------------------------------------------------
+//  9.7
+
+def l_user  = "u1"
+def l_rate  = 8
+def l_count = 5
+   //
+g.withSack(1, sum).
+   V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating", gte(l_rate)).
+   inV().
+   inE("e_rated2").
+   has("rating", gte(l_rate)).
+      //
+   outV().
+   filter(
+      sack().is(gte(l_count)).
+      and().
+      has("user_id", neq(l_user))
+   ).
+   dedup().
+   valueMap(true)
+
+// { "id": "v_user2:u156#69", "label": "v_user2", "gender": [ "F" ], "user_id": [ "u156" ], "age": [ "15" ] },
+// { "id": "v_user2:u119#78", "label": "v_user2", "gender": [ "M" ], "user_id": [ "u119" ], "age": [ "17" ] },
+// { "id": "v_user2:u13#17",  "label": "v_user2", "gender": [ "M" ], "user_id": [ "u13"  ], "age": [ "14" ] },
+// { "id": "v_user2:u143#65", "label": "v_user2", "gender": [ "F" ], "user_id": [ "u143" ], "age": [ "17" ] },
+// { "id": "v_user2:u4#67",   "label": "v_user2", "gender": [ "F" ], "user_id": [ "u4"   ], "age": [ "16" ] },
+// { "id": "v_user2:u85#22",  "label": "v_user2", "gender": [ "M" ], "user_id": [ "u85"  ], "age": [ "13" ] }
+-------------------------------------------------
+
+
+   
+
+https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/traversal/refTravSideEffect.html
+https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/reference/traversal/refTravAggregate.html
+-------------------------------------------------
+// %md
+
+### Staying in KV
+
+### sideEffect(), and where(without())
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.1
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   count()
+
+//  32
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.2
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating",lt(l_rate)).
+   count()
+
+//  17
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.3
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   outE("e_rated2").
+   has("rating",gte(l_rate)).
+   count()
+
+//  15
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.4
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   sideEffect(
+      outE("e_rated2").
+      has("rating",lt(l_rate)).
+      aggregate("a")
+      ).
+   outE("e_rated2").
+   count()
+
+//  32
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.5
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   sideEffect(
+      outE("e_rated2").
+      has("rating",lt(l_rate)).
+      aggregate("a")
+      ).
+   outE("e_rated2").
+   where(without("a")).
+   count()
+
+//  15
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  10.6
+
+def l_user = "u1"
+def l_rate = 8
+   //
+g.V().has("v_user2", "user_id", l_user).
+   sideEffect(
+      outE("e_rated2").
+      has("rating",lt(l_rate)).
+      aggregate("a")
+      ).
+   outE("e_rated2").
+   where(without("a")).
+   valueMap(true)
+
+// { "id": "v_user2:u1#16->e_rated2#10->v_movie2:m102#07", "label": "e_rated2", "rating": "8"  },
+// { "id": "v_user2:u1#16->e_rated2#10->v_movie2:m111#05", "label": "e_rated2", "rating": "10" },
+// { "id": "v_user2:u1#16->e_rated2#10->v_movie2:m160#03", "label": "e_rated2", "rating": "8"  },
+// { "id": "v_user2:u1#16->e_rated2#10->v_movie2:m223#07", "label": "e_rated2", "rating": "8"  },
+// { "id": "v_user2:u1#16->e_rated2#10->v_movie2:m28#62",  "label": "e_rated2", "rating": "9"  },
+//   ...
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+// %md
+
+### Final assembly
+-------------------------------------------------
+
+
+-------------------------------------------------
+//  11.1
+
+def l_user  = "u1"
+def l_conn  = 2
+def l_rate  = 8
+
+g.withSack(1,sum).
+   V().
+   has("v_user2", "user_id", l_user).
+   sideEffect(
+      out("e_rated2").
+      aggregate("se_movieSeenByUser")
+      ).
+   both("e_knows2").
+   filter(
+      outE("e_rated2").
+      has("rating",gte(l_rate)).
+      inV().
+      inE("e_rated2").
+      has("rating",gte(l_rate)).
+      outV().
+      filter(
+         has("user_id", l_user).
+         and().
+         sack().is(gte(l_conn)))
+  ).    
+  outE("e_rated2").
+  has("rating", gte(l_rate)).
+  inV().
+  dedup().
+  where(
+     without("se_movieSeenByUser")
+     ).
+  order().
+     by(
+        inE("e_rated2").
+        values("rating").
+        mean(),
+        decr).
+   limit(5).
+   valueMap("movie_id", "title", "year")
+
+// { "movie_id": [ "m278" ], "title": [ "The Simpsons (TV Series)" ], "year": [ "1989" ] },
+// { "movie_id": [ "m274" ], "title": [ "One Flew Over the Cuckoos Nest" ], "year": [ "1975" ] },
+// { "movie_id": [ "m13" ], "title": [ "The Pianist" ], "year": [ "2002" ] }, 
+// { "movie_id": [ "m163" ], "title": [ "The Good', ' the Bad and the Ugly" ], "year": [ "1966" ] },
+// { "movie_id": [ "m351" ], "title": [ "Forrest Gump" ], "year": [ "1994" ] }
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+
+
+// On the subtopic of 'normalization' ..
+
+// Below requires an index
+-------------------------------------------------
+//  12.1
+
+def l_movie = "m267"
+def l_score = 7
+
+g.V().has("v_movie2", "movie_id", l_movie).
+   out("e_belongs_to2").
+   in("e_belongs_to2").
+   dedup().
+   count()
+
+//  317
+-------------------------------------------------
+
+
+//  Below is not done, no data returned
+-------------------------------------------------
+//  12.2
+
+def l_movie = "m267"
+def l_score = 70
+
+g.V().has("v_movie2", "movie_id", l_movie).
+   as("y1", "r1").
+   out("e_belongs_to2").
+   in("e_belongs_to2").
+   dedup().
+   has("movie_id", neq(l_movie)).
+   as("y2", "r2").
+   filter(
+      math( "sqrt ( (y1 - y2)^2 + (r1 - r2)^2 )" ).
+      by(values("year")).
+      by(values("year")).
+      by(inE("e_rated2").values("rating").mean().math( "ceil (_ * 10)" )).
+      by(inE("e_rated2").values("rating").mean().math( "ceil (_ * 10)" )) // .
+      // is(lte(l_score))
+   )
+-------------------------------------------------
+
+
+
+
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+
+
+From Artem
+
+
+def similarityM3(user, minPositiveRating) { 
+   g.V().has("user","userId",user).
+      outE("rated").
+      has("rating",gte(minPositiveRating)).
+      inV().
+      inE("rated").
+      has("rating",gte(minPositiveRating)).
+      outV().
+      dedup().
+      has("userId",neq(user)).
+      toSet()
+   }
+
+def similarityM5(user, minPositiveRating, commonMovies) { 
+   g.withSack(1,sum).
+   V().
+   has("user","userId",user).
+   both("knows").
+   filter(
+      outE("rated").
+      has("rating",gte(minPositiveRating)).
+      inV().
+      inE("rated").
+      has("rating",gte(minPositiveRating)).
+      outV().
+      filter(
+         has("userId",user).
+         and().
+         sack().is(gte(commonMovies))
+         )
+      ).
+      toSet()
+   }
+
+def watchedMovies(user) {
+   g.V().
+   has("user","userId",user).
+   out("rated").
+   toSet() 
+   }
+
+def recommendM3(user, minPositiveRating) {
+   g.V(similarityM3(user,minPositiveRating)).
+   outE("rated").has("rating",gte(minPositiveRating)).
+   inV().
+   dedup().
+   is(without(watchedMovies(user))).
+   toSet()
+   }
+
+def recommendM5(user, minPositiveRating, commonMovies) {
+   g.V(similarityM5(user,minPositiveRating,commonMovies)).
+   outE("rated").has("rating",gte(minPositiveRating)).
+   inV().
+   dedup().
+   is(without(watchedMovies(user))).
+   toSet()
+   }
+
+
+
+MMMM
+
+
+def m3 = recommendM3("u1", 8)
+
+def m5 = recommendM5("u1", 8, 2)
+
+m3.intersect(m5)
+
+
+MMM
+
+
+def user = "u1"  
+def minPositiveRating = 8 
+def commonMovies = 2
+
+g.withSack(1,sum).V().has("user","userId",user).
+  sideEffect(out("rated").aggregate("watchedMovies")).
+  both("knows").
+  filter(
+    outE("rated").has("rating",gte(minPositiveRating)).inV().
+    inE("rated").has("rating",gte(minPositiveRating)).outV().
+    filter(has("userId",user).and().
+           sack().is(gte(commonMovies)))
+  ).    
+  outE("rated").has("rating",gte(minPositiveRating)).
+  inV().
+  dedup().
+  where(without("watchedMovies"))
+
+
+MMM
+
+
+def user = "u1"  
+def minPositiveRating = 8 
+def commonMovies = 2
+// Number of final recommendations
+def numRecommendations = 10
+
+def rs1 = 
+g.withSack(1,sum).V().has("user","userId",user).
+  sideEffect(out("rated").aggregate("watchedMovies")).
+  both("knows").
+  filter(
+    outE("rated").has("rating",gte(minPositiveRating)).inV().
+    inE("rated").has("rating",gte(minPositiveRating)).outV().
+    filter(has("userId",user).and().
+           sack().is(gte(commonMovies)))
+  ).    
+  outE("rated").has("rating",gte(minPositiveRating)).
+  inV().
+  dedup().
+  where(without("watchedMovies")).
+  // Ordering by a movie average rating
+  order().by(inE("rated").values("rating").mean(),decr).
+  limit(numRecommendations).
+  toList()
+
+
+MMM
+
+
