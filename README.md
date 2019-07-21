@@ -15,7 +15,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >functional areas within DataStax Enterprise (DSE). DSE Analytics can deliver a ‘content-based’ product 
 >recommendation (aka, product-product). DSE Graph can deliver a ‘collaborative-based’ product recommendation 
 >engine (aka, user-user). Both DSE Analytics and DSE Graph use DSE Core as their storage engine, and DSE 
->Search as their advancedc index engine; a full integration, not just a connector.
+>Search as their advanced index engine; a full integration, not just a connector.
 >
 >In this edition of this document we’ll detail all of the code needed to deliver the above, and include 
 >data. We’ll also use this edition of this document to provide a Graph query primer (Gremlin language 
