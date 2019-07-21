@@ -23,6 +23,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
 >
+>[Video recording]()
 >
 >[PowerPoint](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
 >
