@@ -21,15 +21,15 @@ This is a personal blog where we answer one or more questions each month from Da
 >data. We’ll also use this edition of this document to provide a Graph query primer (Gremlin language 
 >primer), and answer the nuanced question of; Why Graph ?
 >
->[Download here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
+>[Download Whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
 >
->[Video recording](https://www.youtube.com/watch?v=15xUt1sZ48U&feature=youtu.be)
+>[PowerPoint (mesaurably more detail than above)](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
 >
->[PowerPoint](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
+>[Video recording of the PPT above](https://www.youtube.com/watch?v=15xUt1sZ48U&feature=youtu.be)
 >
 >[Just Grocery Data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31c_JustGroceryData.tar)
 >
->[All Programming as Txt](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31d_AllCommands.txt)
+>[All Program Code as Txt](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31d_AllCommands.txt)
 >
 >[DataStax KillrVideo demo DB data as Tar](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_31e_KillrVideoDataAsPipe.tar)
 >
