@@ -6,6 +6,33 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 August - -
+>Customer: My company has a number of shortest-path problems, for example; airlines, get me from SFO to 
+>JFK for passenger and freight routing. I understand graph analytics may be a means to solve this problem. 
+>Can you help ?
+>
+>Daniel: Excellent question ! Previously in this document series we have overviewed the topic of graph 
+>databases (June/2019, updated from January/2019). Also, we have deep dived on the topic of product 
+>recommendation engines using Apache Spark (DSE Analytics) machine learning, and also DSE Graph, 
+>performing a compare/contrast of the analytics each environment offers (July/2019).
+>
+>In this edition of this document, we will address graph analytics, shortest path. While we previously 
+overviewed graph, we’ve never detailed the graph query language titled, Apache Gremlin. Gremlin is a 
+>large topic, way larger and more capable than SQL SELECT. Thus, we will, in this document, begin a 
+>series of at least 3 articles, they being;
+>
+>  • Setup a DSE (Graph) version 6.8, Python client for both OLTP and O L A P.
+>
+>  • Deliver the shortest path solution using DSE Graph with a Python Web client user interface.
+>
+>  • Deliver a part-1 primer on Apache Gremlin, so that you may better understand the query (Gremlin 
+>traversal) used to calculate shortest path.
+>
+>[Download Whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_32_Python68Client.pdf)
+>
+>[Application program code](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_32_Python68Client.py)
+
+
 2019 July - -
 >Customer: I'm confused. I saw a presentation at the 2019 DataStax world conference (Accelerate 2019), 
 >detailing how to deliver a product recommendation engine using DSE Graph. I've also seen DSE articles 
