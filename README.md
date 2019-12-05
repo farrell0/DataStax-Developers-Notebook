@@ -21,12 +21,13 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >large topic, way larger and more capable than SQL SELECT. Thus, we will, in this document, begin a 
 >series of at least 3 articles, they being;
 >
->  • Setup a DSE (Graph) version 6.8, Python client for both OLTP and O L A P.
+>  • Setup a DSE (Graph) version 6.8, Python client for both OLTP and OLAP. (This document)
 >
 >  • Deliver the shortest path solution using DSE Graph with a Python Web client user interface.
 >
 >  • Deliver a part-1 primer on Apache Gremlin, so that you may better understand the query (Gremlin 
 >traversal) used to calculate shortest path.
+>
 >
 >[Download Whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_32_Python68Client.pdf)
 >
