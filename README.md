@@ -23,7 +23,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >[Download Whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_33_ShortestPoint.pdf)
 >
->[Download source code here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_33_ShortestPoint.tar)
+>[Application program code](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_33_ShortestPoint.tar)
 
 
 2019 August - -
