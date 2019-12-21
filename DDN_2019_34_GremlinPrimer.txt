@@ -1,0 +1,3064 @@
+
+
+
+
+//  Need to cover this subject at some time
+//
+// .with('~allow-filtering' )     
+//    to allow filtering. This may have
+//    performance implications.
+// .with('~ignore-unindexed')    
+//    to ignore unindexed traversal. 
+//    Your results may be incomplete.
+
+//  Also need to cover,
+//
+//     .  match()
+//     .  anonymous traversals
+//     .  coalesce()
+
+//  Also need to cover,
+//
+// g.V()
+//    .hasLabel("grid_square")
+//    .map{it.get().value("row")}
+// 
+// org.apache.tinkerpop.gremlin.process.traversal.strategy.
+//    verification.VerificationException: The provided 
+//    traversal contains a lambda step: LambdaMapStep(lambda)
+
+
+
+
+// Hello world
+//
+// Filter steps; hasLabel(), has()
+// Reducing barrier steps; count()
+// Traversal steps; out(), outE()
+
+// Just fyi, no walls, 5x5 grid
+//     4 squares have 2 conns    (corner squares)
+//     9 squares have 4 conns    (middle squares)
+//    12 squares have 3 conns    (side wall squares)
+// 
+//    Equals 80 total
+
+-----------------------------------------
+
+// 4.1   "java.lang.Long"
+g.V()
+   .hasLabel("grid_square")
+   .count()
+// 25
+
+// 4.2   "java.lang.Long"
+g.E()
+   .hasLabel("connects_to")
+   .count()
+// 60
+
+// 4.3   "java.lang.Long"
+g.V()
+   .hasLabel("grid_square")
+   .out("connects_to)
+   .count()
+// 60
+
+// 4.4   "java.lang.Long"
+g.V()
+   .hasLabel("grid_square")
+   .outE("connects_to")
+   .count()
+// 60
+
+-----------------------------------------
+
+
+
+
+// Value steps, part 1
+//    Aka, 'attribute retrieval' steps
+//
+// Value steps; values(), valueMap()
+-----------------------------------------
+
+// 5.1   "org.apache.tinkerpop.gremlin.structure.util.reference.ReferenceVertex"
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 3)
+// g.V()
+//    .has("grid_square", "col", 3)
+
+// .next()
+// .getClass()
+
+// {
+//   "id": "dseg:/grid_square/x1%2C3",
+//   "label": "grid_square",
+//   "type": "vertex",
+//   "properties": {}
+// },
+// {
+//   "id": "dseg:/grid_square/x2%2C3",
+//   "label": "grid_square",
+//   "type": "vertex",
+//   "properties": {}
+// },
+// {
+//   "id": "dseg:/grid_square/x3%2C3",
+//   "label": "grid_square",
+//   "type": "vertex",
+//   "properties": {}
+// },
+// {
+//   "id": "dseg:/grid_square/x4%2C3",
+//   "label": "grid_square",
+//   "type": "vertex",
+//   "properties": {}
+// },
+// {
+//   "id": "dseg:/grid_square/x5%2C3",
+//   "label": "grid_square",
+//   "type": "vertex",
+//   "properties": {}
+// }
+
+
+// 5.2   "java.lang.Integer"
+g.V()
+   .has("grid_square", "col", 3)
+   .values()
+
+// "3",
+// "Pizza Hut",
+// "x1,3",
+// "POINT (1 3)",
+// "1",
+// "3",
+// "XXXXXXXX",
+// "x2,3",
+// "POINT (2 3)",
+// "2",
+// "3",
+// "XXXXXXXX",
+// "x3,3",
+// "POINT (3 3)",
+// "3",
+// "3",
+// "XXXXXXXX",
+// "x4,3",
+// "POINT (4 3)",
+// "4",
+// "3",
+// "XXXXXXXX",
+// "x5,3",
+// "POINT (5 3)",
+// "5"
+
+
+// 5.3   "java.util.LinkedHashMap"
+g.V()
+   .has("grid_square", "col", 3)
+   .valueMap()
+
+// {
+//   "col": "3",
+//   "other_col": "Pizza Hut",
+//   "square_id": "x1,3",
+//   "latlon_col": "POINT (1 3)",
+//   "row": "1"
+// },
+// {
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x2,3",
+//   "latlon_col": "POINT (2 3)",
+//   "row": "2"
+// },
+// {
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x3,3",
+//   "latlon_col": "POINT (3 3)",
+//   "row": "3"
+// },
+// {
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x4,3",
+//   "latlon_col": "POINT (4 3)",
+//   "row": "4"
+// },
+// {
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x5,3",
+//   "latlon_col": "POINT (5 3)",
+//   "row": "5"
+// }
+
+
+// 5.4   "java.util.LinkedHashMap"
+g.V()
+   .has("grid_square", "col", 3)
+   .valueMap(true)
+
+// {
+//   "id": "dseg:/grid_square/x1%2C3",
+//   "label": "grid_square",
+//   "col": "3",
+//   "other_col": "Pizza Hut",
+//   "square_id": "x1,3",
+//   "latlon_col": "POINT (1 3)",
+//   "row": "1"
+// },
+// {
+//   "id": "dseg:/grid_square/x2%2C3",
+//   "label": "grid_square",
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x2,3",
+//   "latlon_col": "POINT (2 3)",
+//   "row": "2"
+// },
+// {
+//   "id": "dseg:/grid_square/x3%2C3",
+//   "label": "grid_square",
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x3,3",
+//   "latlon_col": "POINT (3 3)",
+//   "row": "3"
+// },
+// {
+//   "id": "dseg:/grid_square/x4%2C3",
+//   "label": "grid_square",
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x4,3",
+//   "latlon_col": "POINT (4 3)",
+//   "row": "4"
+// },
+// {
+//   "id": "dseg:/grid_square/x5%2C3",
+//   "label": "grid_square",
+//   "col": "3",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x5,3",
+//   "latlon_col": "POINT (5 3)",
+//   "row": "5"
+// }
+
+
+// 5.5   "java.util.LinkedHashMap"
+g.V()
+   .has("grid_square", "col", 3)
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x2,3",
+//   "row": "2",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x3,3",
+//   "row": "3",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x4,3",
+//   "row": "4",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x5,3",
+//   "row": "5",
+//   "col": "3"
+// }
+
+
+// 5.6   "java.util.LinkedHashMap"
+g.V()
+   .has("grid_square", "col", 3)
+   .project("square_id")
+      .by("square_id")
+
+// {
+//   "square_id": "x1,3"
+// },
+// {
+//   "square_id": "x2,3"
+// },
+// {
+//   "square_id": "x3,3"
+// },
+// {
+//   "square_id": "x4,3"
+// },
+// {
+//   "square_id": "x5,3"
+// }
+
+
+// 5.7   "java.util.LinkedHashMap"
+g.V()
+   .has("grid_square", "col", 3)
+   .project("square_id", 'col_id')                //  notice col_id is made up
+      .by("square_id")
+      .by(identity())
+
+// {
+//   "square_id": "x1,3",
+//   "col_id": {
+//     "id": "dseg:/grid_square/x1%2C3",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "square_id": "x2,3",
+//   "col_id": {
+//     "id": "dseg:/grid_square/x2%2C3",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "square_id": "x3,3",
+//   "col_id": {
+//     "id": "dseg:/grid_square/x3%2C3",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "square_id": "x4,3",
+//   "col_id": {
+//     "id": "dseg:/grid_square/x4%2C3",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "square_id": "x5,3",
+//   "col_id": {
+//     "id": "dseg:/grid_square/x5%2C3",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// }
+
+
+// 5.8   "org.apache.tinkerpop.gremlin.structure.util.reference.ReferenceEdge"
+g.V()
+   .hasLabel("grid_square")
+   .outE("connects_to")
+
+// {
+//   "id": "dseg:/grid_square-connects_to-grid_square/x4%2C3/x4%2C4",
+//   "label": "connects_to",
+//   "type": "edge",
+//   "inVLabel": "grid_square",
+//   "outVLabel": "grid_square",
+//   "inV": "dseg:/grid_square/x4%2C4",
+//   "outV": "dseg:/grid_square/x4%2C3"
+// },
+// {
+//   "id": "dseg:/grid_square-connects_to-grid_square/x4%2C3/x5%2C3",
+//   "label": "connects_to",
+//   "type": "edge",
+//   "inVLabel": "grid_square",
+//   "outVLabel": "grid_square",
+//   "inV": "dseg:/grid_square/x5%2C3",
+//   "outV": "dseg:/grid_square/x4%2C3"
+// },
+//      ... lines deleted
+
+-----------------------------------------
+
+
+
+
+// By default, there is no (tail)
+//
+// Filter steps; dedup()
+// Value steps; project(), select()
+-----------------------------------------
+
+// 6.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x2,4")
+   .out("connects_to")
+   .out("connects_to")
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// }
+
+
+g.V()
+   .has("grid_square", "square_id", "x2,4")
+   .out("connects_to")
+   .out("connects_to")
+   .dedup()
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// }
+
+
+g.V()
+   .has("grid_square", "square_id", "x2,4")
+   .out("connects_to")
+   .out("connects_to")
+   .dedup()
+      .by("square_id")                         // also, .by(values("square_id"))
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// }
+
+
+g.V()
+   .has("grid_square", "square_id", "x2,4")
+   .out("connects_to")
+   .out("connects_to")
+   .dedup()
+      .by(values("square_id", "row"))
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// }
+
+
+// 6.2 "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x2,4").as("v1")
+   .out("connects_to").as("v2")
+   .out("connects_to").as("v3")
+   .project("v1-c1", "x1-c2", "v2-c1", "v3-c1")
+      .by(select("v1").values("square_id"))
+      .by(select("v1").values("row"))
+      .by(select("v2").values("square_id"))
+      .by(select("v3").values("square_id"))
+// .dedup()
+
+//  Above; dedup() not required, but will function
+
+// {
+//   "v1-c1": "x2,4",
+//   "x1-c2": "2",
+//   "v2-c1": "x2,5",
+//   "v3-c1": "x1,5"
+// },
+// {
+//   "v1-c1": "x2,4",
+//   "x1-c2": "2",
+//   "v2-c1": "x2,5",
+//   "v3-c1": "x2,4"
+// },
+// {
+//   "v1-c1": "x2,4",
+//   "x1-c2": "2",
+//   "v2-c1": "x1,4",
+//   "v3-c1": "x1,3"
+// },
+// {
+//   "v1-c1": "x2,4",
+//   "x1-c2": "2",
+//   "v2-c1": "x1,4",
+//   "v3-c1": "x1,5"
+// },
+// {
+//   "v1-c1": "x2,4",
+//   "x1-c2": "2",
+//   "v2-c1": "x1,4",
+//   "v3-c1": "x2,4"
+// }
+
+
+// 6.3   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "col", 3)
+   .as("a")
+   .project("my_current", "my_neighbors")
+      .by(select("a").valueMap("square_id", "row", "col"))
+      .by(__.in().fold())
+
+// {
+//   "my_current": {
+//     "square_id": "x1,3",
+//     "row": "1",
+//     "col": "3"
+//   },
+//   "my_neighbors": [
+//     {
+//       "id": "dseg:/grid_square/x1%2C2",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     },
+//     {
+//       "id": "dseg:/grid_square/x1%2C4",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     }
+//   ]
+// },
+// {
+//   "my_current": {
+//     "square_id": "x2,3",
+//     "row": "2",
+//     "col": "3"
+//   },
+//   "my_neighbors": []
+// },
+// {
+//   "my_current": {
+//     "square_id": "x3,3",
+//     "row": "3",
+//     "col": "3"
+//   },
+//   "my_neighbors": [
+//     {
+//       "id": "dseg:/grid_square/x3%2C2",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     },
+//     {
+//       "id": "dseg:/grid_square/x3%2C4",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     }
+//   ]
+// },
+// {
+//   "my_current": {
+//     "square_id": "x4,3",
+//     "row": "4",
+//     "col": "3"
+//   },
+//   "my_neighbors": [
+//     {
+//       "id": "dseg:/grid_square/x4%2C4",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     },
+//     {
+//       "id": "dseg:/grid_square/x5%2C3",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     }
+//   ]
+// },
+// {
+//   "my_current": {
+//     "square_id": "x5,3",
+//     "row": "5",
+//     "col": "3"
+//   },
+//   "my_neighbors": [
+//     {
+//       "id": "dseg:/grid_square/x4%2C3",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     },
+//     {
+//       "id": "dseg:/grid_square/x5%2C4",
+//       "label": "grid_square",
+//       "type": "vertex",
+//       "properties": {}
+//     }
+//   ]
+// }
+
+-----------------------------------------
+
+
+//  Below will not work, syntax error-
+//     The project() produces a hash map, and you can not
+//     by() an element at this point
+//
+// g.V()
+//    .has("grid_square", "square_id", "x2,4").as("v1")
+//    .out().as("v2")
+//    .out().as("v3")
+//    .project("v1-c1", "x1-c2", "v2-c1", "v3-c1")
+//       .by(select("v1").values("square_id"))
+//       .by(select("v1").values("row"))
+//       .by(select("v2").values("square_id"))
+//       .by(select("v3").values("square_id"))
+//    .dedup()
+//       .by("square_id")
+
+//  Below (example only), dedup() as shown will remove
+//  duplicate path histories 
+//
+// g.V().as('a')
+//    .out('created').as('b')
+//    .in('created').as('c')
+//    .dedup('a','b')
+//    .select('a','b','c')
+
+//  project(), current traverser state
+//  select(), historic traverser state, works with a previous as()
+//
+//  select() is partnered with as()
+//  project()
+//     can derive values, including those from traversal
+//     can also embed a select(),  Ie.,
+//        project( ..
+//           .by(select ..
+//     example,  id, count()  maybe min()
+
+
+
+
+
+
+
+
+//  Predicates,
+//     http://tinkerpop.apache.org/docs/3.4.4/reference/#a-note-on-predicates
+//
+//  has(), vertex and edge properties
+//  where(), object itself, or path, used with select() or match()
+// 
+//     ( filter(), a general step )
+
+// SQL to Gremlin
+//
+// Filter steps; limit()                    // similar to range()
+// Barrier steps; order()
+-----------------------------------------
+
+// 7.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "col", between(2, 4))    // >=  then  <
+   .has("row", 4)
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x4,2",
+//   "row": "4",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x4,3",
+//   "row": "4",
+//   "col": "3"
+// }
+
+
+// 7.2   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .order()
+      .by("row", decr)                      // asc
+      .by("col", decr)
+   .limit(6)
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x5,5",
+//   "row": "5",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x5,4",
+//   "row": "5",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x5,3",
+//   "row": "5",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x5,2",
+//   "row": "5",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x5,1",
+//   "row": "5",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x4,5",
+//   "row": "4",
+//   "col": "5"
+// }
+
+
+// 7.3   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .groupCount()
+      .by("row")
+   .project("my_k", "my_v")
+      .by(keys)
+      .by(values)
+
+// {
+//   "my_k": [
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5"
+//   ],
+//   "my_v": [
+//     "5",
+//     "5",
+//     "5",
+//     "5",
+//     "5"
+//   ]
+// }
+
+
+// 7.4   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .group()     
+      .by("row")                                           //  called the grouping axis
+      .by(values("col").count())      // min(), ..         //  called the projection axis 
+   .project("my_k", "my_v")
+      .by(keys)
+      .by(values)
+
+// {
+//   "my_k": [
+//     "1",
+//     "2",
+//     "3",
+//     "4",
+//     "5"
+//   ],
+//   "my_v": [
+//     "5",
+//     "5",
+//     "5",
+//     "5",
+//     "5"
+//   ]
+// }
+
+            -----------------------------
+
+
+// 7.5   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .and(
+      has("square_id", without("x2,2", "x2,3", "x2,4", 
+         "x3,2", "x3,3", "x3,4", "x4,3", "x4,4")),
+      has("row", neq(5))
+      )
+   .valueMap("square_id", "row", "col")
+
+
+// 7.6   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .and(
+      has("square_id", without("x2,2", "x2,3", "x2,4", 
+         "x3,2", "x3,3", "x3,4", "x4,3", "x4,4")),
+      has("row", neq(5))
+      )
+   .group()
+      .by("row")
+      .by(values("col").count()) 
+   .order(local)
+      .by(values, desc)
+
+// {
+//   "square_id": "x1,1",
+//   "row": "1",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x1,2",
+//   "row": "1",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x1,3",
+//   "row": "1",
+//   "col": "3"
+// },
+// {
+//   "square_id": "x1,4",
+//   "row": "1",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x1,5",
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x2,1",
+//   "row": "2",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x2,5",
+//   "row": "2",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x3,1",
+//   "row": "3",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x3,5",
+//   "row": "3",
+//   "col": "5"
+// },
+// {
+//   "square_id": "x4,1",
+//   "row": "4",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x4,2",
+//   "row": "4",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x4,5",
+//   "row": "4",
+//   "col": "5"
+// }
+
+
+//  Why local above ..
+//
+//     .  The group() returns a "java.util.HashMap", a single object,
+//        so order() on that object does not work as you wish. The 
+//        'local' calls to drill down/into the object.
+//
+//     .  Would be the same as (unfolding) the group object first, then
+//        ordering. See below ..
+
+      g.V()
+         .hasLabel("grid_square")
+         .and(
+            has("square_id", without("x2,2", "x2,3", "x2,4", 
+               "x3,2", "x3,3", "x3,4", "x4,3", "x4,4")),
+            has("row", neq(5))
+            )
+         .group()
+            .by("row")
+            .by(values("col").count()) 
+         .unfold()
+         .order()
+            .by(values, desc)
+
+
+            -----------------------------
+
+// 7.7 
+
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 4)
+   .order()
+      .by(__.in("connects_to").count(), decr)
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x4,4",
+//   "row": "4",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x1,4",
+//   "row": "1",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x3,4",
+//   "row": "3",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x5,4",
+//   "row": "5",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// }
+
+
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 4)
+   .order()
+      .by(__.in("connects_to").count(), decr)
+   .project("col1", "col2", "col3", "col4")
+      .by("square_id")
+      .by("row")
+      .by("col")
+      .by(__.in("connects_to").count())
+
+// {
+//   "col1": "x4,4",
+//   "col2": "4",
+//   "col3": "4",
+//   "col4": "4"
+// },
+// {
+//   "col1": "x1,4",
+//   "col2": "1",
+//   "col3": "4",
+//   "col4": "3"
+// },
+// {
+//   "col1": "x3,4",
+//   "col2": "3",
+//   "col3": "4",
+//   "col4": "3"
+// },
+// {
+//   "col1": "x5,4",
+//   "col2": "5",
+//   "col3": "4",
+//   "col4": "3"
+// },
+// {
+//   "col1": "x2,4",
+//   "col2": "2",
+//   "col3": "4",
+//   "col4": "2"
+// }
+
+            -----------------------------
+
+
+// 7.8   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .and(
+      has("square_id", without("x2,2", "x2,3", "x2,4",
+         "x3,2", "x3,3", "x3,4", "x4,3", "x4,4")),
+      has("row", neq(5))
+      )
+   .group()
+      .by("row")
+      .by(values("col").count())
+   .order(local)
+      .by(values, desc)
+   .limit(local, 2)
+
+// {
+//   "1": "5",
+//   "4": "3"
+// }
+
+//  Why the second local ?  Same as above; objects ..
+
+      g.V()
+         .hasLabel("grid_square")
+         .and(
+            has("square_id", without("x2,2", "x2,3", "x2,4",
+               "x3,2", "x3,3", "x3,4", "x4,3", "x4,4")),
+            has("row", neq(5))
+            )
+         .group()
+            .by("row")
+            .by(values("col").count())
+         .order(local)
+            .by(values, desc)
+         .unfold()
+         .limit(2)
+
+
+//  What would,  groupCount().count()            output ?
+//  What would,  groupCount().unfold().count()   output ?
+
+
+            -----------------------------
+
+
+// 7.9   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .has("row", 2)
+   .project("my_sq", "my_joiningSqs")
+      .by("square_id")
+      .by(out().valueMap("square_id").fold())
+
+// { "my_sq": "x2,1", "my_joiningSqs": [ "x1,1", "x2,2", "x3,1" ] },
+// { "my_sq": "x2,2", "my_joiningSqs": [ "x1,2", "x2,1" ] },
+// { "my_sq": "x2,3", "my_joiningSqs": [] },
+// { "my_sq": "x2,4", "my_joiningSqs": [ "x1,4", "x2,5" ] },
+// { "my_sq": "x2,5", "my_joiningSqs": [ "x1,5", "x2,4" ] }
+
+// Below, just different
+//
+// Since the col pair makes for uniq values, the fold()
+//   does little
+//
+// g.V()
+//    .hasLabel("grid_square")
+//    .has("row", 2)
+//    .project("my_sq", "my_joiningSqs")
+//       .by("square_id")
+//       .by(out().valueMap("square_id", "col").fold())
+
+
+
+
+// 7.10   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .union(
+      has("row", 2),
+      has("col", 5)
+   )
+   .dedup()                        //  wrong results without dedup()
+   .order()                        //     Jira created, completed
+      .by("row", asc) 
+      .by("col", asc)
+   .valueMap("row", "col")
+
+// {
+//   "row": "1",
+//   "col": "5"
+// },
+// {
+//   "row": "2",
+//   "col": "1"
+// },
+// {
+//   "row": "2",
+//   "col": "2"
+// },
+// {
+//   "row": "2",
+//   "col": "3"
+// },
+// {
+//   "row": "2",
+//   "col": "4"
+// },
+// {
+//   "row": "2",
+//   "col": "5"
+// },
+// {
+//   "row": "3",
+//   "col": "5"
+// },
+// {
+//   "row": "4",
+//   "col": "5"
+// },
+// {
+//   "row": "5",
+//   "col": "5"
+// }
+
+
+// 7.11   "java.lang.String"
+
+g.V()
+   .hasLabel("grid_square")
+   .values("square_id")
+   .union(
+      max(),
+      min()
+   )
+
+// "x5,5",
+// "x1,1"
+
+
+// 7.12   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .group()
+      .by(label)
+   .unfold()
+   .project("my_key", "my_max", "my_min")
+      .by(keys)
+      .by(select(values).unfold().values("square_id").max())
+      .by(select(values).unfold().values("square_id").min())
+
+// {
+//   "my_key": "grid_square",
+//   "my_max": "x5,5",
+//   "my_min": "x1,1"
+// }
+
+
+// 7.13   "java.util.LinkedHashMap"
+
+g.V()
+   .hasLabel("grid_square")
+   .group()
+      .by("row")
+   .unfold()
+   .project("my_row", "my_max", "my_min")
+      .by(select(values).unfold().values("row"))
+      .by(select(values).unfold().values("square_id").max())
+      .by(select(values).unfold().values("square_id").min())
+
+// {
+//   "my_row": "1",
+//   "my_max": "x1,5",
+//   "my_min": "x1,1"
+// },
+// {
+//   "my_row": "2",
+//   "my_max": "x2,5",
+//   "my_min": "x2,1"
+// },
+// {
+//   "my_row": "3",
+//   "my_max": "x3,5",
+//   "my_min": "x3,1"
+// },
+// {
+//   "my_row": "4",
+//   "my_max": "x4,5",
+//   "my_min": "x4,1"
+// },
+// {
+//   "my_row": "5",
+//   "my_max": "x5,5",
+//   "my_min": "x5,1"
+// }
+
+
+// 7.14  Filter on a derived value
+//
+//   "java.util.LinkedHashMap"
+
+//  SELECT
+//     grid_square as my_sqaure_id, 
+//     col as my_col, 
+//     COUNT(*) as my_cnt
+//  FROM
+//     grid_square t1, 
+//     connects_to t2
+//  WHERE
+//     t1.square_id = t2.square_id_src
+//  AND
+//     t1.row = 2
+//  GROUP BY 
+//     square_id
+//  HAVING COUNT(*) >= 2;
+
+g.V()
+   .has("grid_square", "row", 2)
+   .project("my_square_id", "my_col", "my_cnt")
+      .by(values("square_id"))
+      .by(values("col"))
+      .by(out("connects_to").count())       //  Or,  outE()
+
+g.V()
+   .has("grid_square", "row", 2)
+   .project("my_square_id", "my_col", "my_cnt")
+      .by(values("square_id"))
+      .by(values("col"))
+      .by(outE("connects_to").count())
+   .where(select("my_cnt").is(gte(2)))
+
+// {
+//   "my_square_id": "x2,1",
+//   "my_col": "1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x2,2",
+//   "my_col": "2",
+//   "my_cnt": "2"
+// },
+// {
+//   "my_square_id": "x2,4",
+//   "my_col": "4",
+//   "my_cnt": "2"
+// },
+// {
+//   "my_square_id": "x2,5",
+//   "my_col": "5",
+//   "my_cnt": "2"
+// }
+
+
+// 7.15  Filter on a derived value, also inner select
+
+//  First, just the inner traversal
+
+//   "java.util.HashMap"
+g.V()
+   .hasLabel("grid_square")
+   .in()                                              // Does not return the zero connected square 
+   .groupCount()                                      //   so use the one below
+      .by("square_id")
+
+//   "java.util.HashMap"
+g.V()
+   .hasLabel("grid_square")
+   .project("my_square_id", "my_cnt")
+      .by(values("square_id"))
+      .by(outE().count())
+
+
+//   "java.util.HashMap"
+g.V()
+   .hasLabel("grid_square")
+   .project("my_cnt")
+      .by(outE().count())
+
+// { "my_cnt": "3" },
+// { "my_cnt": "0" },
+//      ...
+
+//   "java.lang.Double"
+g.V()
+   .hasLabel("grid_square")
+   .project("my_cnt")
+      .by(outE("connects_to").count())
+   .as("my_avg")
+   .select("my_avg")
+      .by(values)
+   .unfold()
+   .mean()
+   .next()                                        //  Need to add this
+
+//  Alternate to the above
+g.V()
+   .hasLabel("grid_square")
+   .local(
+      outE("connects_to").count()
+   )
+   .mean()
+   .next()                                        //  Need to add this
+//  2.4
+
+
+//  Second, the outer traversal
+
+g.V()
+   .hasLabel("grid_square")
+   .project("my_square_id", "my_cnt")
+      .by(values("square_id"))
+      .by(outE("connects_to").count())
+   .where(select("my_cnt").is(gte(
+      2.4
+   )))
+
+// {
+//   "my_square_id": "x4,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,4",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x2,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,5",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,4",
+//   "my_cnt": "4"
+// },
+// {
+//   "my_square_id": "x1,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x5,4",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x1,4",
+//   "my_cnt": "3"
+// }
+
+
+g.V()
+   .hasLabel("grid_square")
+   .project("my_square_id", "my_cnt")
+      .by(values("square_id"))
+      .by(outE("connects_to").count())
+   .where(select("my_cnt").is(gte(
+
+      g.V()
+         .hasLabel("grid_square")              //  Embedded, this runs many times even
+         .project("my_cnt")                    //     though it is deterministic; Eg.,
+            .by(outE("connects_to").count())   //     not optimal
+         .as("my_avg")
+         .select("my_avg")
+            .by(values)
+         .unfold()
+         .mean()
+         .next()
+
+   )))
+
+// {
+//   "my_square_id": "x4,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,4",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x2,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x3,1",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,5",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x4,4",
+//   "my_cnt": "4"
+// },
+// {
+//   "my_square_id": "x1,2",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x5,4",
+//   "my_cnt": "3"
+// },
+// {
+//   "my_square_id": "x1,4",
+//   "my_cnt": "3"
+// }
+   
+
+// 7.16  Better method to above
+
+def l_avg = g.V()
+   .hasLabel("grid_square")
+   .project("my_cnt")
+      .by(outE().count())
+   .as("my_avg")
+   .select("my_avg")
+      .by(values)
+   .unfold()
+   .mean()
+   .next()                                        //  Need to add this
+
+g.V()
+   .hasLabel("grid_square")
+   .project("my_square_id", "my_cnt")
+      .by(values("square_id"))
+      .by(outE().count())
+   .where(select("my_cnt").is(gte(
+      l_avg
+   )))
+
+//  Kuppitz
+
+g.V().hasLabel("grid_square")
+   .group()
+      .by(outE("connects_to").count()).as("g")
+   .select(keys)
+   .mean(local).as("m")
+   .select("g")
+   .unfold()
+   .where(lt("m"))
+      .by(keys)
+      .by()
+   .select(values)
+   .unfold()
+
+
+// 7.17  Intersects and (unions)
+
+g.V()
+   .hasLabel("grid_square") 
+   .sideEffect(
+      has("row", 2)
+      .aggregate("my_r2")
+   )
+   .has("col", 4)
+   .where(within("my_r2"))
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x2,4",
+//   "row": "2",
+//   "col": "4"
+// }
+
+
+g.V()
+   .hasLabel("grid_square") 
+   .sideEffect(
+      has("row", 2)
+      .aggregate("my_r2")
+   )
+   .has("col", 4)
+   .where(without("my_r2"))
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x3,4",
+//   "row": "3",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x4,4",
+//   "row": "4",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x5,4",
+//   "row": "5",
+//   "col": "4"
+// },
+// {
+//   "square_id": "x1,4",
+//   "row": "1",
+//   "col": "4"
+// }
+
+
+// 7.18  (case statement)
+
+g.V().hasLabel("grid_square")
+   .has("col", 1).as("a")
+   .choose(
+      out("connects_to").count().is(gt(2L)),
+      constant("more than 2"),
+      constant("2 or less  ")
+   ).as("b")
+   .select("a","b")
+      .by("square_id")
+      .by()
+
+// {
+//   "a": "x1,1",
+//   "b": "2 or less  "
+// },
+// {
+//   "a": "x2,1",
+//   "b": "more than 2"
+// },
+// {
+//   "a": "x3,1",
+//   "b": "more than 2"
+// },
+// {
+//   "a": "x4,1",
+//   "b": "more than 2"
+// },
+// {
+//   "a": "x5,1",
+//   "b": "2 or less  "
+// }
+
+
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 1)
+   .choose(values('row'))
+      .option(1   , constant("top"   ))
+      .option(5   , constant("bottom"))
+      .option(none, constant("middle"))
+
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 1).as("a")
+   .choose(values('row'))
+      .option(1   , constant("top"   ))
+      .option(5   , constant("bottom"))
+      .option(none, constant("middle"))
+      .as("b")
+   .select("a","b")
+      .by("square_id")
+      .by()
+
+g.V()
+   .hasLabel("grid_square")
+   .has("col", 1).as("a")
+   .choose(values('row'))
+      .option(1   , constant("top"   ))
+      .option(5   , constant("bottom"))
+      .option(none, constant("middle"))
+      .as("b")
+   .project("my_square_id", "my_row", "my_col", "my_label")
+      .by(select("a").values("square_id"))
+      .by(select("a").values("row"))
+      .by(select("a").values("col"))
+      .by()
+
+// {
+//   "my_square_id": "x1,1",
+//   "my_row": "1",
+//   "my_col": "1",
+//   "my_label": "top"
+// },
+// {
+//   "my_square_id": "x2,1",
+//   "my_row": "2",
+//   "my_col": "1",
+//   "my_label": "middle"
+// },
+// {
+//   "my_square_id": "x3,1",
+//   "my_row": "3",
+//   "my_col": "1",
+//   "my_label": "middle"
+// },
+// {
+//   "my_square_id": "x4,1",
+//   "my_row": "4",
+//   "my_col": "1",
+//   "my_label": "middle"
+// },
+// {
+//   "my_square_id": "x5,1",
+//   "my_row": "5",
+//   "my_col": "1",
+//   "my_label": "bottom"
+// }
+
+
+// 7.19  not()    (squares with no connections)
+
+g.V()
+   .hasLabel("grid_square")
+   .not(bothE("connects_to"))
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x2,3",
+//   "row": "2",
+//   "col": "3"
+// }
+
+-----------------------------------------
+
+
+
+
+
+
+
+
+// https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/using/useSearchIndexes.html
+// https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/using/QueryTOC.html
+//
+//    https://docs.datastax.com/en/dse/6.7/dse-dev/datastax_enterprise/graph/using/queryCartesian.html
+
+// Using advanced indexes
+-----------------------------------------
+
+// 8.1
+      
+g.V()
+   .hasLabel("grid_square")
+   .has("square_id", prefix("x2"))
+   .valueMap("square_id", "row", "col", "other_col")
+
+// 8.2
+
+g.V()
+   .hasLabel("grid_square")
+   .has("square_id", regex("x.,[2-3]"))
+   .valueMap("square_id", "row", "col", "other_col")
+
+// 8.3
+
+//  Incorrect results ..
+//     https://datastax.jira.com/browse/DSP-20092
+//
+// g.V()
+//    .hasLabel("grid_square")
+//    .has("other_col", token("Cranberries"))
+//    .valueMap("square_id", "row", "col", "other_col")
+// g.V()
+//    .hasLabel("grid_square")
+//    .has("other_col", phrase("Cranberries", 0))
+//    .valueMap("square_id", "row", "col", "other_col")
+// g.V()
+//    .hasLabel("grid_square")
+//    .has("other_col", token("Cranberry"))
+//    .valueMap("square_id", "row", "col", "other_col")
+
+// 8.4
+
+//  Incorrect results ..
+//     https://datastax.jira.com/browse/DSP-20093
+// g.V()
+//    .hasLabel("grid_square")
+//    .has("latlon_col", Geo.inside(Geo.point(3, 4), 2))
+//    .valueMap("square_id", "row", "col", "other_col")
+
+-----------------------------------------
+
+
+
+
+
+
+
+
+-----------------------------------------
+
+// 9.1
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .out("connects_to")
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x3,1"
+// },
+// {
+//   "square_id": "x4,2"
+// },
+// {
+//   "square_id": "x5,1"
+// }
+
+
+// 9.2
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .out("connects_to")
+   .out("connects_to")
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x2,1"
+// },
+// {
+//   "square_id": "x3,2"
+// },
+// {
+//   "square_id": "x3,2"
+// },
+// {
+//   "square_id": "x4,1"
+// },
+// {
+//   "square_id": "x4,1"
+// },
+// {
+//   "square_id": "x4,1"
+// },
+// {
+//   "square_id": "x5,2"
+// },
+// {
+//   "square_id": "x5,2"
+// }
+
+
+// 9.3
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .out("connects_to")
+   .out("connects_to")
+   .has("square_id", neq("x4,1"))
+   .dedup()
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x3,2"
+// },
+// {
+//   "square_id": "x5,2"
+// },
+// {
+//   "square_id": "x2,1"
+// }
+
+
+//  different to above
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .repeat(
+      out("connects_to")
+   )
+   .times(2)
+   .has("square_id", neq("x4,1"))
+   .dedup()
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x3,2"
+// },
+// {
+//   "square_id": "x5,2"
+// },
+// {
+//   "square_id": "x2,1"
+// }
+
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .emit()
+   .repeat(
+      out("connects_to")
+   )
+   .times(2)
+   .valueMap("square_id", "row", "col")
+
+// {
+//   "square_id": "x4,1",
+//   "row": "4",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x3,1",
+//   "row": "3",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x2,1",
+//   "row": "2",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x3,2",
+//   "row": "3",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x4,1",
+//   "row": "4",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x4,2",
+//   "row": "4",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x3,2",
+//   "row": "3",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x4,1",
+//   "row": "4",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x5,2",
+//   "row": "5",
+//   "col": "2"
+// },
+// {
+//   "square_id": "x5,1",
+//   "row": "5",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x4,1",
+//   "row": "4",
+//   "col": "1"
+// },
+// {
+//   "square_id": "x5,2",
+//   "row": "5",
+//   "col": "2"
+// }
+
+
+// 9.4
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .outE("connects_to")
+   .outV()
+   .valueMap(true)
+
+// {
+//   "id": "dseg:/grid_square/x4%2C1",
+//   "label": "grid_square",
+//   "col": "1",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x4,1",
+//   "latlon_col": "POINT (4 1)",
+//   "row": "4"
+// },
+// {
+//   "id": "dseg:/grid_square/x4%2C1",
+//   "label": "grid_square",
+//   "col": "1",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x4,1",
+//   "latlon_col": "POINT (4 1)",
+//   "row": "4"
+// },
+// {
+//   "id": "dseg:/grid_square/x4%2C1",
+//   "label": "grid_square",
+//   "col": "1",
+//   "other_col": "XXXXXXXX",
+//   "square_id": "x4,1",
+//   "latlon_col": "POINT (4 1)",
+//   "row": "4"
+// }
+
+
+// 9.5
+
+g.V()
+   .has("grid_square", "square_id", "x4,1").as("v1")
+   .outE("connects_to").as("e1")
+   .outV().as("v2")
+   .select("v1", "e1", "v2")
+
+// {
+//   "v1": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   },
+//   "e1": {
+//     "id": "dseg:/grid_square-connects_to-grid_square/x4%2C1/x3%2C1",
+//     "label": "connects_to",
+//     "type": "edge",
+//     "inVLabel": "grid_square",
+//     "outVLabel": "grid_square",
+//     "inV": "dseg:/grid_square/x3%2C1",
+//     "outV": "dseg:/grid_square/x4%2C1"
+//   },
+//   "v2": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "v1": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   },
+//   "e1": {
+//     "id": "dseg:/grid_square-connects_to-grid_square/x4%2C1/x4%2C2",
+//     "label": "connects_to",
+//     "type": "edge",
+//     "inVLabel": "grid_square",
+//     "outVLabel": "grid_square",
+//     "inV": "dseg:/grid_square/x4%2C2",
+//     "outV": "dseg:/grid_square/x4%2C1"
+//   },
+//   "v2": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// },
+// {
+//   "v1": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   },
+//   "e1": {
+//     "id": "dseg:/grid_square-connects_to-grid_square/x4%2C1/x5%2C1",
+//     "label": "connects_to",
+//     "type": "edge",
+//     "inVLabel": "grid_square",
+//     "outVLabel": "grid_square",
+//     "inV": "dseg:/grid_square/x5%2C1",
+//     "outV": "dseg:/grid_square/x4%2C1"
+//   },
+//   "v2": {
+//     "id": "dseg:/grid_square/x4%2C1",
+//     "label": "grid_square",
+//     "type": "vertex",
+//     "properties": {}
+//   }
+// }
+
+
+// 9.6
+
+g.V()
+   .has("grid_square", "square_id", "x4,1")
+   .repeat(
+      out("connects_to")
+   )
+   .times(2)
+   .has("square_id", neq("x4,1"))
+   .dedup()
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x2,1"
+// },
+// {
+//   "square_id": "x3,2"
+// },
+// {
+//   "square_id": "x5,2"
+// }
+
+-----------------------------------------
+
+
+
+
+-----------------------------------------
+
+// 10.1
+
+def l_cnt = 4
+
+g.V()
+   .hasLabel("grid_square")
+   .where(
+      out("connects_to")
+      .count()
+      .is( eq(l_cnt) )
+   )
+   .order()
+      .by("square_id")
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x4,4"
+// }
+
+
+// 10.2
+
+def l_cnt = 2
+
+g.V()
+   .hasLabel("grid_square")
+   .where(
+      out("connects_to")
+      .count()
+      .is( eq(l_cnt) )
+   )
+   .order()
+      .by("square_id")
+   .valueMap("square_id")
+
+// {
+//   "square_id": "x1,1"
+// },
+// {
+//   "square_id": "x1,3"
+// },
+// {
+//   "square_id": "x1,5"
+// },
+// {
+//   "square_id": "x2,2"
+// },
+// {
+//   "square_id": "x2,4"
+// },
+// {
+//   "square_id": "x2,5"
+// },
+// {
+//   "square_id": "x3,3"
+// },
+// {
+//   "square_id": "x3,5"
+// },
+// {
+//   "square_id": "x4,3"
+// },
+// {
+//   "square_id": "x5,1"
+// },
+// {
+//   "square_id": "x5,2"
+// },
+// {
+//   "square_id": "x5,3"
+// },
+// {
+//   "square_id": "x5,5"
+// }
+
+
+// 10.3
+
+def l_cnt = 2
+
+g.V()
+   .hasLabel("grid_square")
+   .where(
+      out()
+      .count()
+      .is( lte(l_cnt) )                 //  note; lte() not eq()
+   )
+   .project("square_id", "count")
+      .by(values("square_id"))
+      .by(outE().count())
+
+// 10.4
+
+def l_cnt = 2
+         
+g.V()
+   .hasLabel("grid_square")
+   .where(
+       out("connects_to")
+       .count()
+       .is( lte(l_cnt) )
+   )
+   .project("square_id", "count")
+      .by(values("square_id"))
+      .by(outE("connects_to").count())
+   .order()
+      .by(select("square_id"))
+
+// {
+//   "square_id": "x4,3",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x2,3",
+//   "count": "0"
+// },
+// {
+//   "square_id": "x3,3",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x5,5",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x3,5",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x5,2",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x1,1",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x2,2",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x1,3",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x5,3",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x2,4",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x5,1",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x1,5",
+//   "count": "2"
+// },
+// {
+//   "square_id": "x2,5",
+//   "count": "2"
+// }
+
+-----------------------------------------
+
+
+
+
+
+
+
+
+-----------------------------------------
+How to get from A to B
+
+This query ends on a vertex, and outputs the property keys
+that are in scope, that are local to that vertex.
+
+That is consistent within Gremlin; makes perfect sense.
+Remember as() above
+------------------------------------------------------
+
+//  11.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,2")
+   )
+   .valueMap("square_id", "row", "col")
+
+// { "square_id": [ "x4,2" ], "row": [ "4" ], "col": [ "2" ] },
+// { "square_id": [ "x4,2" ], "row": [ "4" ], "col": [ "2" ] },
+// { "square_id": [ "x4,2" ], "row": [ "4" ], "col": [ "2" ] },
+//      ...
+------------------------------------------------------
+
+
+How to get from A to B, add path
+
+path() outputs what it outputs; id, label, type, and
+a null properties{} set
+------------------------------------------------------
+
+//  11.2   "org.apache.tinkerpop.gremlin.structure.util.reference.ReferencePath"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,2")
+   )
+   .path()
+
+// { "labels": [ [], [], [], [], [], [], [] ],
+//   "objects": [ { "id": "grid_square:x5,5#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x4,5#41", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x4,4#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x3,4#47", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x3,3#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x3,2#41", "label": "grid_square", "type": "vertex", "properties": {} },
+//     { "id": "grid_square:x4,2#46", "label": "grid_square", "type": "vertex", "properties": {} }
+//   ] },
+//      ...
+
+------------------------------------------------------
+
+Above:
+   simplePath(), do not repeat paths
+   cyclicPath(), why ?, and not avail in OLAP
+
+
+How to get from A to B, add path and a 'by' modulator
+
+Add,  by("square_id")   reference to a property key from the vertex.
+
+Looking at the output from the query above, you basically get
+the metacolumns (id, label, type), and properties is null-
+
+The by("square_id") step modulator brings the named property
+in scope, calls to output same.
+------------------------------------------------------
+
+//  11.3   "org.apache.tinkerpop.gremlin.structure.util.reference.ReferencePath"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,2")
+   )
+   .path()
+      .by("square_id")
+
+// { "labels": [ [], [], [], [], [], [], [] ],
+//   "objects": [ "x5,5", "x5,4", "x4,4", "x3,4", "x3,3", "x3,2", "x4,2" ] },
+// { "labels": [ [], [], [], [], [], [], [] ],
+//   "objects": [ "x5,5", "x4,5", "x4,4", "x3,4", "x3,3", "x3,2", "x4,2" ] },
+
+------------------------------------------------------
+
+
+We drop the by("square_id") step modulator.
+And we add  project("path")
+
+Basically we are adding a (label) to whatever was in scope;
+basically we add a (label) to whatever was in scope above
+------------------------------------------------------
+
+//  11.4   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,2")
+   )
+   .path()
+   .project("path")
+
+// { "path": { "labels": [ [], [], [], [], [], [], [] ],
+//     "objects": [ { "id": "grid_square:x5,5#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x5,4#41", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x4,4#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x3,4#47", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x3,3#40", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x3,2#41", "label": "grid_square", "type": "vertex", "properties": {} },
+//       { "id": "grid_square:x4,2#46", "label": "grid_square", "type": "vertex", "properties": {} }
+//     ] } }, {
+//      ...
+
+------------------------------------------------------
+
+
+Shape the output data from above better
+
+We unfold(), then values("square_id"), then fold()
+This unfold(), fold() drops the null arrays/array elements
+
+The  values("square_id")  acts very much like query ks_34.8.3 above,
+and pulls in the property key from the vertex.
+------------------------------------------------------
+
+//  11.5   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,2")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+
+{ "path": [ "x5,5", "x4,5", "x3,5", "x3,4", "x3,3", "x3,2", "x4,2" ] },
+{ "path": [ "x5,5", "x5,4", "x4,4", "x3,4", "x3,3", "x3,2", "x4,2" ] },
+{ "path": [ "x5,5", "x4,5", "x4,4", "x3,4", "x3,3", "x3,2", "x4,2" ] },
+//      ...
+
+------------------------------------------------------
+
+
+
+
+
+
+
+
+Below: Smaller dataset (shorter path) than above, easier
+to debug
+------------------------------------------------------
+
+//  12.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+
+// { "path": [ "x5,5", "x5,4", "x5,3", "x4,3" ] },
+// { "path": [ "x5,5", "x4,5", "x4,4", "x4,3" ] },
+// { "path": [ "x5,5", "x5,4", "x4,4", "x4,3" ] },
+// { "path": [ "x5,5", "x4,5", "x3,5", "x3,4", "x4,4", "x4,3" ] },
+// { "path": [ "x5,5", "x4,5", "x4,4", "x5,4", "x5,3", "x4,3" ] },
+// { "path": [ "x5,5", "x4,5", "x3,5", "x3,4", "x4,4", "x5,4", "x5,3", "x4,3" ] }
+------------------------------------------------------
+
+
+How to get from A to B, what if there's no way
+------------------------------------------------------
+
+//  12.2
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x2,3")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+  
+// Success ! No data returned.
+------------------------------------------------------
+
+
+http://tinkerpop.apache.org/docs/current/reference/#timelimit-step
+
+Setting a time limit for safety; Same as query ks34.8.1
+above, returns 18 rows
+
+timeLimit() can be put in other areas below-
+------------------------------------------------------
+
+//  12.3
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      timeLimit(40)                         //  40 will likely return all data
+      .out()                                //  1 likely no data
+      .simplePath()                         //  A number in between; partial data
+   )                                        //    based on location of timeLimit()
+   .until(
+      has("square_id", "x4,2")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+  
+// Success ! No data returned.
+------------------------------------------------------
+
+
+
+
+
+
+
+
+Shortest path; depth first, breadth first
+------------------------------------------------------
+
+//  13.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+
+------------------------------------------------------
+
+
+limit(1); just give us the/a shortest path
+------------------------------------------------------
+
+//  13.2   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+   .limit(1)
+   
+------------------------------------------------------
+
+
+Get all paths of the same shortest length
+
+Without hard coding length; hardish, and work best done
+on the client side
+
+Server side, Doable; more than we want to cover right now
+------------------------------------------------------
+
+//  13.3
+
+
+------------------------------------------------------
+
+
+
+
+
+
+
+
+Path must pass thru point
+------------------------------------------------------
+
+//  14.1   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().has("square_id", "x5,3"))
+   .project("path")
+      .by(
+         unfold().values("square_id").fold()
+      )
+
+------------------------------------------------------
+
+
+Path must pass thru multiple points
+
+Ps,
+   within() is a type of predicate
+   within is like (any)
+   See,
+      http://tinkerpop.apache.org/docs/3.0.1-incubating/#a-note-on-predicates
+------------------------------------------------------
+
+//  14.2   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().has("square_id", "x5,3"))
+   .where(unfold().has("square_id", "x3,5"))
+   .project("path")
+      .by(
+         unfold().values("square_id").fold()
+      )
+
+------------------------------------------------------
+
+
+//  Sample within() for testing ..
+//     ( not used)
+//
+// g.V()
+//    .has("grid_square", "square_id", "x5,5")
+//    .repeat(
+//       out()
+//      .simplePath()
+//    )
+//    .until(
+//       has("square_id", "x4,3")
+//    )
+//    .path()
+//    .where(unfold().has("square_id", within("x5,3", "x3.5")))
+//    .project("path")
+//    .by(
+//       unfold().values("square_id").fold()
+//    )
+
+
+
+
+Path must not pass thru point
+------------------------------------------------------
+
+//  14.3   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   ) 
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().not(has("square_id", "x5,3")))
+   .project("path")
+      .by(
+         unfold().values("square_id").fold()
+      ) 
+
+------------------------------------------------------
+
+
+Path must pass thru point, how to add derived values,
+Start first with a constant
+------------------------------------------------------
+
+//  14.4   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().has("square_id", "x5,3"))
+   .project("path", "length")
+      .by(
+         unfold().values("square_id").fold()
+         )
+      .by(
+         constant(99)
+         )
+
+------------------------------------------------------
+
+
+Path must pass thru point, add path length
+
+The count(local),
+   path() is the object in scope
+   So, counting is done on the elements found in each traverser
+------------------------------------------------------
+
+//  14.5   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().has("square_id", "x5,3"))
+   .project("path", 'length')
+      .by(
+         unfold().values("square_id").fold()
+      )
+      .by(
+         count(local)
+      )
+
+------------------------------------------------------
+
+
+Return only the shortest path thru a point
+------------------------------------------------------
+
+//  14.6   "java.util.LinkedHashMap"
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+     .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .path()
+   .where(unfold().has("square_id", "x5,3"))
+   .project("path", 'length')
+      .by(
+         unfold().values("square_id").fold()
+      )
+      .by(
+         count(local)
+      )
+   .order()
+      .by(
+         select("length")
+      )
+   .limit(1)
+   
+------------------------------------------------------
+
+
+
+
+
+
+
+
+Go deeper on repeat; start anew with our basic queries
+------------------------------------------------------
+
+//  15.1
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+   )
+   .times(2)
+   .path()
+      .by("square_id")
+
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+//  15.2
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,4")
+   )
+   .path()
+      .by("square_id")
+
+------------------------------------------------------
+
+
+Dave, Ch 3 ..
+
+   .  The steps inside the repeat() are a traversal
+
+   .  Inside the times(), is an integer.
+ 
+      Many steps take a; label, string, integer, ..
+
+   .  The steps inside the until() are a traversal.
+      Once this traversal evaluates to true, the repeat()
+      is exited.
+
+      Similar to lambda steps.
+
+   .  until() can run forever'ish.
+
+         Until every path in the graph is exhausted.
+         This is called an, 'unbounded tree traversal.
+
+      We detailed timeLimit() above.
+
+   .  If until() comes before repeat(), think of a 
+      while/do. After, think, do/while.
+
+      do/while will always execute at least once.
+
+
+
+Using emit(), part 1 of ..
+------------------------------------------------------
+
+//  15.3
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .values("square_id")
+
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+//  15.4
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .until(
+      has("square_id", "x4,3")
+   )
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .values("square_id")
+
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+//  15.5
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .until(
+      has("square_id", "x4,3")
+   )
+   .emit().values("square_id")
+
+
+// .count()
+//
+// 378
+
+// .dedup()
+// .count()
+//
+// 23
+------------------------------------------------------
+
+
+------------------------------------------------------
+
+//  15.6
+
+g.V()
+   .has("grid_square", "square_id", "x5,5")
+   .until(
+      has("square_id", "x4,3")
+   )
+   .repeat(
+      out()
+      .simplePath()
+   )
+   .emit().values("square_id")
+   .dedup()
+   .count()
+
+// .count()
+//
+// 384
+
+// .dedup()
+// .count()
+//
+// 23
+------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+------------------------------------------------------
+
+Forgot where I got these from-
+
+   Currently they don't return what we want ..
+
+// Approach 1 - slow but deterministic, and allows controls over
+//   max hops between entities.
+
+l_hops  = 30;
+l_paths = 10;
+
+g.V().
+   has("grid_square", "square_id", "x5,5").
+   emit().
+   repeat(
+      both()
+      .simplePath()
+   )
+   .until(
+      has("grid_square", "square_id", "x4,3")
+     .or()
+     .loops().is(eq(l_hops))
+   )
+   .has("grid_square", "square_id", "x4,3")
+   .order()
+      .by(path().count(local), incr)
+   .limit(l_paths)
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+      .by("square_id")
+
+
+// Approach 2 - fast but nondeterministic. Controlling max hops
+//   between entities (as above) slows the query down considerably.
+
+l_paths = 5;
+
+g.V().
+   has("grid_square", "square_id", "x5,5").
+   emit().
+   repeat(
+      both()
+      .simplePath()
+      .timeLimit(1000)
+   )
+   .has("grid_square", "square_id", "x4,3")
+   .order()
+      .by(path().count(local), incr)
+   .limit(l_paths)
+   .path()
+   .project("path")
+      .by(
+         unfold()
+         .values("square_id")
+         .fold()
+      )
+      .by("square_id")
+
+
+
+
+
+
+
+
+// ///////////////////////////////////////////////////
+// ///////////////////////////////////////////////////
+
+
+Research stuff under here; many topics incomplete
+
+
+//  Came from Dave.B, Kuppitz
+//
+//  Ideas to return just the smallest sub-group
+//     (file for future)
+//
+g.withSack(0.0).
+   V(end).as("end").
+   V(start).as("start").
+   repeat(outE(e_label).
+      sack(sum).
+         by(weight_property).
+      not(select("md").select(select("end")).
+      project("a","b").
+         by().
+         by(sack()).
+      where("a", lt("b"))).
+      inV().as("currentVertex").
+      group("md").
+         by().
+         by(sack().min()).
+            and(project("a","b").
+               by(select("md").select(select("currentVertex"))).
+               by(sack()).
+                  where("a",eq("b")),
+                     filter(sack().is(lt(max_allowed_weight))),        // apply heuristic 1: max allowed weight
+                     filter(outE(e_label).count().is(lt(max_outgoing_edges))) // apply heuristic 2: max allowed outgoing edges (supernode avoidance)
+            ) // end of and
+   ). // and of repeat
+   until(where(eq("end"))).
+   order().            
+      by(sack(), incr).
+   path().
+      from("start").
+         by(v_property).
+         by(weight_property).
+      as("path").
+   sack().
+      as("totalDist").
+   select("path", "totalDist")
+
+
+
+
+
+
+
+
