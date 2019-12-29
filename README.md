@@ -6,6 +6,18 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 November - -
+>Customer: I’m a developer and have little time to learn the complexities of setting up and maintaining 
+>servers. I get that I can stand up a DatasStax Enterprise server in 2 minutes or less, but I have at 
+>least 10 of these types of challenges to overcome when getting applications out of the door. Can you help ?
+>
+>Daniel: Excellent question ! Well obviously you want some automation. DataStax Desktop was introduced 
+>this year as a means to simply containerize your DataStax Enterpise (DSE) install. A fat client, DataStax 
+>Desktop runs on Linux, MacOS and Windows, and fronts ends Docker and Kubernetes; really then, standing up 
+>a new, single or set of DSEs is like a 3 button operation.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_35%20Desktop.pdf)
+
 2019 October - -
 >Customer: My company has a number of shortest-path problems, for example; airlines, get me from SFO to 
 >JFK for passenger and freight routing. I understand graph analytics may be a means to solve this problem. 
