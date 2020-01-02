@@ -6,4 +6,4 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
->2020 is coming. Until that time, please chek out 2019 and before !
+>2020 is coming. Until that time, please check out 2019 and before !
