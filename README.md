@@ -6,6 +6,17 @@ DataStax Developer's Notebook - Monthly Articles 2019
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+2019 December - -
+>Customer: My company is getting ready to go into production with our first (Cassandra) application. We’ve 
+>noticed that one of our nodes contains way more data than the other nodes, and is way more utilized than 
+>the other nodes. We’ve found “nodetool cfstats”, along with mention of tombstones, read/write latencies, 
+>and more, and think we have a problem. Can you help ?
+>
+>Daniel: Excellent question ! You’ve got a lot going on above in this problem statement. Net/net, in this 
+>document we will; explain cfstats, overview a (production readiness) examination, and more.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2019/DDN_2019_36_cfstats.pdf)
+
 2019 November - -
 >Customer: I’m a developer and have little time to learn the complexities of setting up and maintaining 
 >servers. I get that I can stand up a DatasStax Enterprise server in 2 minutes or less, but I have at 
