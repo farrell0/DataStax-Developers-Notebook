@@ -6,6 +6,18 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+February 2020 - -
+
+>Customer: I’ve read all of the articles and documentation related to DataStax Enterprise (DSE) Graph, but am 
+>still not certain how these graph queries (traversals) actually execute. To me, this looks much like a SQL 
+>query proessing engine, and I don’t know how or if to index or model this. Can you help ?
+>
+>Daniel: Excellent question ! In this document we’ll give a brief treatment to graph query processing; how 
+>graph traversals are actually (executed). For fun, we’ll actually talk a little bit about a close (graph) 
+>neighbor, Neo4J.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_38_FileMethods.pdf)
+
 January 2020 - -
 
 >Customer: My company maintains a lot of data on Hadoop, in Parquet and other formats, and need to perform integrated 
