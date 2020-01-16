@@ -10,7 +10,7 @@ February 2020 - -
 
 >Customer: I’ve read all of the articles and documentation related to DataStax Enterprise (DSE) Graph, but am 
 >still not certain how these graph queries (traversals) actually execute. To me, this looks much like a SQL 
->query proessing engine, and I don’t know how or if to index or model this. Can you help ?
+>query processing engine, and I don’t know how or if to index or model this. Can you help ?
 >
 >Daniel: Excellent question ! In this document we’ll give a brief treatment to graph query processing; how 
 >graph traversals are actually (executed). For fun, we’ll actually talk a little bit about a close (graph) 
