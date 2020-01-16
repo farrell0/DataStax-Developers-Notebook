@@ -14,4 +14,4 @@ January 2020 - -
 >Daniel: Excellent question ! Yes. This is like a two-liner solution. We’ll detail all of the concepts and code inside 
 >this document.
 >
->[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2019_37_Parquet.pdf)
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_37_Parquet.pdf)
