@@ -17,7 +17,7 @@ March 2020 - -
 >The on line documentation covers the asynchronous query topic well, so we’ll review that and then extend 
 >into asynchronous write programming.
 >
->[Dwonload whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_39_DriverFutures.pdf)
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_39_DriverFutures.pdf)
 
 February 2020 - -
 
