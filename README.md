@@ -12,7 +12,7 @@ March 2020 - -
 >
 >Daniel: Excellent question ! Yes, the DataStax Enterprise (DSE) client side drivers offer entirely native 
 >asynchronous operation.; fire and forget, or fire and listen. There are easy means to make the driver and 
->any calls your issue block, and behave synchronously, but there’s little fun in that.
+>any calls you issue block, and behave synchronously, but there’s little fun in that.
 >
 >The on line documentation covers the asynchronous query topic well, so we’ll review that and then extend 
 >into asynchronous write programming.
