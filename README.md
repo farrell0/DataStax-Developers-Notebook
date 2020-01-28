@@ -6,6 +6,18 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+April 2020 - -
+> Customer: My company has started using more cloud instances for tasks like proof of concepts, and related. 
+>We used to just leave these boxes wide open, since they generally contain zero sensitive data. But, things 
+>being what they are, we feel like we should start securing these boxes. Can you help ?
+>
+>Daniel: Excellent question ! In the March/2019 edition of this document, we detailed how to implement 
+>native authentication using DataStax Enterprise (DSE). In this edition, we detail how to implement SSL 
+>between DSE server nodes (in the event you go multi-cloud), and then also SSL from client (node) to DSE 
+>cluster.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_40_SSL.pdf)
+
 March 2020 - -
 >Customer: As a database application developer, I’ve never previously used a system with a natively asynchronous 
 >client side driver. What do I need to know; Can you help ?
