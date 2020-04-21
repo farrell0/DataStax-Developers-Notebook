@@ -6,8 +6,20 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+May 2020 - -
+>Customer: My company has got to improve its efficiency and time to delivery when creating business applications on 
+>Apache Cassandra and DataStax Enterprise. Can you help ?
+>
+>Daniel: Excellent question ! Since you specfically mentioned application development, we will give focus to API 
+>endpoint programming; a means to more greatly decouple your application from the database, allowing for greater 
+>flexibility in deployment, and even increasing performance of Web and mobile applications.
+>
+>While we might briefly mention REST and gRPC, the bulk of this document will center on GraphQL.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_41_GraphQL.pdf)
+
 April 2020 - -
-> Customer: My company has started using more cloud instances for tasks like proof of concepts, and related. 
+>Customer: My company has started using more cloud instances for tasks like proof of concepts, and related. 
 >We used to just leave these boxes wide open, since they generally contain zero sensitive data. But, things 
 >being what they are, we feel like we should start securing these boxes. Can you help ?
 >
