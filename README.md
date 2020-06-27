@@ -24,8 +24,8 @@ June 2020 - -
 >
 >[Application program data](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_42_AstraGeohash_Data.pipe.gz)
 >
->&nbsp&nbsp&nbsp(Because of GitHub file size limits, the above data file contains only 250,000 of the promised 334,000 lines of data. Sorry.)
->>
+>(Because of GitHub file size limits, the above data file contains only 250,000 of the promised 334,000 lines of data. Sorry.)
+>
 >[Demonstration video]()
 
 May 2020 - -
