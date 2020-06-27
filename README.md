@@ -6,6 +6,26 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+June 2020 - -
+>Customer: My company is investigating using DataStax database as a service, titled DataStax Astra (Astra), to aid 
+>in our application development. I know Astra is exactly equal to Apache Cassandra, which means that the DataStax 
+>Enterprise DSE Search component is not present. 
+>
+>As such, we lose Solr/Lucene, and any geo-spatial index and query processing support. But, our application needs 
+>geospatial query support. Can you help ?
+>
+>Daniel: Excellent question ! You will be surprised how easy this is to address. In this article we detail how you 
+>deliver geospatial queries using DataStax Astra, or just the DataStax Enterprise (DSE) Core functional component, 
+>(and not use DSE Search).
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_42_AstraGeohash.pdf)
+>[Application program code](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_42_AstraGeohash_Programs.tar.gz)
+>[Application program data](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_42_AstraGeohash_Data.pipe.gz)
+>
+>&nbsp&nbsp&nbsp(Because of GitHub file size limits, the above data file contains only 250,000 of the promised 334,000 lines of data. Sorry.)
+>
+>[Demonstration video]()
+
 May 2020 - -
 >Customer: My company has got to improve its efficiency and time to delivery when creating business applications on 
 >Apache Cassandra and DataStax Enterprise. Can you help ?
