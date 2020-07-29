@@ -7,7 +7,7 @@ DataStax Developer's Notebook - Monthly Articles 2020
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
 July 2020 - -
->Customer: Okay, so my company is finally ready to “database as a service (DBaaS). We also want to move to a micro-services 
+>Customer: Okay, so my company is finally ready to “database as a service (DBaaS)". We also want to move to a micro-services 
 >architecture, and possibly GraphQL. Can you help ?
 >
 >Daniel: Excellent question ! In this series we’ve previously covered GraphQL, and previously covered geo-spatial queries 
