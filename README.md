@@ -18,7 +18,7 @@ July 2020 - -
 >[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_43_AstraApiProgramming.pdf)
 >
 >[Application program data](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_43_NoteBook.tar) in the form
->of a DataStax Studio Notebook, in standardTAR file form.
+>of a DataStax Studio Notebook, in standard TAR file form.
 
 June 2020 - -
 >Customer: My company is investigating using DataStax database as a service, titled DataStax Astra (Astra), to aid 
