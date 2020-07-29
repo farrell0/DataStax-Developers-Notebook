@@ -6,6 +6,20 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+July 2020 - -
+>Customer: Okay, so my company is finally ready to “database as a service (DBaaS). We also want to move to a micro-services 
+>architecture, and possibly GraphQL. Can you help ?
+>
+>Daniel: Excellent question ! In this series we’ve previously covered GraphQL, and previously covered geo-spatial queries 
+>using the DataStax Cassandra as a service titled, Astra, which also acted as our primer on Astra.
+>
+>In this article, we specifically cover Astra API programming.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_43_AstraApiProgramming.pdf)
+>
+>[Application program data](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_43_NoteBook.tar) in the form
+>of a DataStax Studio Notebook, in standardTAR file form.
+
 June 2020 - -
 >Customer: My company is investigating using DataStax database as a service, titled DataStax Astra (Astra), to aid 
 >in our application development. I know Astra is exactly equal to Apache Cassandra, which means that the DataStax 
