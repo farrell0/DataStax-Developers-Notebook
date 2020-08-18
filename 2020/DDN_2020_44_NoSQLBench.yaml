@@ -1,0 +1,101 @@
+
+
+#  Run via,
+#
+#     nb  (file_name)
+#     nb  (file_name) driver=cql
+#
+#     nb run workload=(file_name) driver=stdout tags=phase:rampup cycles=10
+#
+#     nb run workload=(file_name) driver=stdout tags=name:query1 cycles=10
+
+#  Because of the DROP/CREATE KEYSPACE, this file does not run against Astra
+
+
+scenarios:
+  default:
+    schema: run driver=stdout tags==phase:schema threads==1 cycles==UNDEF
+    rampup: run driver=stdout tags==phase:rampup threads==auto cycles=10000000
+    main: run driver=stdout tags==phase:main threads==auto cycles=100000
+
+
+bindings:
+  colx: Mod(<<uuidCount:100000000>>L); ToHashedUUID() -> java.util.UUID; ToString() -> String
+  col8: FullNames() -> String
+
+
+blocks:
+
+  - tags:
+      phase: schema
+    params:
+      prepared: false
+    statements:
+
+      - drop_keyspace: |
+          DROP KEYSPACE IF EXISTS <<keyspace:ks_44>>;
+        tags: 
+           name: drop_keyspace
+
+      - create_keyspace: |
+          CREATE KEYSPACE <<keyspace:ks_44>>
+             WITH replication = {'class': 'SimpleStrategy', 
+                'replication_factor': '1'};
+        tags: 
+           name: create_keyspace
+
+      - create_table: |
+          CREATE TABLE <<keyspace:ks_44>>.<<table:t1>>
+             (
+             col1    TEXT PRIMARY KEY,
+             col2    TEXT,
+             col3    TEXT,
+             col4    TEXT,
+             col5    TEXT,
+             col6    TEXT,
+             col7    TEXT,
+             col8    TEXT,
+             col9    TEXT,
+             col0    TEXT
+             );
+        tags: 
+           name: create_table
+
+      - create_index: |
+          CREATE CUSTOM INDEX col4_idx
+             ON <<keyspace:ks_44>>.<<table:t1>> (col4) USING 'StorageAttachedIndex';
+        tags: 
+           name: create_index
+
+
+  - tags:
+      phase: rampup
+    params:
+      prepared: true
+    statements:
+
+      - insert: |
+          INSERT INTO <<keyspace:ks_44>>.<<table:t1>> (col1, col4, col8)
+             VALUES ( {colx}, {colx}, {col8} );
+        tags: 
+           name: insert
+
+
+  - tags:
+      phase: main
+    params:
+      prepared: true
+    statements:
+
+      - query1: |
+          SELECT * FROM <<keyspace:ks_44>>.<<table:t1>> WHERE col1 = {colx} ;
+        tags: 
+           name: query1
+
+      - query1: |
+          SELECT * FROM <<keyspace:ks_44>>.<<table:t1>> WHERE col4 = {colx} ;
+        tags: 
+           name: query2
+
+
+
