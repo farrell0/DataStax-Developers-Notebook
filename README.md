@@ -6,6 +6,23 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+Ausust 2020 - -
+>Customer: My company has diffficulty moving applications into production related to data at scale. E.g., we program then unit 
+>and system test with 5-15 rows of data, then when we get into production with millions of lines of data, things fail. There 
+>has to be an easier way to overcome this challenge. Can you help ?
+>
+>Daniel: Excellent question ! With all of the pressures we face today just to get applications written, unit testing often suffers, 
+>system testing suffers worse, and then testing applications at scale often never happens. Fortunately, we have an easy solution.
+>
+>For the past 10 years inside DataStax, we’ve perfected NoSQLBench, our now open source distributed data platform, volume data generation 
+>and testing tool. In this article we will overview NoSQLBench, enabling you to see if NoSQLBench can meet your needs too.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_44_NoSQLBench.pdf)
+>
+>[PowerPoint(Added detail to the above)](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_44_NoSQLBench_Slides.pdf)
+>
+>[The final YAML file/solution used in this article](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_44_NoSQLBench.yaml)
+
 July 2020 - -
 >Customer: Okay, so my company is finally ready to “database as a service (DBaaS)". We also want to move to a micro-services 
 >architecture, and possibly GraphQL. Can you help ?
