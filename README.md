@@ -14,7 +14,7 @@ September 2020 - -
 >This operator supports open source Cassandra, DataStax Enterprise, and more.
 >
 >In the real world, expectedly, you’d use this operator to stand up pods hosting Cassandra on GKE or similar. For better learning and 
->debugging, this article will actually do this work on our laptop; great control, greater control to break things for test, other.
+>debugging, this article will actually do this work on our laptop; greater control, greater control to break things for test, other.
 >
 >[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_45_KubernetesOperator.pdf)
 >
