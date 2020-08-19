@@ -6,7 +6,21 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
-Ausust 2020 - -
+September 2020 - -
+>Customer: My company is all in on micro-services, container and cloud for application development, server hosting including databases, 
+>you name it. We’ve never hosted Cassandra inside containers, and wonder how best to get started. Can you help ?
+>
+>Daniel: Excellent question ! DataStax recently produced and open sourced its Kubernetes Operator, which will get you all that you need. 
+>This operator supports open source Cassandra, DataStax Enterprise, and more.
+>
+>In the real world, expectedly, you’d use this operator to stand up pods hosting Cassandra on GKE or similar. For better learning and 
+>debugging, this article will actually do this work on our laptop; great control, greater control to break things for test, other.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_45_KubernetesOperator.pdf)
+>
+>[Download YAML files for labs here (TarBall format)](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_45_KubernetesOperator.tar)
+
+August 2020 - -
 >Customer: My company has diffficulty moving applications into production related to data at scale. E.g., we program then unit 
 >and system test with 5-15 rows of data, then when we get into production with millions of lines of data, things fail. There 
 >has to be an easier way to overcome this challenge. Can you help ?
