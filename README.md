@@ -6,6 +6,16 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+October 2020 - -
+>Customer: I love the GraphQL, Python/Flask, OpenStreetView, geo-spatial discussion this series has had of late. I’m having trouble 
+>putting it all together. Any chance you can put it all in one deliverable. Can you help ?
+>
+>Daniel: Excellent question ! In this article, we assemble all of the pieces we’ve recently discussed, putting them all in one 
+>coordinated deliverable. We’ll detail the data format, start up scripts, the program proper, and even any HTML related to 
+>OpenStreetView. (Eg., not Google Maps.)
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_46_BetterVersOf42.pdf)
+
 September 2020 - -
 >Customer: My company is all in on micro-services, container and cloud for application development, server hosting including databases, 
 >you name it. We’ve never hosted Cassandra inside containers, and wonder how best to get started. Can you help ?
