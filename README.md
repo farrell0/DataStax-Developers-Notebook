@@ -10,7 +10,7 @@ November 2020 - -
 >Customer: My company is finally going cloud. We wish to run performance tests and more for both virtual machine hosting, and then also 
 >containers, Kubernetes. We want to see performance implications and also make ready to update our run-book. Can you help ?
 >
->Daniel: Excellent question ! We’ve expertly done each; virtualization, andc ontainers. We’ll begin a series of articles, in response to 
+>Daniel: Excellent question ! We’ve expertly done each; virtualization, and containers. We’ll begin a series of articles, in response to 
 >this/your question. First, here, we’ll detail virtualization. We’ll share a number of techniques we use when automating tests and similar 
 >when using virtual machines. All of this work will be done on GCP. After this article, on virtualization, we’ll move to containers; a 
 >series of articles with first an overview, and then a number of recipes when on Kubernetes.
