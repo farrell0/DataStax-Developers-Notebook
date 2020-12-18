@@ -6,6 +6,19 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+December 2020 - -
+>Customer: Enjoyed the past article on Apache Cassandra and virtualization (VMs). I didn’t see you detail how to recover from a failed 
+>node (VM) though. Can you help ?
+>
+>Daniel: Excellent question ! Good catch; an oversight on our part. Is this edition of DDN we detail how to implement and test node 
+>recovery from failure, when using virtual machines.
+>
+>While this is generally an automatic function of Cassandra, you can, when using network attached storage, perform some manual steps
+>to recover nodes much faster. Also, we use these techniques to support development and quality-assurance; use the same steps for 
+>'cluster cloning' and 'differentiated data', both topics to overvoew in this paper.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_48_NodeReplaceWoBootstrap.pdf)
+
 November 2020 - -
 >Customer: My company is finally going cloud. We wish to run performance tests and more for both virtual machine hosting, and then also 
 >containers, Kubernetes. We want to see performance implications and also make ready to update our run-book. Can you help ?
