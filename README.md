@@ -6,6 +6,17 @@ DataStax Developer's Notebook - Monthly Articles 2020
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+November 2020 - -
+>Customer: My company is finally going cloud. We wish to run performance tests and more for both virtual machine hosting, and then also 
+>containers, Kubernetes. We want to see performance implications and also make ready to update our run-book. Can you help ?
+>
+>Daniel: Excellent question! We’ve expertly done each; virtualization, andc ontainers. We’ll begin a series of articles, in response to 
+>this/your question. First, here, we’ll detail virtualization. We’ll share a number of techniques we use when automating tests and similar 
+>when using virtual machines. All of this work will be done on GCP. After this article, on virtualization, we’ll move to containers; a 
+>series of articles with first an overview, and then a number of recipes when on Kubernetes.
+>
+>[Download whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2020/DDN_2020_47_VMs.pdf)
+
 October 2020 - -
 >Customer: I love the GraphQL, Python/Flask, OpenStreetView, geo-spatial discussion this series has had of late. I’m having trouble 
 >putting it all together. Any chance you can put it all in one deliverable. Can you help ?
