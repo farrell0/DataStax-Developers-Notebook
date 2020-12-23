@@ -20,7 +20,7 @@ January 2021 thru April 2021 - -
 >
 >  • In February, we detail recovery from failed/down Cassandra nodes.
 >
->[Download February whitepaper here](https:)
+>[Download February whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_50_KubernetesNodeRecovery.pdf)
 >
 >  • In March, we detail Cassandra cluster cloning, for QA and development. 
 >
