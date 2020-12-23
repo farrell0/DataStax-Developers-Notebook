@@ -30,7 +30,7 @@ January 2021 thru April 2021 - -
 >
 >[Download April whitepaper here](https:)
 >
->[Download the Toolkit here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer_Toolkit.tar)
+>[Download the Toolkit for all 4 months/articles here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer_Toolkit.tar)
 
 
 
