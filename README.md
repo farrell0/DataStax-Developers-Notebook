@@ -23,8 +23,11 @@ January 2021 thru April 2021 - -
 >  • In April, we detail Kubernetes snapshotting in general.
 >
 >[Download January whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer.pdf)
+>
 >[Download February whitepaper here](https:)
+>
 >[Download March whitepaper here](https:)
+>
 >[Download April whitepaper here](https:)
 >
 >[Download the Toolkit here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer_Toolkit.tar)
