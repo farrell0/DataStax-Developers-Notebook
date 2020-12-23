@@ -15,18 +15,17 @@ January 2021 thru April 2021 - -
 >favorite resources here and there. 
 >
 >  • In the January article, we will get Apache Cassandra up and running on Kubernetes. 
+>
 >  • In February, we detail recovery from failed/down Cassandra nodes.
+>
 >  • In March, we detail Cassandra cluster cloning, for QA and development. 
+>
 >  • In April, we detail Kubernetes snapshotting in general.
 >
 >[Download January whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer.pdf)
->
 >[Download February whitepaper here](https:)
->
 >[Download March whitepaper here](https:)
->
 >[Download April whitepaper here](https:)
->
 >
 >[Download the Toolkit here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer_Toolkit.tar)
 
