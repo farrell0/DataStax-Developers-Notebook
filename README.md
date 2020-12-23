@@ -6,10 +6,25 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
-January 2021 - -
->Customer: ... Can you help ?
+January 2021 thru April 2021 - -
+>Customer: My company is moving its operations to the cloud, including cloud native computing and Kubernetes. I believe we can run Apache Cassandra 
+>on Kubernetes. Can you help ?
 >
->Daniel: Excellent question ! ...
+>Daniel: Excellent question ! Kubernetes, and running Apache Cassandra on Kuberenetes are huge topics. As such, we’ll begin a four part series of articles that 
+>cover most of the day one through day seven topics. We wont do a general Kuberentes primer, many other capable Kubernetes primers exist, but will list our 
+>favorite resources here and there. 
 >
->[Download whitepaper here](https:)
+>  • In the January article, we will get Apache Cassandra up and running on Kubernetes. 
+>  • In February, we detail recovery from failed/down Cassandra nodes.
+>  • In March, we detail Cassandra cluster cloning, for QA and development. 
+>  • In April, we detail Kubernetes snapshotting in general.
+>
+>[Download January whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer.pdf)
+>[Download February whitepaper here](https:)
+>[Download March whitepaper here](https:)
+>[Download April whitepaper here](https:)
+>
+>[Download the Toolkit here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_49_KubernetesPrimer_Toolkit.tar)
+
+
 
