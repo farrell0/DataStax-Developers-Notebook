@@ -6,6 +6,21 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+May 2021 - -
+>Customer: My company enjoyed the series of four articles centered on Cassandra atop Kubernetes. But, you left Cassandra and the Operator limited to 
+>just one namespace. We seek to run Cassandra clusters in many concurrent namespaces. Can you help ?
+>
+>Daniel: Excellent question ! In this edition of this document, we take the work from the previous 4 articles, and move them to a multiple namespace 
+>treatment. We’ll detail using the Cassandra Operator across Kubernetes namespaces, and we’ll detail Cassandra cluster cloning across namespaces. Be 
+>advised, there are relevant limitations with Kuberenetes version 1.18 and lower as it relates to (cloning) across namespaces. (Everything is do-able, 
+>it’s just more steps than you might expect.)
+>
+>[Download May whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_MoreContainersHelm.pdf)
+>
+>[Download version 2.0 of the Toolkit for here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_ToolkitVers2.tar)
+>
+>View a quick demo of Cassandra cluster cloning here()
+
 January 2021 thru April 2021 - -
 >Customer: My company is moving its operations to the cloud, including cloud native computing and Kubernetes. I believe we can run Apache Cassandra 
 >on Kubernetes. Can you help ?
