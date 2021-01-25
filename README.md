@@ -17,7 +17,7 @@ May 2021 - -
 >
 >[Download May whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_MoreContainersHelm.pdf)
 >
->[Download version 2.0 of the Toolkit for here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_ToolkitVers2.tar)
+>[Download version 2.0 of the Toolkit for here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_ToolkitVersion2.tar)
 >
 >[View a quick demo of Cassandra cluster cloning atop Kubernetes here]()
 
