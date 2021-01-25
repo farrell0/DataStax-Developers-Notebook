@@ -19,7 +19,7 @@ May 2021 - -
 >
 >[Download version 2.0 of the Toolkit for here, in Tar format](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_53_ToolkitVers2.tar)
 >
->[View a quick demo of Cassandra cluster cloning here]()
+>[View a quick demo of Cassandra cluster cloning atop Kubernetes here]()
 
 January 2021 thru April 2021 - -
 >Customer: My company is moving its operations to the cloud, including cloud native computing and Kubernetes. I believe we can run Apache Cassandra 
