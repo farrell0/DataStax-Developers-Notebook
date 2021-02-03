@@ -6,6 +6,15 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+June 2021 - -
+>Customer: My company is investigating using the DataStax Atra Service Broker within our Kubernetes systems. Can you help ?
+>
+>Daniel: Excellent question ! In this document we will install and use most of the early pieces of the DataStax Astra Service broker; install, 
+>install verification, connection, yadda. By accident then, we instroduce Kuberenetes service brokers, broker instances, and (broker instance)
+>bindings.
+>
+>[Donwload June whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_54_AstraSvcBroker.pdf)
+
 May 2021 - -
 >Customer: My company enjoyed the series of four articles centered on Cassandra atop Kubernetes. But, you left Cassandra and the Operator limited to 
 >just one namespace. We seek to run Cassandra clusters in many concurrent namespaces. Can you help ?
