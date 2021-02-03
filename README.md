@@ -13,7 +13,7 @@ June 2021 - -
 >install verification, connection, yadda. By accident then, we instroduce Kuberenetes service brokers, broker instances, and (broker instance)
 >bindings.
 >
->[Donwload June whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_54_AstraSvcBroker.pdf)
+>[Download June whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_54_AstraSvcBroker.pdf)
 
 May 2021 - -
 >Customer: My company enjoyed the series of four articles centered on Cassandra atop Kubernetes. But, you left Cassandra and the Operator limited to 
