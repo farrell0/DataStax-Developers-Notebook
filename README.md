@@ -17,7 +17,7 @@ July 2021 - -
 >In this article, we detail an introduction to K8ssandra; installation and use. In subsequent articles, we dive deeper into REST, 
 >GraphQL, and Document API configuration and use.
 >
->[Download June whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_55_K8ssandra.pdf)
+>[Download July whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_55_K8ssandra.pdf)
 
 June 2021 - -
 >Customer: My company is investigating using the DataStax Atra Service Broker within our Kubernetes systems. Can you help ?
