@@ -6,6 +6,16 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+August 2021 - -
+>Customer: My company enjoyed the last article on K8ssandra and StarGate. We are highly interested in the Document API that this 
+>document referred to; use and some of the design elements. Can you help ?
+>
+>Daniel: Excellent question ! Last month we installed DataStax K8ssandra, which includes the StarGate component. Further, we did 
+>a (Hello World) using REST, to serve as an install/validate of StarGate. This month we dive deeper not into just REST, but now 
+>the Document API area of StarGate; make a table, insert documents, run a query.
+>
+>[Download August whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_56_K8ssandra Document API.pdf)
+
 July 2021 - -
 >Customer: My company is looking for ways to accelerate our application development, through whatever means. Can you help ?
 >
