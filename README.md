@@ -14,7 +14,7 @@ August 2021 - -
 >a (Hello World) using REST, to serve as an install/validate of StarGate. This month we dive deeper not into just REST, but now 
 >the Document API area of StarGate; make a table, insert documents, run a query.
 >
->[Download August whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_56_K8ssandra Document API.pdf)
+>[Download August whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_56_K8ssandra%2C%20Document%20API.pdf)
 
 July 2021 - -
 >Customer: My company is looking for ways to accelerate our application development, through whatever means. Can you help ?
