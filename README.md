@@ -6,6 +6,20 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+September 2021 - -
+>Customer: My company has enjoyed the last two articles on DataStax K8ssandra, and specifically the StarGate component to same. 
+>We’ve seen details on REST and the Document API, but little on GraphQL. Can you help ?
+>
+>Daniel: Excellent question !  We’ve done a number of articles in this series on GraphQL. Most recently, the October/2020, we 
+>delivered a geo-spatial thin client Web program using GraphQL against the DataStax database as a service. When using Astra, 
+>the database is hosted, managed. Also when using Astra, the service end points are automatically created and maintained, and 
+>are, behind the scenes, using K8ssandra and StarGate.
+>
+>So, in this article, we supply the final and previously missing piece; how to access the GraphQL component of your own hosted 
+>K8ssandra/StarGate.
+>
+>[Download September whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_57_K8ssandra%2C%20GraphQL.pdf)
+
 August 2021 - -
 >Customer: My company enjoyed the last article on K8ssandra and StarGate. We are highly interested in the Document API that this 
 >document referred to; use and some of the design elements. Can you help ?
