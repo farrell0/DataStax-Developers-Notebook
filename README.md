@@ -13,6 +13,9 @@ October 2021 - -
 >NetApp Astra (a SaaS). This month we detail installation and use of Kasten/Veeam K10. With (Kasten) you can backup and restore databases, 
 >applications, and not only backup and restore, but also clone to aid your development efforts.
 >
+>In this article we backup and recover the DataStax Kubernetes Operator for Vapache Cassandra, and backup, restore, and clone Cassandra
+>Datacenter objects (entire Cassandra clusters).
+
 >[Download October whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_58_KastenVeeam.pdf)
 
 September 2021 - -
