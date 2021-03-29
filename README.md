@@ -6,6 +6,15 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+October 2021 - -
+>Customer: My company is investigating a backup and recovery solution for all of our applications running atop Kubernetes. Can you help ?
+>
+>Daniel: Excellent question ! In the past we’ve referenced the open source Velero project from a VMware acquisition, and we’ve mentioned 
+>NetApp Astra (a SaaS). This month we detail installation of use of Kasten/Veeam K10. With (Kasten) you can backup and restore databases, 
+>applications, and not only backup and restore, but also clone to aid your development efforts.
+>
+>[Download October whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_58_KastenVeeam.pdf)
+
 September 2021 - -
 >Customer: My company has enjoyed the last two articles on DataStax K8ssandra, and specifically the StarGate component to same. 
 >We’ve seen details on REST and the Document API, but little on GraphQL. Can you help ?
