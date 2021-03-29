@@ -10,7 +10,7 @@ October 2021 - -
 >Customer: My company is investigating a backup and recovery solution for all of our applications running atop Kubernetes. Can you help ?
 >
 >Daniel: Excellent question ! In the past we’ve referenced the open source Velero project from a VMware acquisition, and we’ve mentioned 
->NetApp Astra (a SaaS). This month we detail installation of use of Kasten/Veeam K10. With (Kasten) you can backup and restore databases, 
+>NetApp Astra (a SaaS). This month we detail installation and use of Kasten/Veeam K10. With (Kasten) you can backup and restore databases, 
 >applications, and not only backup and restore, but also clone to aid your development efforts.
 >
 >[Download October whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_58_KastenVeeam.pdf)
