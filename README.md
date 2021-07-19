@@ -6,6 +6,15 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+November 2021 - -
+>Customer: My company has been on DataStax Enterprise for some time. We are super excited by the new, open source StarGate (subsystem), 
+>and what that provides. It appears as though StarGate only works with open source Apache Cassandra. Can you help ?
+>
+>Daniel: Excellent question ! We’ll overview what you are seeing, and how to get StarGate to work with DataStax Enterprise. We’ll also 
+>detail a bit of the landscape; what’s moving around, how and why.
+>
+>[Download October whitepaper here]()
+
 October 2021 - -
 >Customer: My company is investigating a backup and recovery solution for all of our applications running atop Kubernetes. Can you help ?
 >
@@ -15,7 +24,7 @@ October 2021 - -
 >
 >In this article we backup and recover the DataStax Kubernetes Operator for Apache Cassandra, and backup, restore, and clone Cassandra
 >Datacenter objects (entire Cassandra clusters).
-
+>
 >[Download October whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_58_KastenVeeam.pdf)
 
 September 2021 - -
