@@ -13,7 +13,7 @@ November 2021 - -
 >Daniel: Excellent question ! We’ll overview what you are seeing, and how to get StarGate to work with DataStax Enterprise. We’ll also 
 >detail a bit of the landscape; what’s moving around, how and why.
 >
->[Download October whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_59_DseStargate.pdf)
+>[Download November whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_59_DseStargate.pdf)
 
 October 2021 - -
 >Customer: My company is investigating a backup and recovery solution for all of our applications running atop Kubernetes. Can you help ?
