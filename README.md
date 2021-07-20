@@ -6,6 +6,18 @@ DataStax Developer's Notebook - Monthly Articles 2021
 
 This is a personal blog where we answer one or more questions each month from DataStax customers in a non-official, non-warranted, non much of anything forum. 
 
+December 2021 - -
+>Customer: My company uses a ton of Apache Cassandra, and a ton of SnowFlake. We also want to move to writing applications using Node.js/REACT. 
+>We’re having trouble understanding what each of Cassandra and SnowFlake should be used for together, and what a sample application might 
+>look like. Can you help ?
+>
+>Daniel: Excellent question ! We’ll detail a sample application, written in Node.js and REACT, and then deliver an application that uses both 
+>Apache Cassandra and SnowFlake.
+>
+>[Download December whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_60_SnowFlake.pdf)
+>
+>[Download Source Code in Tar Format here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_60_SnowFlake.tar)
+
 November 2021 - -
 >Customer: My company has been on DataStax Enterprise for some time. We are super excited by the new, open source StarGate (subsystem), 
 >and what that provides. It appears as though StarGate only works with open source Apache Cassandra. Can you help ?
