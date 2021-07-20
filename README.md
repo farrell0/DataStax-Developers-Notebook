@@ -14,6 +14,8 @@ December 2021 - -
 >Daniel: Excellent question ! We’ll detail a sample application, written in Node.js and REACT, and then deliver an application that uses both 
 >Apache Cassandra and SnowFlake.
 >
+>[View a quick demo of what we're building here](https://youtu.be/uDfVjStGA9o)
+>
 >[Download December whitepaper here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_60_SnowFlake.pdf)
 >
 >[Download Source Code in Tar Format here](https://github.com/farrell0/DataStax-Developers-Notebook/blob/master/2021/DDN_2021_60_SnowFlake.tar)
