@@ -2,45 +2,12 @@
 |-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 
 [Back to 2019 archive](../README.md)
-[Download original PDF](../DDN_2019_31a_DSE, Reco Engines.pdf)
-[Companion asset: DDN_2019_31b_DSE, Reco Engines.pptx](../DDN_2019_31b_DSE, Reco Engines.pptx)
+[Download original PDF](../DDN_2019_31a_DSE%25252C%252520Reco%252520Engines.pdf)
+[Companion asset: DDN_2019_31b_DSE, Reco Engines.pptx](../DDN_2019_31b_DSE%25252C%252520Reco%252520Engines.pptx)
 [Companion asset: DDN_2019_31c_JustGroceryData.tar](../DDN_2019_31c_JustGroceryData.tar)
 [Companion asset: DDN_2019_31d_AllCommands.txt](../DDN_2019_31d_AllCommands.txt)
 [Companion asset: DDN_2019_31e_KillrVideoDataAsPipe.tar](../DDN_2019_31e_KillrVideoDataAsPipe.tar)
 [Companion asset: DDN_2019_31f_KillrVideoDDL.cql](../DDN_2019_31f_KillrVideoDDL.cql)
-
-## From The Archive
-
-2019 July - -
->Customer: I'm confused. I saw a presentation at the 2019 DataStax world conference (Accelerate 2019),
->detailing how to deliver a product recommendation engine using DSE Graph. I've also seen DSE articles
->detailing how to deliver a product recommendation engine using DSE Analytics. Can you help ?
->
->Daniel: Excellent question ! As discussed in previous editions of this document; there are 4 primary
->functional areas within DataStax Enterprise (DSE). DSE Analytics can deliver a ‘content-based’ product
->recommendation (aka, product-product). DSE Graph can deliver a ‘collaborative-based’ product recommendation
->engine (aka, user-user). Both DSE Analytics and DSE Graph use DSE Core as their storage engine, and DSE
->Search as their advanced index engine; a full integration, not just a connector.
->
->In this edition of this document we’ll detail all of the code needed to deliver the above, and include
->data. We’ll also use this edition of this document to provide a Graph query primer (Gremlin language
->primer), and answer the nuanced question of; Why Graph ?
->
->[Read article online](./README.md)
->
->[PowerPoint (mesaurably more detailed than above)](../DDN_2019_31b_DSE, Reco Engines.pptx)
->
->[Video recording of the PPT above](https://www.youtube.com/watch?v=15xUt1sZ48U&feature=youtu.be)
->
->[Just Grocery Data as Tar](../DDN_2019_31c_JustGroceryData.tar)
->
->[All Program Code as Txt](../DDN_2019_31d_AllCommands.txt)
->
->[DataStax KillrVideo demo DB data as Tar](../DDN_2019_31e_KillrVideoDataAsPipe.tar)
->
->[DataStax KillrVideo demo DB DDL as Txt (vers 6.8, fyi)](../DDN_2019_31f_KillrVideoDDL.cql)
-
-
 
 ---
 
@@ -115,7 +82,7 @@ In this edition of this document (DataStax Developer’s Notebook, DDN), we deta
 
 DataStax Developer’s Notebook -- July 2019 V1.2
 
-![Figure 31-1 Frequency pattern mining, customers who bought (X) bought (Y)](./DDN_2019_31a_DSE, Reco Engines.assets/figure-000.jpg)
+![Figure 31-1 Frequency pattern mining, customers who bought (X) bought (Y)](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-000.jpg)
 
 *Figure 31-1 Frequency pattern mining, customers who bought (X) bought (Y)*
 
@@ -131,7 +98,7 @@ A classic use case for clustering is to discover the potential for a customer to
 
 DataStax Developer’s Notebook -- July 2019 V1.2
 
-![Figure 31-2 Small sized sample data set for frequency pattern mining](./DDN_2019_31a_DSE, Reco Engines.assets/figure-001.jpg)
+![Figure 31-2 Small sized sample data set for frequency pattern mining](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-001.jpg)
 
 *Figure 31-2 Small sized sample data set for frequency pattern mining*
 
@@ -139,7 +106,7 @@ DataStax Developer’s Notebook -- July 2019 V1.2
 
 DataStax Developer’s Notebook -- July 2019 V1.2
 
-![Figure 31-3 Model created from frequency pattern mining](./DDN_2019_31a_DSE, Reco Engines.assets/figure-002.jpg)
+![Figure 31-3 Model created from frequency pattern mining](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-002.jpg)
 
 *Figure 31-3 Model created from frequency pattern mining*
 
@@ -171,7 +138,7 @@ DataStax Developer’s Notebook -- July 2019 V1.2
 
 primary key lookup using a hash based index, response time should reliably be 0-8 milliseconds.
 
-![Figure 31-4 Applying (scoring) the model](./DDN_2019_31a_DSE, Reco Engines.assets/figure-003.jpg)
+![Figure 31-4 Applying (scoring) the model](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-003.jpg)
 
 *Figure 31-4 Applying (scoring) the model*
 
@@ -189,7 +156,7 @@ Is Graph Inherently Different than Relational ? Our answer to this question is; 
 
 DataStax Developer’s Notebook -- July 2019 V1.2
 
-![Figure 31-5 Data modeling, relational and graph databases](./DDN_2019_31a_DSE, Reco Engines.assets/figure-004.jpg)
+![Figure 31-5 Data modeling, relational and graph databases](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-004.jpg)
 
 *Figure 31-5 Data modeling, relational and graph databases*
 
@@ -213,7 +180,7 @@ Why would you ever seek you join a customer with orders they did not place ?!
 
 How graph databases do differ from relational databases is in the area of query language. Figure 31-6 introducers the SQL SELECT statement, with a code review to follow.
 
-![Figure 31-6 SQL SELECT, the crown jewel of relational databases](./DDN_2019_31a_DSE, Reco Engines.assets/figure-005.jpg)
+![Figure 31-6 SQL SELECT, the crown jewel of relational databases](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-005.jpg)
 
 *Figure 31-6 SQL SELECT, the crown jewel of relational databases*
 
@@ -243,7 +210,7 @@ As Gremlin of more programmable (it resembles programming), it is possible that 
 
 A Sample Gremlin traversal (query) Figure 31-7 displays a simple Gremlin traversal. A code review follows.
 
-![Figure 31-7 A sample Gremlin traversal (query)](./DDN_2019_31a_DSE, Reco Engines.assets/figure-006.jpg)
+![Figure 31-7 A sample Gremlin traversal (query)](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-006.jpg)
 
 *Figure 31-7 A sample Gremlin traversal (query)*
 
@@ -279,7 +246,7 @@ The Model we use; KillrVideo The data model (graph model) we use in most of thes
 
 DataStax Developer’s Notebook -- July 2019 V1.2
 
-![Figure 31-8 KillrVideo graph schema](./DDN_2019_31a_DSE, Reco Engines.assets/figure-007.jpg)
+![Figure 31-8 KillrVideo graph schema](./DDN_2019_31a_DSE%252C%2520Reco%2520Engines.assets/figure-007.jpg)
 
 *Figure 31-8 KillrVideo graph schema*
 

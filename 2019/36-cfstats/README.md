@@ -4,20 +4,6 @@
 [Back to 2019 archive](../README.md)
 [Download original PDF](../DDN_2019_36_cfstats.pdf)
 
-## From The Archive
-
-2019 December - -
->Customer: My company is getting ready to go into production with our first (Cassandra) application. We’ve
->noticed that one of our nodes contains way more data than the other nodes, and is way more utilized than
->the other nodes. We’ve found “nodetool cfstats”, along with mention of tombstones, read/write latencies,
->and more, and think we have a problem. Can you help ?
->
->Daniel: Excellent question ! You’ve got a lot going on above in this problem statement. Net/net, in this
->document we will; explain cfstats, overview a (production readiness) examination, and more.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2019 36 cfstats

@@ -4,28 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_15_SearchPrimer.pdf)
 
-## From The Archive
-
-2018 March - -
-
->Customer: My company wants to use the secondary indexes, part of DataStax Enterprise (DSE)
->Search, more specfically the (first name) synonym and Soundex style features to aid in
->customer call center record lookup. Can you help ?
->
->Daniel: Excellent question ! DataStax Enterprise (DSE) Search is one of the four primary
->functional areas inside DSE; the others being DSE Core, DSE Analytics, and DSE Graph.
->Built atop Apache Solr, DSE Search is a large topic. As such, we will detail the programming
->(use) of DSE Search, and let this document serve as a primer of sorts.
->
->We plan follow up editions of this document to cover not just programming, but capacity
->planning of DSE Search, and tuning of DSE Search.
->
->**Mar 21 - This document was heavily revised: 30 new pages of content, 2 errors corrected.**
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 15 SearchPrimer

@@ -14,12 +14,13 @@ December 2021 - -
 >Daniel: Excellent question ! We’ll detail a sample application, written in Node.js and REACT, and then deliver an application that uses both
 >Apache Cassandra and SnowFlake.
 >
->[View a quick demo of what we're building here](https://youtu.be/uDfVjStGA9o)
+> - [View a quick demo of what we're building here](https://youtu.be/uDfVjStGA9o)
 >
->[Read article online](60-snow-flake/README.md)
->[Download PDF](DDN_2021_60_SnowFlake.pdf)
+> - [Read article online](60-snow-flake/README.md)
+> - [Download PDF](DDN_2021_60_SnowFlake.pdf)
 >
->[Download Source Code in Tar Format here](DDN_2021_60_SnowFlake.tar)
+> - [Download Source Code in Tar Format here](DDN_2021_60_SnowFlake.tar)
+
 
 
 November 2021 - -
@@ -29,8 +30,9 @@ November 2021 - -
 >Daniel: Excellent question ! We’ll overview what you are seeing, and how to get StarGate to work with DataStax Enterprise. We’ll also
 >detail a bit of the landscape; what’s moving around, how and why.
 >
->[Read article online](59-dse-stargate/README.md)
->[Download PDF](DDN_2021_59_DseStargate.pdf)
+> - [Read article online](59-dse-stargate/README.md)
+> - [Download PDF](DDN_2021_59_DseStargate.pdf)
+
 
 
 October 2021 - -
@@ -43,8 +45,9 @@ October 2021 - -
 >In this article we backup and recover the DataStax Kubernetes Operator for Apache Cassandra, and backup, restore, and clone Cassandra
 >Datacenter objects (entire Cassandra clusters).
 >
->[Read article online](58-kasten-veeam/README.md)
->[Download PDF](DDN_2021_58_KastenVeeam.pdf)
+> - [Read article online](58-kasten-veeam/README.md)
+> - [Download PDF](DDN_2021_58_KastenVeeam.pdf)
+
 
 
 September 2021 - -
@@ -59,8 +62,9 @@ September 2021 - -
 >So, in this article, we supply the final and previously missing piece; how to access the GraphQL component of your own hosted
 >K8ssandra/StarGate.
 >
->[Read article online](57-k8ssandra-graph-ql/README.md)
->[Download PDF](DDN_2021_57_K8ssandra, GraphQL.pdf)
+> - [Read article online](57-k8ssandra-graph-ql/README.md)
+> - [Download PDF](DDN_2021_57_K8ssandra%2C%20GraphQL.pdf)
+
 
 
 August 2021 - -
@@ -71,8 +75,9 @@ August 2021 - -
 >a (Hello World) using REST, to serve as an install/validate of StarGate. This month we dive deeper not into just REST, but now
 >the Document API area of StarGate; make a table, insert documents, run a query.
 >
->[Read article online](56-k8ssandra-document-api/README.md)
->[Download PDF](DDN_2021_56_K8ssandra, Document API.pdf)
+> - [Read article online](56-k8ssandra-document-api/README.md)
+> - [Download PDF](DDN_2021_56_K8ssandra%2C%20Document%20API.pdf)
+
 
 
 July 2021 - -
@@ -86,8 +91,9 @@ July 2021 - -
 >In this article, we detail an introduction to K8ssandra; installation and use. In subsequent articles, we dive deeper into REST,
 >GraphQL, and Document API configuration and use.
 >
->[Read article online](55-k8ssandra/README.md)
->[Download PDF](DDN_2021_55_K8ssandra.pdf)
+> - [Read article online](55-k8ssandra/README.md)
+> - [Download PDF](DDN_2021_55_K8ssandra.pdf)
+
 
 
 June 2021 - -
@@ -97,8 +103,9 @@ June 2021 - -
 >install verification, connection, yadda. By accident then, we instroduce Kuberenetes service brokers, broker instances, and (broker instance)
 >bindings.
 >
->[Read article online](54-astra-svc-broker/README.md)
->[Download PDF](DDN_2021_54_AstraSvcBroker.pdf)
+> - [Read article online](54-astra-svc-broker/README.md)
+> - [Download PDF](DDN_2021_54_AstraSvcBroker.pdf)
+
 
 
 May 2021 - -
@@ -110,12 +117,13 @@ May 2021 - -
 >advised, there are relevant limitations with Kuberenetes version 1.18 and lower as it relates to (cloning) across namespaces. (Everything is do-able,
 >it’s just more steps than you might expect.)
 >
->[Read article online](53-more-containers-helm/README.md)
->[Download PDF](DDN_2021_53_MoreContainersHelm.pdf)
+> - [Read article online](53-more-containers-helm/README.md)
+> - [Download PDF](DDN_2021_53_MoreContainersHelm.pdf)
 >
->[Download version 2.0 of the Toolkit for here, in Tar format](DDN_2021_53_ToolkitVersion2.tar)
+> - [Download version 2.0 of the Toolkit for here, in Tar format](DDN_2021_53_ToolkitVersion2.tar)
 >
->[View a quick demo of Cassandra cluster cloning atop Kubernetes here](https://www.youtube.com/watch?v=paly5VVuAYM)
+> - [View a quick demo of Cassandra cluster cloning atop Kubernetes here](https://www.youtube.com/watch?v=paly5VVuAYM)
+
 
 
 January 2021 thru April 2021 - -
@@ -128,22 +136,22 @@ January 2021 thru April 2021 - -
 >
 >  • In the January article, we will get Apache Cassandra up and running on Kubernetes.
 >
->[Read article online](49-kubernetes-primer/README.md)
->[Download PDF](DDN_2021_49_KubernetesPrimer.pdf)
+> - [Read article online](49-kubernetes-primer/README.md)
+> - [Download PDF](DDN_2021_49_KubernetesPrimer.pdf)
 >
 >  • In February, we detail recovery from failed/down Cassandra nodes.
 >
->[Read article online](50-kubernetes-node-recovery/README.md)
->[Download PDF](DDN_2021_50_KubernetesNodeRecovery.pdf)
+> - [Read article online](50-kubernetes-node-recovery/README.md)
+> - [Download PDF](DDN_2021_50_KubernetesNodeRecovery.pdf)
 >
 >  • In March, we detail Cassandra cluster cloning, for QA and development.
 >
->[Read article online](51-kubernetes-cluster-cloning/README.md)
->[Download PDF](DDN_2021_51_KubernetesClusterCloning.pdf)
+> - [Read article online](51-kubernetes-cluster-cloning/README.md)
+> - [Download PDF](DDN_2021_51_KubernetesClusterCloning.pdf)
 >
 >  • In April, we detail Kubernetes snapshotting in general.
 >
->[Read article online](52-kubernetes-snapshots/README.md)
->[Download PDF](DDN_2021_52_KubernetesSnapshots.pdf)
+> - [Read article online](52-kubernetes-snapshots/README.md)
+> - [Download PDF](DDN_2021_52_KubernetesSnapshots.pdf)
 >
->[Download the Toolkit for all 4 months/articles here, in Tar format](DDN_2021_KubernetesPrimer_Toolkit.tar)
+> - [Download the Toolkit for all 4 months/articles here, in Tar format](DDN_2021_KubernetesPrimer_Toolkit.tar)

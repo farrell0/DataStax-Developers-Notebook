@@ -4,31 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_22_ClientSideDriver.pdf)
 
-## From The Archive
-
-2018 October - -
-
->Customer: My company is investigating using DataStax for our new Customer/360 system in our
->customer call center. I am tasked with getting a simple (Hello World style) Java program
->running against the DataStax server in a small Linux command line capable Docker container.
->Can you help ?
->
->Daniel: Excellent question ! In the May/2018 edition of this document, we detailed how and
->where to download a DataStax sponsored Docker container which includes the DataStax Enterprise
->(DSE) server; boot and operate DSE. In the October/2017 edition of this document, we detailed
->a DSE introduction, including table create, new data insert and query, and more.
->
->So, the only piece we are missing is the Java client program compile that targets DSE. To aid
->in our compiling, we will document using the Apache Maven build automation tool. Inherently,
->a given (any given) Java library will need other Java libraries, that themselves need more
->Java libraries, rinse and repeat. It is best to automate resolution of this condition.
->
->We will install and configure all of the above, access the DSE server, and go home.
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 22 ClientSideDriver

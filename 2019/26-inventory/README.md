@@ -4,24 +4,6 @@
 [Back to 2019 archive](../README.md)
 [Download original PDF](../DDN_2019_26_Inventory.pdf)
 
-## From The Archive
-
-2019 February - -
-
->Customer: I need to program an inventory management system, and wish to use the time stamp, time to
->live, and other features found within DSE. Can you help ?
->
->Daniel: Excellent question ! The design pattern you implement differs when you are selling a distinct
->inventory (specifically numbered seats to a concert), or you are selling a true-count, number on hand
->inventory (all items are the same).
->
->Regardless, we will cover all of the relevant topics, and detail how to program same using DSE Core
->and DSE Analytics (Apache Spark).
->
->[Read article online](./README.md)
-
-
-
 ---
 
 # DDN 2019 26 Inventory
@@ -191,7 +173,7 @@ getOrCreate()
 ```
 
 ```text
-val recs_01 = spark.sparkContext.cassandraTable[MyClass]("ks_26", "t1").
+val recs_01 = spark.sparkContext.cassandraTable[MyClass](%2522ks_26%2522%252C%2520%2522t1%2522).
 select("col1", "col2", "col3", "col3".writeTime as
 "col3_ts", "col4", "col4".writeTime as "col4_ts")
 ```
@@ -286,7 +268,7 @@ recs_04.saveToCassandra("ks_26", "t1", SomeColumns(
 ```
 
 ```text
-val recs_06 = spark.sparkContext.cassandraTable[MyClass]("ks_26", "t1").
+val recs_06 = spark.sparkContext.cassandraTable[MyClass](%2522ks_26%2522%252C%2520%2522t1%2522).
 select("col1", "col2", "col3", "col3".writeTime as
 "col3_ts", "col4", "col4".writeTime as "col4_ts")
 //
@@ -300,7 +282,7 @@ writeConf = WriteConf(timestamp = TimestampOption.perRow("my_ts")))
 ```
 
 ```text
-val recs_07 = spark.sparkContext.cassandraTable[MyClass]("ks_26", "t1").
+val recs_07 = spark.sparkContext.cassandraTable[MyClass](%2522ks_26%2522%252C%2520%2522t1%2522).
 select("col1", "col2", "col3", "col3".writeTime as
 "col3_ts", "col4", "col4".writeTime as "col4_ts")
 //
@@ -496,7 +478,7 @@ writeConf = WriteConf(ttl = TTLOption.perRow("my_ts")))
 ```
 
 ```text
-val recs_10 = spark.sparkContext.cassandraTable[MyClass]("ks_26", "t1").
+val recs_10 = spark.sparkContext.cassandraTable[MyClass](%2522ks_26%2522%252C%2520%2522t1%2522).
 select("col1", "col2", "col3", "col3".writeTime as
 "col3_ts", "col4", "col4".writeTime as "col4_ts")
 //

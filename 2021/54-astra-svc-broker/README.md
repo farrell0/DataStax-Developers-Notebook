@@ -4,18 +4,6 @@
 [Back to 2021 archive](../README.md)
 [Download original PDF](../DDN_2021_54_AstraSvcBroker.pdf)
 
-## From The Archive
-
-June 2021 - -
->Customer: My company is investigating using the DataStax Atra Service Broker within our Kubernetes systems. Can you help ?
->
->Daniel: Excellent question ! In this document we will install and use most of the early pieces of the DataStax Astra Service broker; install,
->install verification, connection, yadda. By accident then, we instroduce Kuberenetes service brokers, broker instances, and (broker instance)
->bindings.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2021 54 AstraSvcBroker

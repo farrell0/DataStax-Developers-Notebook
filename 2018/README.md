@@ -19,9 +19,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >and CQL. Apache Zeppelin ships with 20 or more interpreters, including Spark (Scala), Python,
 >Shell, and more. As such, many folks use both tools.
 >
->[Read article online](24-zeppelin/README.md)
->[Download PDF](DDN_2018_24_Zeppelin.pdf)
+> - [Read article online](24-zeppelin/README.md)
+> - [Download PDF](DDN_2018_24_Zeppelin.pdf)
 >
+
 
 
 2018 November - -
@@ -43,8 +44,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >although; you might well be served to visit the past editions of this document detailing DSE
 >Search and DSE (spatial/geo-spatial Search), to gain a deep understanding.
 >
->[Read article online](23-indexing-collections/README.md)
->[Download PDF](DDN_2018_23_IndexingCollections.pdf)
+> - [Read article online](23-indexing-collections/README.md)
+> - [Download PDF](DDN_2018_23_IndexingCollections.pdf)
+
 
 
 2018 October - -
@@ -66,9 +68,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >We will install and configure all of the above, access the DSE server, and go home.
 >
->[Read article online](22-client-side-driver/README.md)
->[Download PDF](DDN_2018_22_ClientSideDriver.pdf)
+> - [Read article online](22-client-side-driver/README.md)
+> - [Download PDF](DDN_2018_22_ClientSideDriver.pdf)
 >
+
 
 
 2018 September - -
@@ -86,9 +89,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >But, as you seek to perform these activities as part of your unit tests, we are going to detail
 >table backup and restore using snapshots; faster, less code, easily automated.
 >
->[Read article online](21-backup-and-recovery/README.md)
->[Download PDF](DDN_2018_21_Backup and Recovery.pdf)
+> - [Read article online](21-backup-and-recovery/README.md)
+> - [Download PDF](DDN_2018_21_Backup%20and%20Recovery.pdf)
 >
+
 
 
 2018 August - -
@@ -103,9 +107,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >achieve same, including source code for all. We detail table level access control, and in
 >the event you need it, row level access control.
 >
->[Read article online](20-security/README.md)
->[Download PDF](DDN_2018_20_Security.pdf)
+> - [Read article online](20-security/README.md)
+> - [Download PDF](DDN_2018_20_Security.pdf)
 >
+
 
 
 2018 July - -
@@ -122,9 +127,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >In short, this document discusses building a query harness; capturing and then executing a
 >representative set of queries to measure your system performance against, how and why-
 >
->[Read article online](19-query-harness/README.md)
->[Download PDF](DDN_2018_19_QueryHarness.pdf)
+> - [Read article online](19-query-harness/README.md)
+> - [Download PDF](DDN_2018_19_QueryHarness.pdf)
 >
+
 
 
 2018 June - -
@@ -135,9 +141,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >Daniel: Sure ! We overview all of the above, then detail install, configure and use of
 >DSE Studio version 6.0, including configuration and use of CQL and Spark/SQL.
 >
->[Read article online](18-studio/README.md)
->[Download PDF](DDN_2018_18_Studio.pdf)
+> - [Read article online](18-studio/README.md)
+> - [Download PDF](DDN_2018_18_Studio.pdf)
 >
+
 
 
 2018 May - -
@@ -150,9 +157,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >and primer on many of these pieces, a Cloud-101 if you will. Then, to offer some amount of
 >actionable content, we’ll delve a bit deeper into one container option, namely; Docker.
 >
->[Read article online](17-docker/README.md)
->[Download PDF](DDN_2018_17_Docker.pdf)
+> - [Read article online](17-docker/README.md)
+> - [Download PDF](DDN_2018_17_Docker.pdf)
 >
+
 
 
 2018 April - -
@@ -182,13 +190,16 @@ This is a personal blog where we answer one or more questions each month from Da
 >greater in size than GitHub cared for. So, you only get Colorado data at nearly
 >220,000 geo-points.
 >
->[Read article online](16-spatial/README.md)
->[Download PDF](DDN_2018_16_Spatial.pdf)
+> - [Read article online](16-spatial/README.md)
+> - [Download PDF](DDN_2018_16_Spatial.pdf)
 >
->[Resource kit](DDN_2018_16_Spatial.tar.gz), all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
+> - [Resource kit](DDN_2018_16_Spatial.tar.gz)
+> , all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
 >
->[Demonstration video](https://youtu.be/kF3IjwVyBtI), of the programs created and used in this document.
+> - [Demonstration video](https://youtu.be/kF3IjwVyBtI)
+> , of the programs created and used in this document.
 >
+
 
 
 2018 March - -
@@ -207,9 +218,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >**Mar 21 - This document was heavily revised: 30 new pages of content, 2 errors corrected.**
 >
->[Read article online](15-search-primer/README.md)
->[Download PDF](DDN_2018_15_SearchPrimer.pdf)
+> - [Read article online](15-search-primer/README.md)
+> - [Download PDF](DDN_2018_15_SearchPrimer.pdf)
 >
+
 
 
 2018 February - -
@@ -249,9 +261,10 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >• And we overview how to observe asynchronous/background index builds.
 >
->[Read article online](14-cql-search/README.md)
->[Download PDF](DDN_2018_14_CQL-Search.pdf)
+> - [Read article online](14-cql-search/README.md)
+> - [Download PDF](DDN_2018_14_CQL-Search.pdf)
 >
+
 
 
 2018 January - -
@@ -269,9 +282,11 @@ This is a personal blog where we answer one or more questions each month from Da
 >another user defined function (UDF). (UDFs were a topic we covered in last month’s edition of
 >this document.)
 >
->[Read article online](13-adv-rep/README.md).
->[Download PDF](DDN_2018_13_AdvRep.pdf)
+> - [Read article online](13-adv-rep/README.md)
+> .
+> - [Download PDF](DDN_2018_13_AdvRep.pdf)
 >
->[Resource kit](DDN_2018_13_AdvRep.tar),
+> - [Resource kit](DDN_2018_13_AdvRep.tar)
+> ,
 >all of the programs and data used in this edition in Tar format.
 >

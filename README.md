@@ -11,5 +11,5 @@ January 2022 - -
 >
 >Daniel: Excellent question ! You can do this, and we’ll detail all of the steps involved below.
 >
->[Read article online](2022/61-schema-validation/README.md)
->[Download PDF](2022/DDN_2022_61_SchemaValidation.pdf)
+> - [Read article online](2022/61-schema-validation/README.md)
+> - [Download PDF](2022/DDN_2022_61_SchemaValidation.pdf)

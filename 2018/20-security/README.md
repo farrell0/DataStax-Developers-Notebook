@@ -4,24 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_20_Security.pdf)
 
-## From The Archive
-
-2018 August - -
-
->Customer: My company is investigating using DataStax for our new Customer/360 system in our
->customer call center. I’m a developer, and do not know how to administer DataStax Enterprise,
->but, I need to know how to set up user authentication and authorization for my programming
->and unit tests. Can you help ?
->
->Daniel: Excellent question ! Setting up authentication and authorization using DataStax
->Enterprise (DSE) is super easy. Below we detail all of the relevant topics and steps to
->achieve same, including source code for all. We detail table level access control, and in
->the event you need it, row level access control.
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 20 Security

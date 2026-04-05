@@ -4,21 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_40_SSL.pdf)
 
-## From The Archive
-
-April 2020 - -
->Customer: My company has started using more cloud instances for tasks like proof of concepts, and related.
->We used to just leave these boxes wide open, since they generally contain zero sensitive data. But, things
->being what they are, we feel like we should start securing these boxes. Can you help ?
->
->Daniel: Excellent question ! In the March/2019 edition of this document, we detailed how to implement
->native authentication using DataStax Enterprise (DSE). In this edition, we detail how to implement SSL
->between DSE server nodes (in the event you go multi-cloud), and then also SSL from client (node) to DSE
->cluster.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2020 40 SSL

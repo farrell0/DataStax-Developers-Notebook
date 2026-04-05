@@ -17,8 +17,9 @@ December 2020 - -
 >to recover nodes much faster. Also, we use these techniques to support development and quality-assurance; use the same steps for
 >'cluster cloning' and 'differentiated data', both topics to overvoew in this paper.
 >
->[Read article online](48-node-replace-wo-bootstrap/README.md)
->[Download PDF](DDN_2020_48_NodeReplaceWoBootstrap.pdf)
+> - [Read article online](48-node-replace-wo-bootstrap/README.md)
+> - [Download PDF](DDN_2020_48_NodeReplaceWoBootstrap.pdf)
+
 
 
 November 2020 - -
@@ -30,8 +31,9 @@ November 2020 - -
 >when using virtual machines. All of this work will be done on GCP. After this article, on virtualization, we’ll move to containers; a
 >series of articles with first an overview, and then a number of recipes when on Kubernetes.
 >
->[Read article online](47-vms/README.md)
->[Download PDF](DDN_2020_47_VMs.pdf)
+> - [Read article online](47-vms/README.md)
+> - [Download PDF](DDN_2020_47_VMs.pdf)
+
 
 
 October 2020 - -
@@ -42,8 +44,9 @@ October 2020 - -
 >coordinated deliverable. We’ll detail the data format, start up scripts, the program proper, and even any HTML related to
 >OpenStreetView. (Eg., not Google Maps.)
 >
->[Read article online](46-better-vers-of42/README.md)
->[Download PDF](DDN_2020_46_BetterVersOf42.pdf)
+> - [Read article online](46-better-vers-of42/README.md)
+> - [Download PDF](DDN_2020_46_BetterVersOf42.pdf)
+
 
 
 September 2020 - -
@@ -56,10 +59,11 @@ September 2020 - -
 >In the real world, expectedly, you’d use this operator to stand up pods hosting Cassandra on GKE or similar. For better learning and
 >debugging, this article will actually do this work on our laptop; greater control, greater control to break things for test, other.
 >
->[Read article online](45-kubernetes-operator/README.md)
->[Download PDF](DDN_2020_45_KubernetesOperator.pdf)
+> - [Read article online](45-kubernetes-operator/README.md)
+> - [Download PDF](DDN_2020_45_KubernetesOperator.pdf)
 >
->[Download YAML files for labs here (TarBall format)](DDN_2020_45_KubernetesOperator.tar)
+> - [Download YAML files for labs here (TarBall format)](DDN_2020_45_KubernetesOperator.tar)
+
 
 
 August 2020 - -
@@ -73,12 +77,13 @@ August 2020 - -
 >For the past 10 years inside DataStax, we’ve perfected NoSQLBench, our now open source distributed data platform, volume data generation
 >and testing tool. In this article we will overview NoSQLBench, enabling you to see if NoSQLBench can meet your needs too.
 >
->[Read article online](44-no-sqlbench/README.md)
->[Download PDF](DDN_2020_44_NoSQLBench.pdf)
+> - [Read article online](44-no-sqlbench/README.md)
+> - [Download PDF](DDN_2020_44_NoSQLBench.pdf)
 >
->[PowerPoint(Added detail to the above)](DDN_2020_44_NoSQLBench_Slides.pdf)
+> - [PowerPoint(Added detail to the above)](DDN_2020_44_NoSQLBench_Slides.pdf)
 >
->[The final YAML file/solution used in this article](DDN_2020_44_NoSQLBench.yaml)
+> - [The final YAML file/solution used in this article](DDN_2020_44_NoSQLBench.yaml)
+
 
 
 July 2020 - -
@@ -90,11 +95,13 @@ July 2020 - -
 >
 >In this article, we specifically cover Astra API programming.
 >
->[Read article online](43-astra-api-programming/README.md)
->[Download PDF](DDN_2020_43_AstraApiProgramming.pdf)
+> - [Read article online](43-astra-api-programming/README.md)
+> - [Download PDF](DDN_2020_43_AstraApiProgramming.pdf)
 >
->[Application program data](DDN_2020_43_NoteBook.tar) in the form
+> - [Application program data](DDN_2020_43_NoteBook.tar)
+> in the form
 >of a DataStax Studio Notebook, in standard TAR file form.
+
 
 
 June 2020 - -
@@ -109,16 +116,17 @@ June 2020 - -
 >deliver geospatial queries using DataStax Astra, or just the DataStax Enterprise (DSE) Core functional component,
 >(and not use DSE Search).
 >
->[Read article online](42-astra-geohash/README.md)
->[Download PDF](DDN_2020_42_AstraGeohash.pdf)
+> - [Read article online](42-astra-geohash/README.md)
+> - [Download PDF](DDN_2020_42_AstraGeohash.pdf)
 >
->[Application program code](DDN_2020_42_AstraGeohash_Programs.tar.gz)
+> - [Application program code](DDN_2020_42_AstraGeohash_Programs.tar.gz)
 >
->[Application program data](DDN_2020_42_AstraGeohash_Data.pipe.gz)
+> - [Application program data](DDN_2020_42_AstraGeohash_Data.pipe.gz)
 >
 >(Because of GitHub file size limits, the above data file contains only 250,000 of the promised 334,000 lines of data. Sorry.)
 >
->[Demonstration video](https://www.youtube.com/watch?v=RVso51X0A08)
+> - [Demonstration video](https://www.youtube.com/watch?v=RVso51X0A08)
+
 
 
 May 2020 - -
@@ -131,8 +139,9 @@ May 2020 - -
 >
 >While we might briefly mention REST and gRPC, the bulk of this document will center on GraphQL.
 >
->[Read article online](41-graph-ql/README.md)
->[Download PDF](DDN_2020_41_GraphQL.pdf)
+> - [Read article online](41-graph-ql/README.md)
+> - [Download PDF](DDN_2020_41_GraphQL.pdf)
+
 
 
 April 2020 - -
@@ -145,8 +154,9 @@ April 2020 - -
 >between DSE server nodes (in the event you go multi-cloud), and then also SSL from client (node) to DSE
 >cluster.
 >
->[Read article online](40-ssl/README.md)
->[Download PDF](DDN_2020_40_SSL.pdf)
+> - [Read article online](40-ssl/README.md)
+> - [Download PDF](DDN_2020_40_SSL.pdf)
+
 
 
 March 2020 - -
@@ -160,8 +170,9 @@ March 2020 - -
 >The on line documentation covers the asynchronous query topic well, so we’ll review that and then extend
 >into asynchronous write programming.
 >
->[Read article online](39-driver-futures/README.md)
->[Download PDF](DDN_2020_39_DriverFutures.pdf)
+> - [Read article online](39-driver-futures/README.md)
+> - [Download PDF](DDN_2020_39_DriverFutures.pdf)
+
 
 
 February 2020 - -
@@ -174,8 +185,9 @@ February 2020 - -
 >graph traversals are actually (executed). For fun, we’ll actually talk a little bit about a close (graph)
 >neighbor, Neo4J.
 >
->[Read article online](38-file-methods/README.md)
->[Download PDF](DDN_2020_38_FileMethods.pdf)
+> - [Read article online](38-file-methods/README.md)
+> - [Download PDF](DDN_2020_38_FileMethods.pdf)
+
 
 
 January 2020 - -
@@ -186,5 +198,5 @@ January 2020 - -
 >Daniel: Excellent question ! Yes. This is like a two-liner solution. We’ll detail all of the concepts and code inside
 >this document.
 >
->[Read article online](37-parquet/README.md)
->[Download PDF](DDN_2020_37_Parquet.pdf)
+> - [Read article online](37-parquet/README.md)
+> - [Download PDF](DDN_2020_37_Parquet.pdf)

@@ -4,22 +4,6 @@
 [Back to 2021 archive](../README.md)
 [Download original PDF](../DDN_2021_55_K8ssandra.pdf)
 
-## From The Archive
-
-July 2021 - -
->Customer: My company is looking for ways to accelerate our application development, through whatever means. Can you help ?
->
->Daniel: Excellent question !  One of the areas we can look at are programming APIs/gateways. On some level, there are only
->four things you can do with data; insert, update, delete, and select. As such, why aren’t all means to execute these statements
->automatically generated, automatically managed and scaled, and more.
->
->On February 10, 2021, DataStax released the open source K8ssandra project, which includes these automated functions, and more.
->In this article, we detail an introduction to K8ssandra; installation and use. In subsequent articles, we dive deeper into REST,
->GraphQL, and Document API configuration and use.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2021 55 K8ssandra

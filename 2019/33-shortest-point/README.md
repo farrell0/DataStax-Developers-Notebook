@@ -5,29 +5,6 @@
 [Download original PDF](../DDN_2019_33_ShortestPoint.pdf)
 [Companion asset: DDN_2019_33_ShortestPoint.tar](../DDN_2019_33_ShortestPoint.tar)
 
-## From The Archive
-
-2019 September - -
->Customer: My company has a number of shortest-path problems, for example; airlines, get me from SFO to
->JFK for passenger and freight routing. I understand graph analytics may be a means to solve this problem.
->Can you help ?
->
->Daniel: Excellent question ! This is the second of three documents in a series answering this question.
->In the first document (August/2019), we set up the DataStax Enterprise (DSE) release 6.8 Python client
->side library, and worked with the driver for both OLTP and OLAP style queries. In this second document,
->we deliver a thin client Web user interface that allows us to interact with a (grid maze), prompting
->and then rendering the results to a DSE Graph shortest path query (traversal). In the third and final
->document in this series (October/2019), we will backfill all of the DSE Graph (Apache Gremlin) traversal
->steps you would need to know to write the shortest path query on your own, without aid.
->
->All of the source code to the client program, written in Python, is available below as a Linux Tar ball.
->
->[Read article online](./README.md)
->
->[Application program code](../DDN_2019_33_ShortestPoint.tar)
-
-
-
 ---
 
 # DDN 2019 33 ShortestPoint

@@ -4,22 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_48_NodeReplaceWoBootstrap.pdf)
 
-## From The Archive
-
-December 2020 - -
->Customer: Enjoyed the past article on Apache Cassandra and virtualization (VMs). I didn’t see you detail how to recover from a failed
->node (VM) though. Can you help ?
->
->Daniel: Excellent question ! Good catch; an oversight on our part. Is this edition of DDN we detail how to implement and test node
->recovery from failure, when using virtual machines.
->
->While this is generally an automatic function of Cassandra, you can, when using network attached storage, perform some manual steps
->to recover nodes much faster. Also, we use these techniques to support development and quality-assurance; use the same steps for
->'cluster cloning' and 'differentiated data', both topics to overvoew in this paper.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2020 48 NodeReplaceWoBootstrap

@@ -2,29 +2,7 @@
 |-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 
 [Back to 2019 archive](../README.md)
-[Download original PDF](../DDN_2019_30_GraphPrimer 68.pdf)
-
-## From The Archive
-
-2019 June - -
-
->Customer: I saw the January/2019 article where you introduced graph computing using Apache TinkerPop,
->aka, DataStax Enterprise Graph. Now I see that you’ve released an EAP (early access program, preview)
->DataStax Enterprise version 6.8 with significant changes to graph, including a new storage model. I
->figure there’s a bunch of new stuff I need to know. Can you help ?
->
->Daniel: Excellent question ! Yes. In this edition of DataStax Developer’s Notebook (DDN), we’ll update
->the January/2019 document with new version 6.8 DSE capabilities, and do a bit of compare and contrast.
->Keep in mind as an EAP, version 6.8 is proposed, early preview. Version 6.8 may change drastically.
->
->In this document, we detail that you no longer need GraphFrames; inserting using standard DataFrames
->saves a bunch of processing steps, and still performs just as well. We detail the new version 6.8
->storage model, which is also much simpler over version 6.7. (Everything is stored directly in DSE Core
->tables, and directly support DSE Core CQL queries.)
->
->[Read article online](./README.md)
-
-
+[Download original PDF](../DDN_2019_30_GraphPrimer%25252068.pdf)
 
 ---
 
@@ -68,7 +46,7 @@ Compared to common relational databases, DSE Core provides at least two truly un
 
 DataStax Developer’s Notebook -- June 2019 V1.2
 
-![Figure 30-1 DSE, 4 primary functional areas](./DDN_2019_30_GraphPrimer 68.assets/figure-000.jpg)
+![Figure 30-1 DSE, 4 primary functional areas](./DDN_2019_30_GraphPrimer%252068.assets/figure-000.jpg)
 
 *Figure 30-1 DSE, 4 primary functional areas*
 
@@ -90,7 +68,7 @@ DataStax Developer’s Notebook -- June 2019 V1.2
 
 DSE Graph object hierarchy Figure 30-2 displays the DSE Graph object hierarchy. A code review follows.
 
-![Figure 30-2 DSE Graph object hierarchy](./DDN_2019_30_GraphPrimer 68.assets/figure-001.ppm)
+![Figure 30-2 DSE Graph object hierarchy](./DDN_2019_30_GraphPrimer%252068.assets/figure-001.ppm)
 
 *Figure 30-2 DSE Graph object hierarchy*
 
@@ -192,7 +170,7 @@ DataStax Developer’s Notebook -- June 2019 V1.2
 
 Example queries, relational and graph Figure 30-3 displays a standard relational database query. A code review follows.
 
-![Figure 30-3 Example Relational Query](./DDN_2019_30_GraphPrimer 68.assets/figure-002.ppm)
+![Figure 30-3 Example Relational Query](./DDN_2019_30_GraphPrimer%252068.assets/figure-002.ppm)
 
 *Figure 30-3 Example Relational Query*
 
@@ -210,7 +188,7 @@ DataStax Developer’s Notebook -- June 2019 V1.2
 
 Figure 30-4 displays a Gremlin traversal (similar to a SQL SELECT). A code review follows.
 
-![Figure 30-4 Gremlin traversal, happens to be a recursion](./DDN_2019_30_GraphPrimer 68.assets/figure-003.ppm)
+![Figure 30-4 Gremlin traversal, happens to be a recursion](./DDN_2019_30_GraphPrimer%252068.assets/figure-003.ppm)
 
 *Figure 30-4 Gremlin traversal, happens to be a recursion*
 
@@ -230,7 +208,7 @@ DataStax Developer’s Notebook -- June 2019 V1.2
 
 An Example using Customer Figure 30-5 displays a simple graph we will use on the next set of pages. A code review follows.
 
-![Figure 30-5 A simple “Customer” graph](./DDN_2019_30_GraphPrimer 68.assets/figure-004.jpg)
+![Figure 30-5 A simple “Customer” graph](./DDN_2019_30_GraphPrimer%252068.assets/figure-004.jpg)
 
 *Figure 30-5 A simple “Customer” graph*
 
@@ -293,7 +271,7 @@ Figure 30-6 displays the sequence of steps to create and load our example graph 
 
 DataStax Developer’s Notebook -- June 2019 V1.2
 
-![Figure 30-6 Sequence of steps to create and load this graph, version 6.7](./DDN_2019_30_GraphPrimer 68.assets/figure-005.jpg)
+![Figure 30-6 Sequence of steps to create and load this graph, version 6.7](./DDN_2019_30_GraphPrimer%252068.assets/figure-005.jpg)
 
 *Figure 30-6 Sequence of steps to create and load this graph, version 6.7*
 

@@ -5,23 +5,6 @@
 [Download original PDF](../DDN_2020_43_AstraApiProgramming.pdf)
 [Companion asset: DDN_2020_43_NoteBook.tar](../DDN_2020_43_NoteBook.tar)
 
-## From The Archive
-
-July 2020 - -
->Customer: Okay, so my company is finally ready to “database as a service (DBaaS)". We also want to move to a micro-services
->architecture, and possibly GraphQL. Can you help ?
->
->Daniel: Excellent question ! In this series we’ve previously covered GraphQL, and previously covered geo-spatial queries
->using the DataStax Cassandra as a service titled, Astra, which also acted as our primer on Astra.
->
->In this article, we specifically cover Astra API programming.
->
->[Read article online](./README.md)
->
->[Application program data](../DDN_2020_43_NoteBook.tar) in the form
->of a DataStax Studio Notebook, in standard TAR file form.
-
-
 ---
 
 # DDN 2020 43 AstraApiProgramming

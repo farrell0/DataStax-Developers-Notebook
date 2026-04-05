@@ -3,30 +3,6 @@
 
 [Back to 2019 archive](../README.md)
 [Download original PDF](../DDN_2019_25_GraphPrimer.pdf)
-[Companion asset: 41 Simple Customer Graph.txt](../41 Simple Customer Graph.txt)
-
-## From The Archive
-
-2019 January - -
-
->Customer: Graph, graph, graph; what the heck is up with graph- I think (hope ?) there’s something graph
->databases do that standard relational databases do not, but I can’t articulate what that function or
->advantage actually is. Can you help ?
->
->Daniel: Excellent question !  Yes, but we’re going to take two editions of this document to do so. Sometimes
->there are nuances when discussing databases; what really is the difference between a data warehouse,
->data mart, data lake, other ? Why couldn’t you recreate some or most non-relational database function
->using a standard relational database ?
->
->In this edition of DataStax Developer’s Notebook (DDN), we provide a graph database primer; create a
->graph, and load it. In a future edition of this same document, we will actually have the chance to
->provide examples where you might determine that graph databases have an advantage over relational
->databases for certain use cases.
->
->[Read article online](./README.md)
->
->[Resource Kit](../41 Simple Customer Graph.txt), all of the data and programs used in this edition in ASCII text format.
->
 
 ---
 

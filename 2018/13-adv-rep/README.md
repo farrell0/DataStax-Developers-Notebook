@@ -5,30 +5,6 @@
 [Download original PDF](../DDN_2018_13_AdvRep.pdf)
 [Companion asset: DDN_2018_13_AdvRep.tar](../DDN_2018_13_AdvRep.tar)
 
-## From The Archive
-
-2018 January - -
-
->Customer: My company is investigating using the DataStax advanced replication feature to
->move data between data centers. Can you help ?
->
->Daniel:
->Excellent question ! In this document we overview DataStax Enterprise (DSE) data replication,
->advanced replication, and even recovery and diagnosis from failure of each of these sub-systems.
->Also, since advanced replication falls into an area of DataStax Enterprise titled, ‘advanced
->functionality’, we overview this topic as well.
->
->Just to be excessively chatty, we also detail DataStax Enterprise triggers and create yet
->another user defined function (UDF). (UDFs were a topic we covered in last month’s edition of
->this document.)
->
->[Read article online](./README.md).
->
->[Resource kit](../DDN_2018_13_AdvRep.tar),
->all of the programs and data used in this edition in Tar format.
->
-
-
 ---
 
 # DDN 2018 13 AdvRep

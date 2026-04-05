@@ -2,22 +2,7 @@
 |-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 
 [Back to 2019 archive](../README.md)
-[Download original PDF](../DDN_2019_35 Desktop.pdf)
-
-## From The Archive
-
-2019 November - -
->Customer: I’m a developer and have little time to learn the complexities of setting up and maintaining
->servers. I get that I can stand up a DatasStax Enterprise server in 2 minutes or less, but I have at
->least 10 of these types of challenges to overcome when getting applications out of the door. Can you help ?
->
->Daniel: Excellent question ! Well obviously you want some automation. DataStax Desktop was introduced
->this year as a means to simply containerize your DataStax Enterpise (DSE) install. A fat client, DataStax
->Desktop runs on Linux, MacOS and Windows, and fronts ends Docker and Kubernetes; really then, standing up
->a new, single or set of DSEs is like a 3 button operation.
->
->[Read article online](./README.md)
-
+[Download original PDF](../DDN_2019_35%252520Desktop.pdf)
 
 ---
 
@@ -41,7 +26,7 @@ DataStax Developer’s Notebook -- November 2019 V1.2
 
 As stated above, ultimately the end goal is to introduce a developer to an easy means to stand up DataStax Enterprise (DSE). Figure 35-1 displays DataStax Desktop, version 1.0.2. A code review follows.
 
-![Figure 35-1 DataStax Desktop version 1.0.2](./DDN_2019_35 Desktop.assets/figure-000.jpg)
+![Figure 35-1 DataStax Desktop version 1.0.2](./DDN_2019_35%2520Desktop.assets/figure-000.jpg)
 
 *Figure 35-1 DataStax Desktop version 1.0.2*
 
@@ -217,19 +202,19 @@ DataStax Developer’s Notebook -- November 2019 V1.2
 ./”DataStax Desktop-1.0.2.AppImage” --no-sandbox
 ```
 
-![Figure 35-2 Downloading DataStax Desktop](./DDN_2019_35 Desktop.assets/figure-001.jpg)
+![Figure 35-2 Downloading DataStax Desktop](./DDN_2019_35%2520Desktop.assets/figure-001.jpg)
 
 *Figure 35-2 Downloading DataStax Desktop*
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-3 Desktop, choosing a Linux Tarball distribution](./DDN_2019_35 Desktop.assets/figure-002.jpg)
+![Figure 35-3 Desktop, choosing a Linux Tarball distribution](./DDN_2019_35%2520Desktop.assets/figure-002.jpg)
 
 *Figure 35-3 Desktop, choosing a Linux Tarball distribution*
 
 After launching Desktop, we selected, “Choose a Different Stack”.
 
-![Figure 35-4 Select, “Choose a Different Stack”](./DDN_2019_35 Desktop.assets/figure-003.jpg)
+![Figure 35-4 Select, “Choose a Different Stack”](./DDN_2019_35%2520Desktop.assets/figure-003.jpg)
 
 *Figure 35-4 Select, “Choose a Different Stack”*
 
@@ -239,7 +224,7 @@ DataStax Developer’s Notebook -- November 2019 V1.2
 
 Figure 35-5 displays the various “stacks” that are available to download and operate. We choose DataStax Enterprise (DSE) version 6.8, which also comes with a DataStax Studio version 6.8.
 
-![Figure 35-5 Various runtime configurations available.](./DDN_2019_35 Desktop.assets/figure-004.jpg)
+![Figure 35-5 Various runtime configurations available.](./DDN_2019_35%2520Desktop.assets/figure-004.jpg)
 
 *Figure 35-5 Various runtime configurations available.*
 
@@ -247,13 +232,13 @@ DataStax Developer’s Notebook -- November 2019 V1.2
 
 If you had not previously downloaded, installed, and started Docker, you will receive some form of the error notification below.
 
-![Figure 35-6 Notice of the Docker prerequisite](./DDN_2019_35 Desktop.assets/figure-005.jpg)
+![Figure 35-6 Notice of the Docker prerequisite](./DDN_2019_35%2520Desktop.assets/figure-005.jpg)
 
 *Figure 35-6 Notice of the Docker prerequisite*
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-7 Error notification; insufficient OS resource](./DDN_2019_35 Desktop.assets/figure-006.jpg)
+![Figure 35-7 Error notification; insufficient OS resource](./DDN_2019_35%2520Desktop.assets/figure-006.jpg)
 
 *Figure 35-7 Error notification; insufficient OS resource*
 
@@ -263,7 +248,7 @@ You will receive the error below if Kubernetes is not installed.
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-8 Error if Kubernetes is not installed.](./DDN_2019_35 Desktop.assets/figure-007.jpg)
+![Figure 35-8 Error if Kubernetes is not installed.](./DDN_2019_35%2520Desktop.assets/figure-007.jpg)
 
 *Figure 35-8 Error if Kubernetes is not installed.*
 
@@ -271,7 +256,7 @@ After all prerequisites are met, you may then choose a specific “stack” to d
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-9 Choosing DSE version 6.8 EAP](./DDN_2019_35 Desktop.assets/figure-008.jpg)
+![Figure 35-9 Choosing DSE version 6.8 EAP](./DDN_2019_35%2520Desktop.assets/figure-008.jpg)
 
 *Figure 35-9 Choosing DSE version 6.8 EAP*
 
@@ -279,13 +264,13 @@ You will see status screen first for download, then initialization. Examples as 
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-10 Downloading](./DDN_2019_35 Desktop.assets/figure-009.jpg)
+![Figure 35-10 Downloading](./DDN_2019_35%2520Desktop.assets/figure-009.jpg)
 
 *Figure 35-10 Downloading*
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-11 Initializing](./DDN_2019_35 Desktop.assets/figure-010.jpg)
+![Figure 35-11 Initializing](./DDN_2019_35%2520Desktop.assets/figure-010.jpg)
 
 *Figure 35-11 Initializing*
 
@@ -293,7 +278,7 @@ Once everything is up, a link is provided to access, in this case, DataStax Stud
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-12 Desktop, main screen for a given stack.](./DDN_2019_35 Desktop.assets/figure-011.jpg)
+![Figure 35-12 Desktop, main screen for a given stack.](./DDN_2019_35%2520Desktop.assets/figure-011.jpg)
 
 *Figure 35-12 Desktop, main screen for a given stack.*
 
@@ -301,13 +286,13 @@ And then install-verify for the DataStax system we just instantiated.
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-13 Home page for DataStax Studio.](./DDN_2019_35 Desktop.assets/figure-012.jpg)
+![Figure 35-13 Home page for DataStax Studio.](./DDN_2019_35%2520Desktop.assets/figure-012.jpg)
 
 *Figure 35-13 Home page for DataStax Studio.*
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-14 A pre-configured default connection](./DDN_2019_35 Desktop.assets/figure-013.ppm)
+![Figure 35-14 A pre-configured default connection](./DDN_2019_35%2520Desktop.assets/figure-013.ppm)
 
 *Figure 35-14 A pre-configured default connection*
 
@@ -315,7 +300,7 @@ As part of the integration with DataStax Desktop, DataStax Studio is pre-configu
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-15 DataStax Studio, install-verify](./DDN_2019_35 Desktop.assets/figure-014.jpg)
+![Figure 35-15 DataStax Studio, install-verify](./DDN_2019_35%2520Desktop.assets/figure-014.jpg)
 
 *Figure 35-15 DataStax Studio, install-verify*
 
@@ -325,7 +310,7 @@ To stop, re-start, or remove this stack, we access the Home Screen within Deskto
 
 DataStax Developer’s Notebook -- November 2019 V1.2
 
-![Figure 35-16 Home (operating) screen within Desktop](./DDN_2019_35 Desktop.assets/figure-015.jpg)
+![Figure 35-16 Home (operating) screen within Desktop](./DDN_2019_35%2520Desktop.assets/figure-015.jpg)
 
 *Figure 35-16 Home (operating) screen within Desktop*
 

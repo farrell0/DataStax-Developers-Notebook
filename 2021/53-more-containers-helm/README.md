@@ -5,24 +5,6 @@
 [Download original PDF](../DDN_2021_53_MoreContainersHelm.pdf)
 [Companion asset: DDN_2021_53_ToolkitVersion2.tar](../DDN_2021_53_ToolkitVersion2.tar)
 
-## From The Archive
-
-May 2021 - -
->Customer: My company enjoyed the series of four articles centered on Cassandra atop Kubernetes. But, you left Cassandra and the Operator limited to
->just one namespace. We seek to run Cassandra clusters in many concurrent namespaces. Can you help ?
->
->Daniel: Excellent question ! In this edition of this document, we take the work from the previous 4 articles, and move them to a multiple namespace
->treatment. We’ll detail using the Cassandra Operator across Kubernetes namespaces, and we’ll detail Cassandra cluster cloning across namespaces. Be
->advised, there are relevant limitations with Kuberenetes version 1.18 and lower as it relates to (cloning) across namespaces. (Everything is do-able,
->it’s just more steps than you might expect.)
->
->[Read article online](./README.md)
->
->[Download version 2.0 of the Toolkit for here, in Tar format](../DDN_2021_53_ToolkitVersion2.tar)
->
->[View a quick demo of Cassandra cluster cloning atop Kubernetes here](https://www.youtube.com/watch?v=paly5VVuAYM)
-
-
 ---
 
 # DDN 2021 53 MoreContainersHelm

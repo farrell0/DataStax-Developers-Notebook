@@ -4,18 +4,6 @@
 [Back to 2021 archive](../README.md)
 [Download original PDF](../DDN_2021_59_DseStargate.pdf)
 
-## From The Archive
-
-November 2021 - -
->Customer: My company has been on DataStax Enterprise for some time. We are super excited by the new, open source StarGate (subsystem),
->and what that provides. It appears as though StarGate only works with open source Apache Cassandra. Can you help ?
->
->Daniel: Excellent question ! We’ll overview what you are seeing, and how to get StarGate to work with DataStax Enterprise. We’ll also
->detail a bit of the landscape; what’s moving around, how and why.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2021 59 DseStargate

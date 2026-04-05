@@ -2,24 +2,7 @@
 |-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 
 [Back to 2021 archive](../README.md)
-[Download original PDF](../DDN_2021_57_K8ssandra, GraphQL.pdf)
-
-## From The Archive
-
-September 2021 - -
->Customer: My company has enjoyed the last two articles on DataStax K8ssandra, and specifically the StarGate component to same.
->We’ve seen details on REST and the Document API, but little on GraphQL. Can you help ?
->
->Daniel: Excellent question !  We’ve done a number of articles in this series on GraphQL. Most recently, in October/2020, we
->delivered a geo-spatial thin client Web program using GraphQL against the DataStax database as a service. When using Astra,
->the database is hosted, managed. Also when using Astra, the service end points are automatically created and maintained, and
->are, behind the scenes, using K8ssandra and StarGate.
->
->So, in this article, we supply the final and previously missing piece; how to access the GraphQL component of your own hosted
->K8ssandra/StarGate.
->
->[Read article online](./README.md)
-
+[Download original PDF](../DDN_2021_57_K8ssandra%25252C%252520GraphQL.pdf)
 
 ---
 

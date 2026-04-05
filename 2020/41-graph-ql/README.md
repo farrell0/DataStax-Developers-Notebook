@@ -4,21 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_41_GraphQL.pdf)
 
-## From The Archive
-
-May 2020 - -
->Customer: My company has got to improve its efficiency and time to delivery when creating business applications on
->Apache Cassandra and DataStax Enterprise. Can you help ?
->
->Daniel: Excellent question ! Since you specfically mentioned application development, we will give focus to API
->endpoint programming; a means to more greatly decouple your application from the database, allowing for greater
->flexibility in deployment, and even increasing performance of Web and mobile applications.
->
->While we might briefly mention REST and gRPC, the bulk of this document will center on GraphQL.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2020 41 GraphQL

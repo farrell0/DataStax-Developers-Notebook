@@ -4,30 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_23_IndexingCollections.pdf)
 
-## From The Archive
-
-2018 November - -
-
->Customer: My application needs to store a dynamic number of latitude/longitude pairs per single
->database row, along with a tag for these values like; home, work, mobile, etcetera. We need to
->perform distance (proximity) queries for any of the latitude/longitude pair values, as well as
->queries on specific tags; just home, just work, other. Can you help ?
->
->Daniel: Excellent question ! All of these application requirements are easily served with DataStax
->Enterprise Server (DSE). While we’ve covered DSE Search queries including spatial/geo-spatial in
->past editions of this document, the specific requirement you have for (a dynamic count of attributes),
->is something we have not covered in this series of documents previously.
->
->Using this same technique, DataStax Enterprise can also serve a polymorphic schema ability,
->similar to MongoDB.
->
->This edition of this document will address this application requirement with no prerequisites,
->although; you might well be served to visit the past editions of this document detailing DSE
->Search and DSE (spatial/geo-spatial Search), to gain a deep understanding.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2018 23 IndexingCollections

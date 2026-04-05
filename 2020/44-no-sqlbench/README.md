@@ -6,26 +6,6 @@
 [Companion asset: DDN_2020_44_NoSQLBench.yaml](../DDN_2020_44_NoSQLBench.yaml)
 [Companion asset: DDN_2020_44_NoSQLBench_Slides.pdf](../DDN_2020_44_NoSQLBench_Slides.pdf)
 
-## From The Archive
-
-August 2020 - -
->Customer: My company has diffficulty moving applications into production related to data at scale. E.g., we program then unit
->and system test with 5-15 rows of data, then when we get into production with millions of lines of data, things fail. There
->has to be an easier way to overcome this challenge. Can you help ?
->
->Daniel: Excellent question ! With all of the pressures we face today just to get applications written, unit testing often suffers,
->system testing suffers worse, and then testing applications at scale often never happens. Fortunately, we have an easy solution.
->
->For the past 10 years inside DataStax, we’ve perfected NoSQLBench, our now open source distributed data platform, volume data generation
->and testing tool. In this article we will overview NoSQLBench, enabling you to see if NoSQLBench can meet your needs too.
->
->[Read article online](./README.md)
->
->[PowerPoint(Added detail to the above)](../DDN_2020_44_NoSQLBench_Slides.pdf)
->
->[The final YAML file/solution used in this article](../DDN_2020_44_NoSQLBench.yaml)
-
-
 ---
 
 # DDN 2020 44 NoSQLBench

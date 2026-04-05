@@ -3,41 +3,6 @@
 
 [Back to 2021 archive](../README.md)
 [Download original PDF](../DDN_2021_52_KubernetesSnapshots.pdf)
-[Companion asset: DDN_2021_49_KubernetesPrimer.pdf](../DDN_2021_49_KubernetesPrimer.pdf)
-[Companion asset: DDN_2021_50_KubernetesNodeRecovery.pdf](../DDN_2021_50_KubernetesNodeRecovery.pdf)
-[Companion asset: DDN_2021_51_KubernetesClusterCloning.pdf](../DDN_2021_51_KubernetesClusterCloning.pdf)
-[Companion asset: DDN_2021_KubernetesPrimer_Toolkit.tar](../DDN_2021_KubernetesPrimer_Toolkit.tar)
-
-## From The Archive
-
-January 2021 thru April 2021 - -
->Customer: My company is moving its operations to the cloud, including cloud native computing and Kubernetes. I believe we can run Apache Cassandra
->on Kubernetes. Can you help ?
->
->Daniel: Excellent question ! Kubernetes, and running Apache Cassandra on Kuberenetes are huge topics. As such, we’ll begin a four part series of articles that
->cover most of the day one through day seven topics. We wont do a general Kuberentes primer, many other capable Kubernetes primers exist, but will list our
->favorite resources here and there.
->
->  • In the January article, we will get Apache Cassandra up and running on Kubernetes.
->
->[Download January whitepaper here](../DDN_2021_49_KubernetesPrimer.pdf)
->
->  • In February, we detail recovery from failed/down Cassandra nodes.
->
->[Download February whitepaper here](../DDN_2021_50_KubernetesNodeRecovery.pdf)
->
->  • In March, we detail Cassandra cluster cloning, for QA and development.
->
->[Download March whitepaper here](../DDN_2021_51_KubernetesClusterCloning.pdf)
->
->  • In April, we detail Kubernetes snapshotting in general.
->
->[Read article online](./README.md)
->
->[Download the Toolkit for all 4 months/articles here, in Tar format](../DDN_2021_KubernetesPrimer_Toolkit.tar)
-
-
-
 
 ---
 

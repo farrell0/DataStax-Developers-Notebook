@@ -5,23 +5,6 @@
 [Download original PDF](../DDN_2021_60_SnowFlake.pdf)
 [Companion asset: DDN_2021_60_SnowFlake.tar](../DDN_2021_60_SnowFlake.tar)
 
-## From The Archive
-
-December 2021 - -
->Customer: My company uses a ton of Apache Cassandra, and a ton of SnowFlake. We also want to move to writing applications using Node.js/REACT.
->We’re having trouble understanding what each of Cassandra and SnowFlake should be used for together, and what a sample application might
->look like. Can you help ?
->
->Daniel: Excellent question ! We’ll detail a sample application, written in Node.js and REACT, and then deliver an application that uses both
->Apache Cassandra and SnowFlake.
->
->[View a quick demo of what we're building here](https://youtu.be/uDfVjStGA9o)
->
->[Read article online](./README.md)
->
->[Download Source Code in Tar Format here](../DDN_2021_60_SnowFlake.tar)
-
-
 ---
 
 # DDN 2021 60 SnowFlake

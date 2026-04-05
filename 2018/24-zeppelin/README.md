@@ -4,25 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_24_Zeppelin.pdf)
 
-## From The Archive
-
-2018 December - -
-
->Customer: My developers want a quick and easy way to prototype Spark Scala, Spark Python,
->and related. I know there are the Spark (Scala) and Python REPLs (read, evaluate, print and
->loop; command prompts) that ship with DSE, but we want something more. Can you help ?
->
->Daniel: Excellent question! There are a number of free/open-source options here. In this document
->we’ll install and use Apache Zeppelin to address this need.
->
->DSE Studio, based on Apache Zeppelin, ships with interpreters for; markdown, Spark/SQL, Gremlin,
->and CQL. Apache Zeppelin ships with 20 or more interpreters, including Spark (Scala), Python,
->Shell, and more. As such, many folks use both tools.
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 24 Zeppelin

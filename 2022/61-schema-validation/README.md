@@ -4,15 +4,6 @@
 [Back to 2022 archive](../README.md)
 [Download original PDF](../DDN_2022_61_SchemaValidation.pdf)
 
-## From The Archive
-
-January 2022 - -
->Customer: My company wishes to activate SQL-style data ingegrity check constraints atop Apache Cassandra. Can you help ?
->
->Daniel: Excellent question ! You can do this, and we’ll detail all of the steps involved below.
->
->[Read article online](./README.md)
-
 ---
 
 # DDN 2022 61 SchemaValidation

@@ -5,23 +5,6 @@
 [Download original PDF](../DDN_2020_45_KubernetesOperator.pdf)
 [Companion asset: DDN_2020_45_KubernetesOperator.tar](../DDN_2020_45_KubernetesOperator.tar)
 
-## From The Archive
-
-September 2020 - -
->Customer: My company is all in on micro-services, container and cloud for application development, server hosting including databases,
->you name it. We’ve never hosted Cassandra inside containers, and wonder how best to get started. Can you help ?
->
->Daniel: Excellent question ! DataStax recently produced and open sourced its Kubernetes Operator, which will get you all that you need.
->This operator supports open source Cassandra, DataStax Enterprise, and more.
->
->In the real world, expectedly, you’d use this operator to stand up pods hosting Cassandra on GKE or similar. For better learning and
->debugging, this article will actually do this work on our laptop; greater control, greater control to break things for test, other.
->
->[Read article online](./README.md)
->
->[Download YAML files for labs here (TarBall format)](../DDN_2020_45_KubernetesOperator.tar)
-
-
 ---
 
 # DDN 2020 45 KubernetesOperator

@@ -4,22 +4,6 @@
 [Back to 2019 archive](../README.md)
 [Download original PDF](../DDN_2019_27_Security.pdf)
 
-## From The Archive
-
-2019 March - -
-
->Customer: My company was using application server tiered security, and now needs to implement
->database tier level security. Can you help ?
->
->Daniel: Excellent question ! Obviously security is a broad topic; OS level security (the OS
->hosting DSE), database level security, data in flight, data at rest, and more.
->
->Minimally we’ll overview DSE security, and detail how to implement password protection of same.
->
->[Read article online](./README.md)
-
-
-
 ---
 
 # DDN 2019 27 Security

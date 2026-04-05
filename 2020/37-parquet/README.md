@@ -4,18 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_37_Parquet.pdf)
 
-## From The Archive
-
-January 2020 - -
-
->Customer: My company maintains a lot of data on Hadoop, in Parquet and other formats, and need to perform integrated
->reporting with data resident inside DataStax. Can you help ?
->
->Daniel: Excellent question ! Yes. This is like a two-liner solution. We’ll detail all of the concepts and code inside
->this document.
->
->[Read article online](./README.md)
-
 ---
 
 # DDN 2020 37 Parquet

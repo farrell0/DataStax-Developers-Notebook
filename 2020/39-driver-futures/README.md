@@ -4,22 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_39_DriverFutures.pdf)
 
-## From The Archive
-
-March 2020 - -
->Customer: As a database application developer, I’ve never previously used a system with a natively asynchronous
->client side driver. What do I need to know; Can you help ?
->
->Daniel: Excellent question ! Yes, the DataStax Enterprise (DSE) client side drivers offer entirely native
->asynchronous operation.; fire and forget, or fire and listen. There are easy means to make the driver and
->any calls you issue block, and behave synchronously, but there’s little fun in that.
->
->The on line documentation covers the asynchronous query topic well, so we’ll review that and then extend
->into asynchronous write programming.
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2020 39 DriverFutures

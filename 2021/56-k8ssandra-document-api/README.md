@@ -2,20 +2,7 @@
 |-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|-------------------------|
 
 [Back to 2021 archive](../README.md)
-[Download original PDF](../DDN_2021_56_K8ssandra, Document API.pdf)
-
-## From The Archive
-
-August 2021 - -
->Customer: My company enjoyed the last article on K8ssandra and StarGate. We are highly interested in the Document API that this
->document referred to; use and some of the design elements. Can you help ?
->
->Daniel: Excellent question ! Last month we installed DataStax K8ssandra, which includes the StarGate component. Further, we did
->a (Hello World) using REST, to serve as an install/validate of StarGate. This month we dive deeper not into just REST, but now
->the Document API area of StarGate; make a table, insert documents, run a query.
->
->[Read article online](./README.md)
-
+[Download original PDF](../DDN_2021_56_K8ssandra%25252C%252520Document%252520API.pdf)
 
 ---
 

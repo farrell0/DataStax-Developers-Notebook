@@ -4,21 +4,6 @@
 [Back to 2021 archive](../README.md)
 [Download original PDF](../DDN_2021_58_KastenVeeam.pdf)
 
-## From The Archive
-
-October 2021 - -
->Customer: My company is investigating a backup and recovery solution for all of our applications running atop Kubernetes. Can you help ?
->
->Daniel: Excellent question ! In the past we’ve referenced the open source Velero project from a VMware acquisition, and we’ve mentioned
->NetApp Astra (a SaaS). This month we detail installation and use of Kasten/Veeam K10. With (Kasten) you can backup and restore databases,
->applications, and not only backup and restore, but also clone to aid your development efforts.
->
->In this article we backup and recover the DataStax Kubernetes Operator for Apache Cassandra, and backup, restore, and clone Cassandra
->Datacenter objects (entire Cassandra clusters).
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2021 58 KastenVeeam

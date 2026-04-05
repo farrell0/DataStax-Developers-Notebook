@@ -6,31 +6,6 @@
 [Companion asset: DDN_2020_42_AstraGeohash_Data.pipe.gz](../DDN_2020_42_AstraGeohash_Data.pipe.gz)
 [Companion asset: DDN_2020_42_AstraGeohash_Programs.tar.gz](../DDN_2020_42_AstraGeohash_Programs.tar.gz)
 
-## From The Archive
-
-June 2020 - -
->Customer: My company is investigating using DataStax database as a service, titled DataStax Astra (Astra), to aid
->in our application development. I know Astra is exactly equal to Apache Cassandra, which means that the DataStax
->Enterprise DSE Search component is not present.
->
->As such, we lose Solr/Lucene, and any geo-spatial index and query processing support. But, our application needs
->geospatial query support. Can you help ?
->
->Daniel: Excellent question ! You will be surprised how easy this is to address. In this article we detail how you
->deliver geospatial queries using DataStax Astra, or just the DataStax Enterprise (DSE) Core functional component,
->(and not use DSE Search).
->
->[Read article online](./README.md)
->
->[Application program code](../DDN_2020_42_AstraGeohash_Programs.tar.gz)
->
->[Application program data](../DDN_2020_42_AstraGeohash_Data.pipe.gz)
->
->(Because of GitHub file size limits, the above data file contains only 250,000 of the promised 334,000 lines of data. Sorry.)
->
->[Demonstration video](https://www.youtube.com/watch?v=RVso51X0A08)
-
-
 ---
 
 # DDN 2020 42 AstraGeohash

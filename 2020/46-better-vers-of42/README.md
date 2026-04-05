@@ -4,19 +4,6 @@
 [Back to 2020 archive](../README.md)
 [Download original PDF](../DDN_2020_46_BetterVersOf42.pdf)
 
-## From The Archive
-
-October 2020 - -
->Customer: I love the GraphQL, Python/Flask, OpenStreetView, geo-spatial discussion this series has had of late. I’m having trouble
->putting it all together. Any chance you can put it all in one deliverable. Can you help ?
->
->Daniel: Excellent question ! In this article, we assemble all of the pieces we’ve recently discussed, putting them all in one
->coordinated deliverable. We’ll detail the data format, start up scripts, the program proper, and even any HTML related to
->OpenStreetView. (Eg., not Google Maps.)
->
->[Read article online](./README.md)
-
-
 ---
 
 # DDN 2020 46 BetterVersOf42

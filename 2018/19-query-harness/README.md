@@ -4,26 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_19_QueryHarness.pdf)
 
-## From The Archive
-
-2018 July - -
-
->Customer: I inherited an existing DataStax Enterprise (DSE) server system, and users are
->complaining about performance. I know nothing about DSE, and need to make the users happy.
->Can you help ?
->
->Daniel: Excellent question ! Based on your timeline (how quickly and safely does this problem
->need to be solved), you should probably contact DataStax for assistance. If you were already
->trained/capable on DSE and wanted to solve this problem, this document will cover introductory
->topics related to that goal.
->
->In short, this document discusses building a query harness; capturing and then executing a
->representative set of queries to measure your system performance against, how and why-
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 19 QueryHarness

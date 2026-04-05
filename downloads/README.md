@@ -8,26 +8,6 @@ This page collects the companion downloads that sit alongside the article PDFs a
 
 ## 2021
 
-### 49-kubernetes-primer
-
-[Read article](../2021/49-kubernetes-primer/README.md)
-[DDN_2021_KubernetesPrimer_Toolkit.tar](../2021/DDN_2021_KubernetesPrimer_Toolkit.tar)
-
-### 50-kubernetes-node-recovery
-
-[Read article](../2021/50-kubernetes-node-recovery/README.md)
-[DDN_2021_KubernetesPrimer_Toolkit.tar](../2021/DDN_2021_KubernetesPrimer_Toolkit.tar)
-
-### 51-kubernetes-cluster-cloning
-
-[Read article](../2021/51-kubernetes-cluster-cloning/README.md)
-[DDN_2021_KubernetesPrimer_Toolkit.tar](../2021/DDN_2021_KubernetesPrimer_Toolkit.tar)
-
-### 52-kubernetes-snapshots
-
-[Read article](../2021/52-kubernetes-snapshots/README.md)
-[DDN_2021_KubernetesPrimer_Toolkit.tar](../2021/DDN_2021_KubernetesPrimer_Toolkit.tar)
-
 ### 53-more-containers-helm
 
 [Read article](../2021/53-more-containers-helm/README.md)
@@ -64,15 +44,10 @@ This page collects the companion downloads that sit alongside the article PDFs a
 
 ## 2019
 
-### 25-graph-primer
-
-[Read article](../2019/25-graph-primer/README.md)
-[41 Simple Customer Graph.txt](../2019/41 Simple Customer Graph.txt)
-
 ### 31a-dse-reco-engines
 
 [Read article](../2019/31a-dse-reco-engines/README.md)
-[DDN_2019_31b_DSE, Reco Engines.pptx](../2019/DDN_2019_31b_DSE, Reco Engines.pptx)
+[DDN_2019_31b_DSE, Reco Engines.pptx](../2019/DDN_2019_31b_DSE%25252C%252520Reco%252520Engines.pptx)
 [DDN_2019_31c_JustGroceryData.tar](../2019/DDN_2019_31c_JustGroceryData.tar)
 [DDN_2019_31d_AllCommands.txt](../2019/DDN_2019_31d_AllCommands.txt)
 [DDN_2019_31e_KillrVideoDataAsPipe.tar](../2019/DDN_2019_31e_KillrVideoDataAsPipe.tar)
@@ -115,3 +90,5 @@ This page collects the companion downloads that sit alongside the article PDFs a
 ## Unassigned Downloads
 
 [2021/61_DemoProgram.tar.gz](../2021/61_DemoProgram.tar.gz)
+[2021/DDN_2021_KubernetesPrimer_Toolkit.tar](../2021/DDN_2021_KubernetesPrimer_Toolkit.tar)
+[2019/41 Simple Customer Graph.txt](../2019/41%252520Simple%252520Customer%252520Graph.txt)

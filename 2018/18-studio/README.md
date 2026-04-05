@@ -4,20 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_18_Studio.pdf)
 
-## From The Archive
-
-2018 June - -
-
->Customer: I'm confused by all of the options for loaders, developer's tools and similar.
->Can you offer me an overvew, specifically detailing DSE Studio ?
->
->Daniel: Sure ! We overview all of the above, then detail install, configure and use of
->DSE Studio version 6.0, including configuration and use of CQL and Spark/SQL.
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 18 Studio

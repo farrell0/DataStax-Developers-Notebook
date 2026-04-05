@@ -5,43 +5,6 @@
 [Download original PDF](../DDN_2018_16_Spatial.pdf)
 [Companion asset: DDN_2018_16_Spatial.tar.gz](../DDN_2018_16_Spatial.tar.gz)
 
-## From The Archive
-
-2018 April - -
-
->Customer: My company really enjoyed the last two documents in this series on the topic of
->DataStax Enterprise (DSE) DSE Search, however; our application also needs to include geo-spatial
->queries, specifically-
->
->• Find all points within a distance from a given point, including a compound Text Search.
->
->• Find all points within a polygon.
->
->• And while we’re at it; what is the best means to do end user testing of geo-spatial queries-
->
->Can you help ?
->
->Daniel: Excellent question ! In this document we will:
->
->• Review DSE Search, overview the main points from last month’s edition of this document.
->
->• Deliver the two DSE Search geo-spatial queries you detail above.
->
->• Deliver a graphical (custom) application you could use for end user testing.
->
->** This docment states that the accompanying download contains 330,000 sample
->geo-points from the USA states of Colorado and Utah. This amount of data was
->greater in size than GitHub cared for. So, you only get Colorado data at nearly
->220,000 geo-points.
->
->[Read article online](./README.md)
->
->[Resource kit](../DDN_2018_16_Spatial.tar.gz), all of the data and programs used in this edition in Tar/Gunzip format. About 24 MB compressed.
->
->[Demonstration video](https://youtu.be/kF3IjwVyBtI), of the programs created and used in this document.
->
-
-
 ---
 
 # DDN 2018 16 Spatial

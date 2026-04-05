@@ -32,9 +32,11 @@ This is a personal blog where we answer one or more questions each month from Da
 >and also user defined aggregates and user defined types, and we’ll write application code
 >for each.
 >
->[Read article online](12-udfs/README.md).
->[Download PDF](DDN_2017_12_UDFs.pdf)
+> - [Read article online](12-udfs/README.md)
+> .
+> - [Download PDF](DDN_2017_12_UDFs.pdf)
 >
+
 
 
 2017 November - -
@@ -55,12 +57,15 @@ This is a personal blog where we answer one or more questions each month from Da
 >Along the way we install Scala, Gradle, and use support functions like the DSE parallel
 >filesystem. We supply a 1.7 MB Tar ball with all data and programming.
 >
->[Read article online](11-apriori/README.md).
->[Download PDF](DDN_2017_11_Apriori.pdf)
+> - [Read article online](11-apriori/README.md)
+> .
+> - [Download PDF](DDN_2017_11_Apriori.pdf)
 >
->[Resource Kit](DDN_2017_11_Apriori.tar),
+> - [Resource Kit](DDN_2017_11_Apriori.tar)
+> ,
 >all of the programs and data used in this edition in Tar format.
 >
+
 
 
 2017 October - -
@@ -89,6 +94,7 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >• Demonstrate strong and eventual consistency.
 >
->[Read article online](10-dse-primer/README.md).
->[Download PDF](DDN_2017_10_DsePrimer.pdf)
+> - [Read article online](10-dse-primer/README.md)
+> .
+> - [Download PDF](DDN_2017_10_DsePrimer.pdf)
 >

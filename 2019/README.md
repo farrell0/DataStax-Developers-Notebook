@@ -15,8 +15,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >Daniel: Excellent question ! You’ve got a lot going on above in this problem statement. Net/net, in this
 >document we will; explain cfstats, overview a (production readiness) examination, and more.
 >
->[Read article online](36-cfstats/README.md)
->[Download PDF](DDN_2019_36_cfstats.pdf)
+> - [Read article online](36-cfstats/README.md)
+> - [Download PDF](DDN_2019_36_cfstats.pdf)
+
 
 
 2019 November - -
@@ -29,8 +30,9 @@ This is a personal blog where we answer one or more questions each month from Da
 >Desktop runs on Linux, MacOS and Windows, and fronts ends Docker and Kubernetes; really then, standing up
 >a new, single or set of DSEs is like a 3 button operation.
 >
->[Read article online](35-desktop/README.md)
->[Download PDF](DDN_2019_35 Desktop.pdf)
+> - [Read article online](35-desktop/README.md)
+> - [Download PDF](DDN_2019_35%20Desktop.pdf)
+
 
 
 2019 October - -
@@ -46,10 +48,11 @@ This is a personal blog where we answer one or more questions each month from Da
 >In this third and final document in this series, we backfill all of the DSE Graph (Apache Gremlin) traversal
 >steps you would need to know to write the shortest path query on your own, without aid.
 >
->[Read article online](34-gremlin-primer/README.md)
->[Download PDF](DDN_2019_34_GremlinPrimer.pdf)
+> - [Read article online](34-gremlin-primer/README.md)
+> - [Download PDF](DDN_2019_34_GremlinPrimer.pdf)
 >
->[Application program code](DDN_2019_34_GremlinPrimer.txt)
+> - [Application program code](DDN_2019_34_GremlinPrimer.txt)
+
 
 
 
@@ -68,10 +71,11 @@ This is a personal blog where we answer one or more questions each month from Da
 >
 >All of the source code to the client program, written in Python, is available below as a Linux Tar ball.
 >
->[Read article online](33-shortest-point/README.md)
->[Download PDF](DDN_2019_33_ShortestPoint.pdf)
+> - [Read article online](33-shortest-point/README.md)
+> - [Download PDF](DDN_2019_33_ShortestPoint.pdf)
 >
->[Application program code](DDN_2019_33_ShortestPoint.tar)
+> - [Application program code](DDN_2019_33_ShortestPoint.tar)
+
 
 
 
@@ -98,10 +102,11 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >traversal) used to calculate shortest path.
 >
 >
->[Read article online](32-python68-client/README.md)
->[Download PDF](DDN_2019_32_Python68Client.pdf)
+> - [Read article online](32-python68-client/README.md)
+> - [Download PDF](DDN_2019_32_Python68Client.pdf)
 >
->[Application program code](DDN_2019_32_Python68Client.py)
+> - [Application program code](DDN_2019_32_Python68Client.py)
+
 
 
 
@@ -120,20 +125,21 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >data. We’ll also use this edition of this document to provide a Graph query primer (Gremlin language
 >primer), and answer the nuanced question of; Why Graph ?
 >
->[Read article online](31a-dse-reco-engines/README.md)
->[Download PDF](DDN_2019_31a_DSE, Reco Engines.pdf)
+> - [Read article online](31a-dse-reco-engines/README.md)
+> - [Download PDF](DDN_2019_31a_DSE%2C%20Reco%20Engines.pdf)
 >
->[PowerPoint (mesaurably more detailed than above)](DDN_2019_31b_DSE, Reco Engines.pptx)
+> - [PowerPoint (mesaurably more detailed than above)](DDN_2019_31b_DSE%2C%20Reco%20Engines.pptx)
 >
->[Video recording of the PPT above](https://www.youtube.com/watch?v=15xUt1sZ48U&feature=youtu.be)
+> - [Video recording of the PPT above](https://www.youtube.com/watch?v=15xUt1sZ48U&feature=youtu.be)
 >
->[Just Grocery Data as Tar](DDN_2019_31c_JustGroceryData.tar)
+> - [Just Grocery Data as Tar](DDN_2019_31c_JustGroceryData.tar)
 >
->[All Program Code as Txt](DDN_2019_31d_AllCommands.txt)
+> - [All Program Code as Txt](DDN_2019_31d_AllCommands.txt)
 >
->[DataStax KillrVideo demo DB data as Tar](DDN_2019_31e_KillrVideoDataAsPipe.tar)
+> - [DataStax KillrVideo demo DB data as Tar](DDN_2019_31e_KillrVideoDataAsPipe.tar)
 >
->[DataStax KillrVideo demo DB DDL as Txt (vers 6.8, fyi)](DDN_2019_31f_KillrVideoDDL.cql)
+> - [DataStax KillrVideo demo DB DDL as Txt (vers 6.8, fyi)](DDN_2019_31f_KillrVideoDDL.cql)
+
 
 
 
@@ -153,8 +159,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >storage model, which is also much simpler over version 6.7. (Everything is stored directly in DSE Core
 >tables, and directly support DSE Core CQL queries.)
 >
->[Read article online](30-graph-primer-68/README.md)
->[Download PDF](DDN_2019_30_GraphPrimer 68.pdf)
+> - [Read article online](30-graph-primer-68/README.md)
+> - [Download PDF](DDN_2019_30_GraphPrimer%2068.pdf)
+
 
 
 
@@ -174,8 +181,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >Kafka Connector, you can push Kafka messages into DataStax Enterprise and the DataStax Distribution of
 >Cassandra (DDAC) without writing any program code. Cool.
 >
->[Read article online](29-kafka/README.md)
->[Download PDF](DDN_2019_29_Kafka.pdf)
+> - [Read article online](29-kafka/README.md)
+> - [Download PDF](DDN_2019_29_Kafka.pdf)
+
 
 
 
@@ -197,8 +205,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >but may ourselves stick with Apache Zeppelin, since Zeppelin seems to come pre-installed/pre-configured
 >for so many more languages and options out of the box. (Less work for us.)
 >
->[Read article online](28-jupyter-r/README.md)
->[Download PDF](DDN_2019_28_Jupyter, R.pdf)
+> - [Read article online](28-jupyter-r/README.md)
+> - [Download PDF](DDN_2019_28_Jupyter%2C%20R.pdf)
+
 
 
 
@@ -212,8 +221,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >
 >Minimally we’ll overview DSE security, and detail how to implement password protection of same.
 >
->[Read article online](27-security/README.md)
->[Download PDF](DDN_2019_27_Security.pdf)
+> - [Read article online](27-security/README.md)
+> - [Download PDF](DDN_2019_27_Security.pdf)
+
 
 
 
@@ -229,8 +239,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >Regardless, we will cover all of the relevant topics, and detail how to program same using DSE Core
 >and DSE Analytics (Apache Spark).
 >
->[Read article online](26-inventory/README.md)
->[Download PDF](DDN_2019_26_Inventory.pdf)
+> - [Read article online](26-inventory/README.md)
+> - [Download PDF](DDN_2019_26_Inventory.pdf)
+
 
 
 
@@ -250,8 +261,9 @@ overviewed graph, we’ve never detailed the graph query language titled, Apache
 >provide examples where you might determine that graph databases have an advantage over relational
 >databases for certain use cases.
 >
->[Read article online](25-graph-primer/README.md)
->[Download PDF](DDN_2019_25_GraphPrimer.pdf)
+> - [Read article online](25-graph-primer/README.md)
+> - [Download PDF](DDN_2019_25_GraphPrimer.pdf)
 >
->[Resource Kit](41 Simple Customer Graph.txt), all of the data and programs used in this edition in ASCII text format.
+> - [Resource Kit](41%20Simple%20Customer%20Graph.txt)
+> , all of the data and programs used in this edition in ASCII text format.
 >

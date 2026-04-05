@@ -5,33 +5,6 @@
 [Download original PDF](../DDN_2017_11_Apriori.pdf)
 [Companion asset: DDN_2017_11_Apriori.tar](../DDN_2017_11_Apriori.tar)
 
-## From The Archive
-
-2017 November - -
-
->Customer:
->My company wants to deliver a, "customers who bought (x) also bought (y)" functionality to our
->Web site. Can the DataStax database server help me do this ?
->
->Daniel:
->Excellent question ! In this document we deliver all of the program code, sample data, and
->instructions to deliver a recommendation engine ("customers who bought (x) bought (y) ..")
->using DataStax Enterprise (DSE) and its Analytics Function powered by Apache Spark.
->
->First we code the solution by hand in Python, so you have the ability to fully dissect all
->of the processing logic (master the Apriori algorithm). Then we move to using the supported
->and parallel capable Spark FPGrowth library in both Python and Scala.
->
->Along the way we install Scala, Gradle, and use support functions like the DSE parallel
->filesystem. We supply a 1.7 MB Tar ball with all data and programming.
->
->[Read article online](./README.md).
->
->[Resource Kit](../DDN_2017_11_Apriori.tar),
->all of the programs and data used in this edition in Tar format.
->
-
-
 ---
 
 # DDN 2017 11 Apriori

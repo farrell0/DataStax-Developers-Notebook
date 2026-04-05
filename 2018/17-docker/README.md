@@ -4,22 +4,6 @@
 [Back to 2018 archive](../README.md)
 [Download original PDF](../DDN_2018_17_Docker.pdf)
 
-## From The Archive
-
-2018 May - -
-
->Customer: My company is investigating using the cloud, containers including micro-services,
->automated deployment tools (continuous innovation / continuous deployment), and more. Can you
->help ?
->
->Daniel: Excellent question ! Huge and far ranging topics, obviously; we’ll offer a history
->and primer on many of these pieces, a Cloud-101 if you will. Then, to offer some amount of
->actionable content, we’ll delve a bit deeper into one container option, namely; Docker.
->
->[Read article online](./README.md)
->
-
-
 ---
 
 # DDN 2018 17 Docker
